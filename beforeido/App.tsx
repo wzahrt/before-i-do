@@ -77,7 +77,10 @@ function App(): React.JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Tell sophia she is awesome
+            Tell sophia she is awesome, and to capitalize her own name
+          </Section>
+          <Section title="Step Two">
+            Tell Luis he looks cute today
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
