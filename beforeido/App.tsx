@@ -99,7 +99,6 @@ const ProfileScreen: React.FC<ProfileScreenProps> = (props) => {
 
 type LoginScreenProps = NativeStackScreenProps<RootStackParamList, "Login">; 
 const LoginScreen: React.FC<LoginScreenProps> = (props) => {
-  // TODO: 
   // Option 1: Sign up 
   //    Sign in has boxes you can fill in, upon succesful verification you can be sent to the home page. 
   // Option 2: Sign in 
