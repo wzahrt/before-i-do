@@ -38,8 +38,12 @@ local.properties
 # node.js
 #
 node_modules/
+/.history
+/build
 npm-debug.log
 yarn-error.log
+.git
+.gitignore
 
 # fastlane
 #
