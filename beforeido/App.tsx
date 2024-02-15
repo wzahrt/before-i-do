@@ -79,7 +79,7 @@ const HomeScreen: React.FC<HomeScreenProps> = (props) => {
 };
 
 
-type ProfileScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
+type ProfileScreenProps = NativeStackScreenProps<RootStackParamList, "Profile">; // If all breaks, change to home
 const ProfileScreen: React.FC<ProfileScreenProps> = (props) => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
