@@ -6,6 +6,7 @@
  */
 
 import * as React from 'react';
+import { useState } from 'react';
 import type {PropsWithChildren} from 'react';
 import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useNavigation, NavigationContainer } from '@react-navigation/native';
@@ -19,6 +20,7 @@ import {
   useColorScheme,
   View,
   Button,
+  TextInput,
 } from 'react-native';
 
 import {
@@ -33,6 +35,8 @@ import {
 export type RootStackParamList = {
   Home: undefined;
   Profile: undefined;
+  Login: undefined; 
+  Signup: undefined; 
 };
 
 // type SectionProps = PropsWithChildren<{
@@ -79,7 +83,7 @@ const HomeScreen: React.FC<HomeScreenProps> = (props) => {
 };
 
 
-type ProfileScreenProps = NativeStackScreenProps<RootStackParamList, "Profile">; // If all breaks, change to home
+type ProfileScreenProps = NativeStackScreenProps<RootStackParamList, "Profile">; 
 const ProfileScreen: React.FC<ProfileScreenProps> = (props) => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -93,6 +97,80 @@ const ProfileScreen: React.FC<ProfileScreenProps> = (props) => {
 };
 
 
+type LoginScreenProps = NativeStackScreenProps<RootStackParamList, "Login">; 
+const LoginScreen: React.FC<LoginScreenProps> = (props) => {
+  // TODO: 
+  // Option 1: Sign up 
+  //    Sign in has boxes you can fill in, upon succesful verification you can be sent to the home page. 
+  // Option 2: Sign in 
+  //    Sign up should send you to a sign up page 
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [coupleCode, setCoupleCode] = useState('');
+
+  const handleLogin = () => {
+    // Here you can implement your login logic
+    console.log('Logging in...');
+    console.log('Email:', email);
+    console.log('Password:', password);
+    console.log('Couple Code:', coupleCode);
+    // After successful login, you can navigate to the home screen
+    props.navigation.push('Home');
+  };
+
+  const handleSignUp = () => {
+    // Navigate to the sign-up screen
+    props.navigation.push('Signup');
+  };
+  
+  return (
+     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Login Screen</Text>
+      <TextInput
+        placeholder="Email"
+        value={email}
+        onChangeText={setEmail}
+        style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+      />
+      <TextInput
+        placeholder="Password"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry={true}
+        style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+      />
+      <TextInput
+        placeholder="Couple Code"
+        value={coupleCode}
+        onChangeText={setCoupleCode}
+        style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+      />
+      <Button
+        title="Login"
+        onPress={handleLogin}
+      />
+      <Button
+        title="Sign Up"
+        onPress={handleSignUp}
+      />
+    </View>
+  );
+};
+
+type SignupScreenProps = NativeStackScreenProps<RootStackParamList, "Signup">; 
+const SignupScreen: React.FC<SignupScreenProps> = (props) => {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Signup Screen</Text>
+      <Button
+        title="Go to Home"
+        onPress={() => props.navigation.push('Home')}
+      />
+    </View>
+  );
+};
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App(): React.JSX.Element {
@@ -105,8 +183,10 @@ function App(): React.JSX.Element {
   return (
     <NavigationContainer>
           <Stack.Navigator>
+            <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Profile" component={ProfileScreen} />
+            <Stack.Screen name="Signup" component={SignupScreen} />
           </Stack.Navigator> 
     </NavigationContainer>
     // <SafeAreaView style={backgroundStyle}>
