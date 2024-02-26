@@ -13,10 +13,11 @@ import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import LoginScreen from './screens/LoginScreen';
 import ResultsScreen from './screens/ResultsScreen';
-import createNativeStackNavigator from '@react-navigation/native-stack';
-import NavigationContainer  from '@react-navigation/native';
-import { StyleSheet, useColorScheme } from 'react-native';
-import Colors from 'react-native/Libraries/NewAppScreen';
+import SignupScreen from './screens/SignupScreen';
+import createNativeStackNavigator from './node_modules/@react-navigation/native-stack/src/navigators/createNativeStackNavigator';
+import NavigationContainer  from './node_modules/@react-navigation/native/lib/commonjs/NavigationContainer.js';
+import { StyleSheet, useColorScheme } from './node_modules/react-native';
+import Colors from './node_modules/react-native/Libraries/NewAppScreen/components/Colors.js';
 
 
 export type RootStackParamList = {

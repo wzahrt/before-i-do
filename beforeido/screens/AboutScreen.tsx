@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, Button, ImageBackground, StyleSheet } from 'react-native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import {Text, Button, View, StyleSheet, ImageBackground } from '../node_modules/react-native';
+import { NativeStackScreenProps } from '../node_modules/@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import your RootStackParamList
 
 type AboutScreenProps = NativeStackScreenProps<RootStackParamList, "About">;
