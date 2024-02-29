@@ -44,7 +44,11 @@ function App(): React.JSX.Element {
 
   return (
     <NavigationContainer>
-          <Stack.Navigator>
+          <Stack.Navigator
+            screenOptions={{
+              headerShown: false
+            }}
+          >
             <Stack.Screen name="About" component={AboutScreen} />
             <Stack.Screen name="Assessment" component={AssessmentScreen} />
             <Stack.Screen name="Consultation" component={ConsultationScreen} />

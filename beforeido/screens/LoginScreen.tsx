@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ImageBackground } from 'react-native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { NativeStackScreenProps, NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 
 type LoginScreenProps = NativeStackScreenProps<RootStackParamList, "Login">;
@@ -22,6 +22,7 @@ const LoginScreen: React.FC<LoginScreenProps> = (props) => {
     props.navigation.push('Signup');
   };
   
+
   return (
     <ImageBackground
       source={require('../assets/images/login.png')}
