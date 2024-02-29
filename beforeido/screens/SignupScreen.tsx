@@ -47,7 +47,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
           style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
         />
         <Button
-          title="Sign Up"
+          title="Create Account"
           onPress={handleSignUp}
         />
       </View>
