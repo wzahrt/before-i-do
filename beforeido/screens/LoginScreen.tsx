@@ -30,7 +30,11 @@ const LoginScreen: React.FC<LoginScreenProps> = (props) => {
       style={styles.backgroundImage}
     >
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Login Screen</Text>
+        <Text 
+          style={textStyles.text}
+        > 
+          Login Screen
+        </Text>
         <TextInput
           placeholder="Email"
           value={email}
