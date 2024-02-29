@@ -14,10 +14,13 @@ import ProfileScreen from './screens/ProfileScreen';
 import LoginScreen from './screens/LoginScreen';
 import ResultsScreen from './screens/ResultsScreen';
 import SignupScreen from './screens/SignupScreen';
-import createNativeStackNavigator from './node_modules/@react-navigation/native-stack/src/navigators/createNativeStackNavigator';
-import NavigationContainer  from './node_modules/@react-navigation/native/lib/commonjs/NavigationContainer.js';
+import HomeStack from './stacks/homeStack';
+import ProfileStack from './stacks/profileStack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, useColorScheme } from './node_modules/react-native';
-import Colors from './node_modules/react-native/Libraries/NewAppScreen/components/Colors.js';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 export type RootStackParamList = {
@@ -43,24 +46,41 @@ function App(): React.JSX.Element {
   /// **** STACK NAVIGATOR IS IN ALPHABETICAL ORDER, KEEP IT THAT WAY ***** 
 
   return (
+    // <NavigationContainer>
+    //       <Stack.Navigator
+    //         screenOptions={{
+    //           headerShown: false
+    //         }}
+    //       >
+    //         <Stack.Screen name="About" component={AboutScreen} />
+    //         <Stack.Screen name="Assessment" component={AssessmentScreen} />
+    //         <Stack.Screen name="Consultation" component={ConsultationScreen} />
+    //         <Stack.Screen name="Home" component={HomeScreen} />
+    //         <Stack.Screen name="Login" component={LoginScreen} />
+    //         <Stack.Screen name="Profile" component={ProfileScreen} />
+    //         <Stack.Screen name="Results" component={ResultsScreen} />
+    //         <Stack.Screen name="Signup" component={SignupScreen} />
+    //       </Stack.Navigator> 
+    // </NavigationContainer>
     <NavigationContainer>
-          <Stack.Navigator
-            screenOptions={{
-              headerShown: false
-            }}
-          >
-            <Stack.Screen name="About" component={AboutScreen} />
-            <Stack.Screen name="Assessment" component={AssessmentScreen} />
-            <Stack.Screen name="Consultation" component={ConsultationScreen} />
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Profile" component={ProfileScreen} />
-            <Stack.Screen name="Results" component={ResultsScreen} />
-            <Stack.Screen name="Signup" component={SignupScreen} />
-          </Stack.Navigator> 
-    </NavigationContainer>
+       <TabNavigator />
+     </NavigationContainer>
   );
 }
+
+const Tab = createBottomTabNavigator()
+
+export function TabNavigator() { // Defining the tab navigation 
+  return (
+        <Tab.Navigator>
+           <Tab.Screen name='Profile' component={ProfileStack}/>
+           <Tab.Screen name='Home' component={HomeStack}/>
+        </Tab.Navigator>
+   )
+}
+
+
+
 
 const styles = StyleSheet.create({
   container: {
