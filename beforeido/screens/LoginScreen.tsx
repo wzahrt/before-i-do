@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ImageBackground } from 'react-native';
 import { NativeStackScreenProps, NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
+import { textStyles } from '../TextStyles';
 
 type LoginScreenProps = NativeStackScreenProps<RootStackParamList, "Login">;
 
@@ -73,6 +74,14 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: 'center',
   },
+  text: {
+    position: 'absolute', // Set position to absolute
+    top: 550, // Set the distance from the top of the screen
+    textAlign: 'center', 
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'black',
+  }, 
 });
 
 export default LoginScreen;
