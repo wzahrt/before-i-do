@@ -6,6 +6,8 @@
  */
 
 import * as React from 'react';
+
+// All screen imports 
 import AboutScreen from './screens/AboutScreen';
 import AssessmentScreen from './screens/AssessmentScreen';
 import ConsultationScreen from './screens/ConsultationScreen';
@@ -14,8 +16,16 @@ import ProfileScreen from './screens/ProfileScreen';
 import LoginScreen from './screens/LoginScreen';
 import ResultsScreen from './screens/ResultsScreen';
 import SignupScreen from './screens/SignupScreen';
-import HomeStack from './stacks/homeStack';
-import ProfileStack from './stacks/profileStack';
+
+// All stack imports 
+import AssessmentStack from './stacks/AssessmentStack';
+import ConsultationStack from './stacks/ConsultationStack';
+import HomeStack from './stacks/HomeStack';
+import ProfileStack from './stacks/ProfileStack';
+import ResultsStack from './stacks/ResultsStack';
+
+
+// Other imports 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, useColorScheme } from './node_modules/react-native';
@@ -73,8 +83,11 @@ const Tab = createBottomTabNavigator()
 export function TabNavigator() { // Defining the tab navigation 
   return (
         <Tab.Navigator>
-           <Tab.Screen name='Profile' component={ProfileStack}/>
-           <Tab.Screen name='Home' component={HomeStack}/>
+          <Tab.Screen name='Assessment' component={AssessmentStack}/>
+          <Tab.Screen name='Consultation' component={ConsultationStack}/>
+          <Tab.Screen name='Home' component={HomeStack}/>
+          <Tab.Screen name='Results' component={ResultsStack}/>
+          <Tab.Screen name='Profile' component={ProfileStack}/>
         </Tab.Navigator>
    )
 }
