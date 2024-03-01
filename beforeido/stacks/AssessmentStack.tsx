@@ -1,9 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import AssessmentScreen from "../screens/AssessmentScreen";
-
-export type RootStackParamList = {
-    Assessment: undefined;
-  };
+import { RootStackParamList } from "../App";
 
 const Stack = createNativeStackNavigator<RootStackParamList>(); 
 const AssessmentStack = () => {

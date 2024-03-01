@@ -1,9 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import ResultsScreen from "../screens/ResultsScreen";
-
-export type RootStackParamList = {
-    Results: undefined;
-  };
+import { RootStackParamList } from "../App";
 
 const Stack = createNativeStackNavigator<RootStackParamList>(); 
 const ResultsStack = () => {
