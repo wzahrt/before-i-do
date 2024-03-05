@@ -16,7 +16,7 @@ const LoginScreen: React.FC<LoginScreenProps> = (props) => {
     console.log('Email:', email);
     console.log('Password:', password);
     console.log('Couple Code:', coupleCode);
-    props.navigation.push('Home');
+    props.navigation.push('Main');
   };
 
   const handleSignUp = () => {
