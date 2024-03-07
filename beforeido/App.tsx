@@ -20,6 +20,11 @@ import ResultsStack from './stacks/ResultsStack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import firestore from '@react-native-firebase/firestore';
+
+// // Use Firestore functionality
+// const usersCollection = firestore().collection('users');
+
 
 
 export type RootStackParamList = {

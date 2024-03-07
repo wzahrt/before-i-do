@@ -27,13 +27,17 @@ end
 
 target 'beforeido' do
   config = use_native_modules!
+  # Adds FlipperKit pods for both iOS and React Native
+  pod 'FlipperKit', '= 0.201.0', :configurations => ['Debug']
+  pod 'Flipper', '= 0.201.0', :configurations => ['Debug']
+
   use_frameworks! :linkage => :static
   $RNFirebaseAsStaticFramework = true
 
   use_react_native!(
     :path => config[:reactNativePath],
     # Enables Flipper.
-    #
+    
     # Note that if you have use_frameworks! enabled, Flipper will not work and
     # you should disable the next line.
     :flipper_configuration => flipper_config,
