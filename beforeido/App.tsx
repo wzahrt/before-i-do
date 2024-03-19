@@ -15,7 +15,7 @@ import HomeStack from './stacks/HomeStack';
 import ProfileStack from './stacks/ProfileStack';
 import ResultsStack from './stacks/ResultsStack';
 
-
+ 
 // Other imports 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
