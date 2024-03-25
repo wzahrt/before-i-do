@@ -3,20 +3,26 @@ import { View, Text, TextInput, Button, StyleSheet, ImageBackground } from 'reac
 import { NativeStackScreenProps, NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 import { textStyles } from '../TextStyles';
+import auth from "@react-native-firebase/auth";
 
 type LoginScreenProps = NativeStackScreenProps<RootStackParamList, "Login">;
 
-const LoginScreen: React.FC<LoginScreenProps> = (props) => {
+const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [coupleCode, setCoupleCode] = useState('');
 
   const handleLogin = () => {
-    console.log('Logging in...');
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Couple Code:', coupleCode);
-    props.navigation.push('Main');
+    auth().signInWithEmailAndPassword(email, password)
+    .then((res)=>{
+      console.log('User signed in with credentials' + email , password);
+      console.log(res)
+      props.navigation.push('Main');
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+    
   };
 
   const handleSignUp = () => {
@@ -26,7 +32,8 @@ const LoginScreen: React.FC<LoginScreenProps> = (props) => {
 
   return (
     <ImageBackground
-      source={require('../assets/images/login.png')}
+      // source={require('../assets/images/login.png')}
+      source={require('../assets/images/blank_page.jpeg')}
       style={styles.backgroundImage}
     >
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

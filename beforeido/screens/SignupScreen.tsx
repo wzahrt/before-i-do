@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ImageBackground } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
+import auth from "@react-native-firebase/auth";
+
 
 type SignupScreenProps = NativeStackScreenProps<RootStackParamList, "Signup">;
 
@@ -12,17 +14,21 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
 
   const handleSignUp = () => {
     // Here you can implement your signup logic
-    console.log('Signing up...');
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Couple Code:', coupleCode);
-    // After successful login, you can navigate to the login screen
-    props.navigation.push('Login');
+    auth().createUserWithEmailAndPassword(email, password)
+    .then(()=>{
+      console.log('User created with credentials' + email , password);
+      props.navigation.push('Login'); // After successful login, you can navigate to the login screen
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+   
   };
 
   return (
     <ImageBackground
-      source={require('../assets/images/login.png')}
+      // source={require('../assets/images/login.png')}
+      source={require('../assets/images/blank_page.jpeg')}
       style={styles.backgroundImage}
     >
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -50,6 +56,11 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
           title="Create Account"
           onPress={handleSignUp}
         />
+        <Button
+          title="Return To Login"
+          onPress={() => props.navigation.push('Login')}
+        />
+
       </View>
     </ImageBackground>  
   );
