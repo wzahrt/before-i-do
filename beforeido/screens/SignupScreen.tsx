@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button, StyleSheet, ImageBackground } from 'reac
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 import auth from "@react-native-firebase/auth";
+import firestore from "@react-native-firebase/firestore"
 
 
 type SignupScreenProps = NativeStackScreenProps<RootStackParamList, "Signup">;
