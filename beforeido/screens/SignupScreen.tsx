@@ -12,6 +12,10 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [coupleCode, setCoupleCode] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+
+
 
   const handleSignUp = () => {
     // Here you can implement your signup logic
@@ -23,6 +27,19 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
     .catch((err)=>{
       console.log(err)
     })
+
+     firestore().collection("users").add({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+        coupleCode: ((coupleCode=='') ? (Math.floor(Math.random()*90000) + 10000).toString() : coupleCode.toString())
+     }).then((res)=>{
+      console.log("adding user")
+      console.log("Added new user to FireStore: " + firstName, lastName)
+     }).catch((e)=> {
+      console.log(e)
+     })
    
   };
 
@@ -34,6 +51,18 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
     >
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Sign Up Screen</Text>
+        <TextInput
+          placeholder="First Name"
+          value={firstName}
+          onChangeText={setFirstName}
+          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+        />
+        <TextInput
+          placeholder="Last Name"
+          value={lastName}
+          onChangeText={setLastName}
+          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+        />
         <TextInput
           placeholder="Email"
           value={email}
