@@ -1674,25 +1674,25 @@
     prompts "^2.4.2"
     semver "^7.5.2"
 
-"@react-native-firebase/app@^19.0.0", "@react-native-firebase/app@19.1.0":
-  version "19.1.0"
-  resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-19.1.0.tgz"
-  integrity sha512-xR4Ui0p6Xe2OXAs/Q4XN79nSqtupKu1ZwlGbYiUrvXsYwtwNlU1Pk8WvIhpXUP5/jXsSNZr8NeGrfCbb9m9NLQ==
+"@react-native-firebase/app@^19.0.0", "@react-native-firebase/app@19.1.1":
+  version "19.1.1"
+  resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-19.1.1.tgz"
+  integrity sha512-G2FoNV+Z9kIv739fEzqEX6T6liPrHWr/bue3YsxvbaKdCpMvjwLi80+50ZlMyd40N5FV6BNoC5oLCnXoZLpk5Q==
   dependencies:
     opencollective-postinstall "^2.0.3"
     superstruct "^0.6.2"
-
+    
 "@react-native-firebase/auth@^19.1.0":
-  version "19.1.0"
-  resolved "https://registry.npmjs.org/@react-native-firebase/auth/-/auth-19.1.0.tgz"
-  integrity sha512-n8FRjJ4T1vY9B+aKhb2dnw2RLKWT6i5tCfty6cTaTvBkdQ6EDqvrmYsCYtBlss5LW02MA/2e4A1gw5WkQ1qsMg==
+  version "19.1.1"
+  resolved "https://registry.npmjs.org/@react-native-firebase/auth/-/auth-19.1.1.tgz"
+  integrity sha512-Mc/0iNltkZFLOBWODZDpsfeuwNumSpcbMQqQMIwMIyEJPtHcco9FneEiKPhPHKY+bPXrY9+V6xKDqPlxUIJ9Bg==
   dependencies:
     plist "^3.1.0"
 
 "@react-native-firebase/firestore@^19.1.0":
-  version "19.1.0"
-  resolved "https://registry.npmjs.org/@react-native-firebase/firestore/-/firestore-19.1.0.tgz"
-  integrity sha512-zlWXaV+jEDxGCEZ25ALujcCnskT9moMOhOGsXUINVuf9uogCiPHoYihtYu14mJHRuH529wZIhOF27Fc7UADnTA==
+  version "19.1.1"
+  resolved "https://registry.npmjs.org/@react-native-firebase/firestore/-/firestore-19.1.1.tgz"
+  integrity sha512-uWGxa98m+qJVVoQ/ZRg2qz35y2lsB8J4tuV6EqdxcemnFwdTa8aQcHUHkUDr73+DWoMWNdbOlvMhPyjtLG2piQ==
 
 "@react-native/assets-registry@0.73.1":
   version "0.73.1"

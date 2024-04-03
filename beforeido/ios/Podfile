@@ -32,7 +32,6 @@ target 'beforeido' do
   pod 'FirebaseCoreInternal', :modular_headers => true
   pod 'GoogleUtilities', :modular_headers => true
   pod 'FirebaseCore', :modular_headers => true
-  
   use_frameworks! :linkage => :static
   $RNFirebaseAsStaticFramework = true
 

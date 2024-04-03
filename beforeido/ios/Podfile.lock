@@ -844,8 +844,8 @@ PODS:
   - Firebase/Firestore (10.23.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 10.23.0)
-  - FirebaseAnalytics (10.23.0):
-    - FirebaseAnalytics/AdIdSupport (= 10.23.0)
+  - FirebaseAnalytics (10.23.1):
+    - FirebaseAnalytics/AdIdSupport (= 10.23.1)
     - FirebaseCore (~> 10.0)
     - FirebaseInstallations (~> 10.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
@@ -853,10 +853,10 @@ PODS:
     - GoogleUtilities/Network (~> 7.11)
     - "GoogleUtilities/NSData+zlib (~> 7.11)"
     - nanopb (< 2.30911.0, >= 2.30908.0)
-  - FirebaseAnalytics/AdIdSupport (10.23.0):
+  - FirebaseAnalytics/AdIdSupport (10.23.1):
     - FirebaseCore (~> 10.0)
     - FirebaseInstallations (~> 10.0)
-    - GoogleAppMeasurement (= 10.23.0)
+    - GoogleAppMeasurement (= 10.23.1)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
     - GoogleUtilities/MethodSwizzler (~> 7.11)
     - GoogleUtilities/Network (~> 7.11)
@@ -906,21 +906,21 @@ PODS:
   - FirebaseSharedSwift (10.23.0)
   - fmt (6.2.1)
   - glog (0.3.5)
-  - GoogleAppMeasurement (10.23.0):
-    - GoogleAppMeasurement/AdIdSupport (= 10.23.0)
+  - GoogleAppMeasurement (10.23.1):
+    - GoogleAppMeasurement/AdIdSupport (= 10.23.1)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
     - GoogleUtilities/MethodSwizzler (~> 7.11)
     - GoogleUtilities/Network (~> 7.11)
     - "GoogleUtilities/NSData+zlib (~> 7.11)"
     - nanopb (< 2.30911.0, >= 2.30908.0)
-  - GoogleAppMeasurement/AdIdSupport (10.23.0):
-    - GoogleAppMeasurement/WithoutAdIdSupport (= 10.23.0)
+  - GoogleAppMeasurement/AdIdSupport (10.23.1):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 10.23.1)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
     - GoogleUtilities/MethodSwizzler (~> 7.11)
     - GoogleUtilities/Network (~> 7.11)
     - "GoogleUtilities/NSData+zlib (~> 7.11)"
     - nanopb (< 2.30911.0, >= 2.30908.0)
-  - GoogleAppMeasurement/WithoutAdIdSupport (10.23.0):
+  - GoogleAppMeasurement/WithoutAdIdSupport (10.23.1):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
     - GoogleUtilities/MethodSwizzler (~> 7.11)
     - GoogleUtilities/Network (~> 7.11)
@@ -2101,14 +2101,14 @@ PODS:
     - React-logger (= 0.73.4)
     - React-perflogger (= 0.73.4)
   - RecaptchaInterop (100.0.0)
-  - RNFBApp (19.1.0):
+  - RNFBApp (19.1.1):
     - Firebase/CoreOnly (= 10.23.0)
     - React-Core
-  - RNFBAuth (19.1.0):
+  - RNFBAuth (19.1.1):
     - Firebase/Auth (= 10.23.0)
     - React-Core
     - RNFBApp
-  - RNFBFirestore (19.1.0):
+  - RNFBFirestore (19.1.1):
     - Firebase/Firestore (= 10.23.0)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - React-Core
@@ -2327,7 +2327,7 @@ SPEC CHECKSUMS:
   FBLazyVector: 84f6edbe225f38aebd9deaf1540a4160b1f087d7
   FBReactNativeSpec: d0086a479be91c44ce4687a962956a352d2dc697
   Firebase: 333ec7c6b12fa09c77b5162cda6b862102211d50
-  FirebaseAnalytics: 45f6e2e5ef8ccbb90be73ae983c3b20fa78837f7
+  FirebaseAnalytics: fd35d51e6da86ef1aa2c3fe1f64ab2482cc01ba5
   FirebaseAppCheckInterop: a1955ce8c30f38f87e7d091630e871e91154d65d
   FirebaseAuth: 22eb85d3853141de7062bfabc131aa7d6335cade
   FirebaseCore: 63efb128decaebb04c4033ed4e05fb0bb1cccef1
@@ -2339,7 +2339,7 @@ SPEC CHECKSUMS:
   FirebaseSharedSwift: c92645b392db3c41a83a0aa967de16f8bad25568
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
-  GoogleAppMeasurement: 453eb0de99fcf2bdec9403e9ac5d7871fdba3e3f
+  GoogleAppMeasurement: 794d1d2f71fdf77a077a3986258a5c2dac0f9d48
   GoogleUtilities: d053d902a8edaa9904e1bd00c37535385b8ed152
   "gRPC-C++": 12f33a422dcab88dcd0c53e52cd549a929f0f244
   gRPC-Core: 6ec9002832e1e22c5bb8c54994b050b0ee4205c6
@@ -2392,13 +2392,13 @@ SPEC CHECKSUMS:
   React-utils: 21a798438d45e70ed9c2e2fe0894ee32ba7b7c5b
   ReactCommon: dcc65c813041388dead6c8b477444757425ce961
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
-  RNFBApp: a0618c20c09e0e0df667c3543c18062287848510
-  RNFBAuth: 20f4ea90149cb8b665f21c22a221cd4d2a3731c8
-  RNFBFirestore: 764fc35a32ac0e2a568f6bf4996f381fe23b2390
+  RNFBApp: 6d8509c5bb19b8788fee4f6a1f5d481aff20f15a
+  RNFBAuth: df3db096d7b53ca36762dd9a158c0059bde34ec9
+  RNFBFirestore: e1c8d5bb9abaf1002c161cd84d8ecccbf33ab721
   RNScreens: 2b73f5eb2ac5d94fbd61fa4be0bfebd345716825
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 1b901a6d6eeba4e8a2e8f308f708691cdb5db312
 
-PODFILE CHECKSUM: 05101d84d8f7e9e5aba5dba5d5aa49294c4d3d61
+PODFILE CHECKSUM: 2747ae4c1c333deed257bd0ab7ed8974a726023f
 
 COCOAPODS: 1.15.2
