@@ -1681,7 +1681,7 @@
   dependencies:
     opencollective-postinstall "^2.0.3"
     superstruct "^0.6.2"
-
+    
 "@react-native-firebase/auth@^19.1.0":
   version "19.1.1"
   resolved "https://registry.npmjs.org/@react-native-firebase/auth/-/auth-19.1.1.tgz"

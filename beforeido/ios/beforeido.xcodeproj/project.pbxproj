@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		7380202A2BA9528B00889663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 738020292BA9528A00889663 /* GoogleService-Info.plist */; };
 		2CA697045957831FC7E78A93 /* Pods_beforeido_beforeidoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F86ADEDF046490978C42BBB /* Pods_beforeido_beforeidoTests.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		D61C9C8742ADEFE903708888 /* Pods_beforeido.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EAAD246C815223FA9F7F07 /* Pods_beforeido.framework */; };
@@ -36,6 +37,10 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = beforeido/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = beforeido/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = beforeido/main.m; sourceTree = "<group>"; };
+		31340A8566210E3CAA2B3913 /* Pods_beforeido_beforeidoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beforeido_beforeidoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E133982338B4571C24050CD /* Pods_beforeido.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beforeido.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		738020292BA9528A00889663 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7EB2F99A3F676D00A3A4B59B /* Pods-beforeido.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beforeido.release.xcconfig"; path = "Target Support Files/Pods-beforeido/Pods-beforeido.release.xcconfig"; sourceTree = "<group>"; };
 		607AE472B2A6B74D275B1EAA /* Pods-beforeido.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beforeido.debug.xcconfig"; path = "Target Support Files/Pods-beforeido/Pods-beforeido.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = beforeido/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F86ADEDF046490978C42BBB /* Pods_beforeido_beforeidoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beforeido_beforeidoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +49,7 @@
 		C2B5EBE961B92D20BDCD970D /* Pods-beforeido-beforeidoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beforeido-beforeidoTests.release.xcconfig"; path = "Target Support Files/Pods-beforeido-beforeidoTests/Pods-beforeido-beforeidoTests.release.xcconfig"; sourceTree = "<group>"; };
 		D5AFA03772DEB147D2779C35 /* Pods-beforeido-beforeidoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beforeido-beforeidoTests.debug.xcconfig"; path = "Target Support Files/Pods-beforeido-beforeidoTests/Pods-beforeido-beforeidoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +122,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				738020292BA9528A00889663 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* beforeido */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* beforeidoTests */,
@@ -244,6 +251,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				7380202A2BA9528B00889663 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
