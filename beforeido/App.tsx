@@ -14,6 +14,7 @@ import EntryStack from './stacks/EntryStack';
 import HomeStack from './stacks/HomeStack';
 import ProfileStack from './stacks/ProfileStack';
 import ResultsStack from './stacks/ResultsStack';
+import HomeScreen from './screens/HomeScreen';
 
  
 // Other imports 
@@ -33,6 +34,7 @@ export type RootStackParamList = {
   Profile: undefined;
   Results: undefined; 
   Signup: undefined; 
+  Questionnaire1: undefined;
 };
 
 
@@ -63,11 +65,7 @@ export function TabNavigator() { // Defining the tab navigation
             headerShown:false
           }}
         >
-          <Tab.Screen name='Assessment' component={AssessmentStack}/>
-          <Tab.Screen name='Consultation' component={ConsultationStack}/>
-          <Tab.Screen name='Home' component={HomeStack}/>
-          <Tab.Screen name='Results' component={ResultsStack}/>
-          <Tab.Screen name='Profile' component={ProfileStack}/>
+          <Tab.Screen name="Home" component={HomeScreen} />
         </Tab.Navigator>
    )
 }
