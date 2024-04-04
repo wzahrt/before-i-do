@@ -1,24 +1,52 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, Button, View, StyleSheet, ImageBackground, Pressable } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import your RootStackParamList
 import { textStyles } from '../TextStyles';
 import Slider from '@react-native-community/slider';
+import firestore from '@react-native-firebase/firestore';
 
 
 type Questionnaire1ScreenProps = NativeStackScreenProps<RootStackParamList, "Questionnaire1">;
+
 const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, navigation) => {
-  const [sliderValue1, setSliderValue1] = useState(5);
+  const [sliderValue1, setSliderValue1] = useState(5);  // Save all slider values 
   const [sliderValue2, setSliderValue2] = useState(5);
   const [sliderValue3, setSliderValue3] = useState(5);
   const [sliderValue4, setSliderValue4] = useState(5);
   const [sliderValue5, setSliderValue5] = useState(5);
 
-  const q1 = "Potential Question 1"
-  const q2 = "Potential Question 2"
-  const q3 = "Potential Question 3"
-  const q4 = "Potential Question 4"
-  const q5 = "Potential Question 5"
+  const [questions, setQuestions] = useState<string[]>([]); // Save the questions from database - determine if we're loading or not
+  const [loading, setLoading] = useState(true);
+  
+  const smallestQuestion = 1; // Only values that need to be changed between screens
+  const largestQuestion = 5; 
+
+  useEffect(
+    () => { // We're going to use this effect in the code because reactNative won't let us use async otherwise
+      async function fetchData() {  // Fetching data from firestore... 
+        try {
+          const querySnapshot = await firestore()
+            .collection('questions')
+            .where('questionNumber', '>=', smallestQuestion)
+            .where('questionNumber', '<=', largestQuestion)
+            .get();
+          
+          const fetchedQuestions: string[] = [];
+          querySnapshot.forEach((doc) => {
+            const question = doc.data().question;
+            fetchedQuestions.push(question);
+          });
+  
+          setQuestions(fetchedQuestions); // By using setQuestions and setLoading, we can change these values past their inital establishment!! 
+          setLoading(false);
+        } catch (error) {
+          console.error('Error getting documents: ', error);
+        }
+      }
+        
+      fetchData(); // Calling the function we just made... 
+    }, []); // Everything before this was the first parameter of useEffect, and [] is the second.   
 
 
   return (
@@ -29,66 +57,79 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
     >
       <View style={styles.container}>
         <Text style={textStyles.heading}>Personality Dynamics</Text>
-        <Text style={textStyles.text}>{q1}</Text>
-        <Text style={textStyles.text}>{sliderValue1}</Text>
-        <Slider
-          style={{width: 200, height: 40}}
-          minimumValue={1}
-          maximumValue={5}
-          minimumTrackTintColor="#FFFFFF"
-          maximumTrackTintColor="#000000"
-          step={1}
-          value={sliderValue1}
-          onValueChange={(value) => setSliderValue1(value)}
-        />
-        <Text style={textStyles.text}>{q2}</Text>
-        <Text style={textStyles.text}>{sliderValue2}</Text>
-        <Slider
-          style={{width: 200, height: 40}}
-          minimumValue={1}
-          maximumValue={5}
-          minimumTrackTintColor="#FFFFFF"
-          maximumTrackTintColor="#000000"
-          step={1}
-          value={sliderValue2}
-          onValueChange={(value) => setSliderValue2(value)}
-        />
-        <Text style={textStyles.text}>{q3}</Text>
-        <Text style={textStyles.text}>{sliderValue3}</Text>
-        <Slider
-          style={{width: 200, height: 40}}
-          minimumValue={1}
-          maximumValue={5}
-          minimumTrackTintColor="#FFFFFF"
-          maximumTrackTintColor="#000000"
-          step={1}
-          value={sliderValue3}
-          onValueChange={(value) => setSliderValue3(value)}
-        />
-        <Text style={textStyles.text}>{q4}</Text>
-        <Text style={textStyles.text}>{sliderValue4}</Text>
-        <Slider
-          style={{width: 200, height: 40}}
-          minimumValue={1}
-          maximumValue={5}
-          minimumTrackTintColor="#FFFFFF"
-          maximumTrackTintColor="#000000"
-          step={1}
-          value={sliderValue4}
-          onValueChange={(value) => setSliderValue4(value)}
-        />
-        <Text style={textStyles.text}>{q5}</Text>
-        <Text style={textStyles.text}>{sliderValue5}</Text>
-        <Slider
-          style={{width: 200, height: 40}}
-          minimumValue={1}
-          maximumValue={5}
-          minimumTrackTintColor="#FFFFFF"
-          maximumTrackTintColor="#000000"
-          step={1}
-          value={sliderValue5}
-          onValueChange={(value) => setSliderValue5(value)}
-        />
+
+        {loading ? ( // This lets us have a loading page, but it's so fast you can't even see it lmao. WE NEED THIS
+          <Text>Loading...</Text>
+        ) : (
+          <>
+
+          <Text style={textStyles.text}>{questions[0]}</Text>
+          <Text style={textStyles.text}>{sliderValue1}</Text>
+          <Slider
+            style={{width: 200, height: 40}}
+            minimumValue={1}
+            maximumValue={5}
+            minimumTrackTintColor="#FFFFFF"
+            maximumTrackTintColor="#000000"
+            step={1}
+            value={sliderValue1}
+            onValueChange={(value) => setSliderValue1(value)}
+          />
+
+          <Text style={textStyles.text}>{questions[1]}</Text>
+          <Text style={textStyles.text}>{sliderValue2}</Text>
+          <Slider
+            style={{width: 200, height: 40}}
+            minimumValue={1}
+            maximumValue={5}
+            minimumTrackTintColor="#FFFFFF"
+            maximumTrackTintColor="#000000"
+            step={1}
+            value={sliderValue2}
+            onValueChange={(value) => setSliderValue2(value)}
+          />
+
+          <Text style={textStyles.text}>{questions[2]}</Text>
+          <Text style={textStyles.text}>{sliderValue3}</Text>
+          <Slider
+            style={{width: 200, height: 40}}
+            minimumValue={1}
+            maximumValue={5}
+            minimumTrackTintColor="#FFFFFF"
+            maximumTrackTintColor="#000000"
+            step={1}
+            value={sliderValue3}
+            onValueChange={(value) => setSliderValue3(value)}
+          />
+
+          <Text style={textStyles.text}>{questions[3]}</Text>
+          <Text style={textStyles.text}>{sliderValue4}</Text>
+          <Slider
+            style={{width: 200, height: 40}}
+            minimumValue={1}
+            maximumValue={5}
+            minimumTrackTintColor="#FFFFFF"
+            maximumTrackTintColor="#000000"
+            step={1}
+            value={sliderValue4}
+            onValueChange={(value) => setSliderValue4(value)}
+          />
+
+          <Text style={textStyles.text}>{questions[4]}</Text>
+          <Text style={textStyles.text}>{sliderValue5}</Text>
+          <Slider
+            style={{width: 200, height: 40}}
+            minimumValue={1}
+            maximumValue={5}
+            minimumTrackTintColor="#FFFFFF"
+            maximumTrackTintColor="#000000"
+            step={1}
+            value={sliderValue5}
+            onValueChange={(value)=>setSliderValue5(value)}
+          />
+          </>
+        )}
+
         <Pressable 
           // We're going to want this to navigate us to the next page, not just to Assessment
           onPress={() => props.navigation.push('Assessment')}
