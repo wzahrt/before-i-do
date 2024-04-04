@@ -11,11 +11,9 @@ import * as React from 'react';
 import AssessmentStack from './stacks/AssessmentStack';
 import ConsultationStack from './stacks/ConsultationStack';
 import EntryStack from './stacks/EntryStack';
+import ResultsStack from './stacks/ResultsStack';
 import HomeStack from './stacks/HomeStack';
 import ProfileStack from './stacks/ProfileStack';
-import ResultsStack from './stacks/ResultsStack';
-import HomeScreen from './screens/HomeScreen';
-
  
 // Other imports 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -49,11 +47,11 @@ function App(): React.JSX.Element {
         }}>
         <Stack.Screen name="Entry" component={EntryStack} />
         <Stack.Screen name="Main" component={TabNavigator} />
+        <Stack.Screen name="Home" component={HomeStack} />
       </Stack.Navigator>
      </NavigationContainer>
   );
 }
-
 
 const Tab = createBottomTabNavigator()
 
@@ -65,9 +63,10 @@ export function TabNavigator() { // Defining the tab navigation
             headerShown:false
           }}
         >
-          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Home" component={HomeStack} />
+          <Tab.Screen name="Profile" component={ProfileStack} />
         </Tab.Navigator>
-   )
+   );
 }
 
 export default App;
