@@ -27,9 +27,11 @@ export type RootStackParamList = {
   Consultation: undefined; 
   Entry: undefined; 
   Home: undefined;
+  HomePage: undefined; 
   Login: undefined; 
   Main: undefined; 
   Profile: undefined;
+  ProfilePage: undefined; 
   Results: undefined; 
   Signup: undefined; 
   Questionnaire1: undefined;
@@ -47,7 +49,6 @@ function App(): React.JSX.Element {
         }}>
         <Stack.Screen name="Entry" component={EntryStack} />
         <Stack.Screen name="Main" component={TabNavigator} />
-        <Stack.Screen name="Home" component={HomeStack} />
       </Stack.Navigator>
      </NavigationContainer>
   );
