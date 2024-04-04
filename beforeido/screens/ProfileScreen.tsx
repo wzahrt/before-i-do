@@ -3,7 +3,7 @@ import { View, Text, Button, StyleSheet, ImageBackground } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 
-type ProfileScreenProps = NativeStackScreenProps<RootStackParamList, "Profile">;
+type ProfileScreenProps = NativeStackScreenProps<RootStackParamList, "ProfilePage">;
 
 const ProfileScreen: React.FC<ProfileScreenProps> = (props) => {
   return (

@@ -11,10 +11,9 @@ import * as React from 'react';
 import AssessmentStack from './stacks/AssessmentStack';
 import ConsultationStack from './stacks/ConsultationStack';
 import EntryStack from './stacks/EntryStack';
+import ResultsStack from './stacks/ResultsStack';
 import HomeStack from './stacks/HomeStack';
 import ProfileStack from './stacks/ProfileStack';
-import ResultsStack from './stacks/ResultsStack';
-
  
 // Other imports 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -28,11 +27,14 @@ export type RootStackParamList = {
   Consultation: undefined; 
   Entry: undefined; 
   Home: undefined;
+  HomePage: undefined; 
   Login: undefined; 
   Main: undefined; 
   Profile: undefined;
+  ProfilePage: undefined; 
   Results: undefined; 
   Signup: undefined; 
+  Questionnaire1: undefined;
 };
 
 
@@ -52,7 +54,6 @@ function App(): React.JSX.Element {
   );
 }
 
-
 const Tab = createBottomTabNavigator()
 
 export function TabNavigator() { // Defining the tab navigation 
@@ -63,13 +64,10 @@ export function TabNavigator() { // Defining the tab navigation
             headerShown:false
           }}
         >
-          <Tab.Screen name='Assessment' component={AssessmentStack}/>
-          <Tab.Screen name='Consultation' component={ConsultationStack}/>
-          <Tab.Screen name='Home' component={HomeStack}/>
-          <Tab.Screen name='Results' component={ResultsStack}/>
-          <Tab.Screen name='Profile' component={ProfileStack}/>
+          <Tab.Screen name="Home" component={HomeStack} />
+          <Tab.Screen name="Profile" component={ProfileStack} />
         </Tab.Navigator>
-   )
+   );
 }
 
 export default App;
