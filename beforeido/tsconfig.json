@@ -2,6 +2,7 @@
   "extends": "@react-native/typescript-config/tsconfig.json", 
   "compilerOptions": {
     "jsx": "react",
-    "moduleResolution": "node"
+    "moduleResolution": "node", 
+    "esModuleInterop": true // This was added at the advice of ChatGPT because 'import React from 'react'' was giving an error 
   }
 }
