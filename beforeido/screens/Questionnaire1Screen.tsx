@@ -7,6 +7,7 @@ import { textStyles } from '../TextStyles';
 import Slider from '@react-native-community/slider';
 import firestore from '@react-native-firebase/firestore';
 import questionsData from '../questionnaire_en.json';
+import auth from '@react-native-firebase/auth';
 
 interface Question {
   category: string; 
@@ -32,33 +33,114 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
   const [sliderValue4, setSliderValue4] = useState(5);
   const [sliderValue5, setSliderValue5] = useState(5);
 
-  var nextQuestion: number = 1; // In the future, get this value from the database
-  const loading = false; 
+  console.log("Getting current user ... ")
 
-  // const [questions, setQuestions] = useState<string[]>([]); // Save the questions from database - determine if we're loading or not
-  // const [loading, setLoading] = useState(true);
+  // Get the current user from auth 
+  const currentUser = auth().currentUser;
   
-  // const smallestQuestion = 1; // Only values that need to be changed between screens
-  // const largestQuestion = 5; 
+  if (currentUser) {
+    // User is signed in
+    console.log('User is signed in:', currentUser.uid);
+    console.log('User email:', currentUser.email);
 
+    
+  } else {
+    // No user is signed in
+    console.log('No user is signed in.');
+    props.navigation.push("Login"); 
+  }
+
+  const [loading, setLoading] = useState(true);
+  let nextQuestion = 1; 
+
+  console.log("Moving into useEffect with \nloading: ", loading, "\nnextQuestion: ", nextQuestion)
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const querySnapshot = await firestore()
+          .collection('users')
+          .where('email', '==', currentUser.email)
+          .get();
+  
+        if (querySnapshot.empty) {
+          console.log("No documents found for current user");
+          setLoading(false); // Update loading state
+          return; // Exit early if no documents found
+        }
+  
+        let curSection;
+  
+        querySnapshot.forEach((doc) => {
+          curSection = doc.data().curSection;
+          console.log("TEMP CUR SECTION:", curSection);
+        }); 
+  
+        // Move the logic dependent on curSection here
+        if (curSection === undefined) {
+          console.log("curSection is still undefined");
+          return; // Exit early if curSection is undefined
+        }
+  
+        if (curSection == 1) {
+          console.log("Current section is 1");
+          // Add your logic for section 1 here
+        }
+        else if (curSection == 2) {
+          console.log("Current section is 2");
+          // Add your logic for section 2 here
+          nextQuestion = 35; 
+        }
+        else if (curSection == 3) {
+          console.log("Current section is 3");
+          // Add your logic for section 3 here
+          nextQuestion = 68; 
+        }
+        else if (curSection == 4) {
+          console.log("Current section is 4");
+          // Add your logic for section 4 here
+          nextQuestion = 112;
+        }
+        else {
+          console.log("No matching section found:", curSection);
+          // Add logic for handling when no matching section is found
+        }
+
+        setLoading(false);
+  
+      } catch (error) {
+        console.error('Error getting documents: ', error);
+      }
+    }
+  
+    fetchData();
+
+
+  }, []);
+  
   // useEffect(
   //   () => { // We're going to use this effect in the code because reactNative won't let us use async otherwise
   //     async function fetchData() {  // Fetching data from firestore... 
   //       try {
   //         const querySnapshot = await firestore()
-  //           .collection('questions')
-  //           .where('questionNumber', '>=', smallestQuestion)
-  //           .where('questionNumber', '<=', largestQuestion)
+  //           .collection('users')
+  //           .where('email', '==', currentUser.email)
   //           .get();
           
-  //         const fetchedQuestions: string[] = [];
+  //         let tempCurSection; 
+
   //         querySnapshot.forEach((doc) => {
-  //           const question = doc.data().question;
-  //           fetchedQuestions.push(question);
+  //           tempCurSection = doc.data().curSection;
+  //           console.log("TEMP CUR SECTION:")
+  //           console.log(tempCurSection); 
   //         });
   
-  //         setQuestions(fetchedQuestions); // By using setQuestions and setLoading, we can change these values past their inital establishment!! 
+  //         setCurSection(tempCurSection); // By using setQuestions and setLoading, we can change these values past their inital establishment!! 
+  //         console.log("CUR SECTION:")
+  //         console.log(curSection); 
+
   //         setLoading(false);
+
   //       } catch (error) {
   //         console.error('Error getting documents: ', error);
   //       }
@@ -66,7 +148,28 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
         
   //     fetchData(); // Calling the function we just made... 
   //   }, []); // Everything before this was the first parameter of useEffect, and [] is the second.   
-
+  
+  // useEffect(() => {
+  //   if (curSection == 1) { // Try to change the question to the appropriate section 
+  //     console.log("Current section is 1")
+  //   }
+  //   else if (curSection == 2) {
+  //     nextQuestion = 35;
+  //     console.log("Current section is 2")
+  //   }
+  //   else if (curSection == 3) {
+  //     nextQuestion = 68;
+  //     console.log("Current section is 3")
+  //   }
+  //   else if (curSection == 4) {
+  //     nextQuestion = 112;
+  //     console.log("Current section is 4")
+  //   }
+  //   else {
+  //     console.log("No matching section found:", curSection);
+  //     props.navigation.push("Results");
+  //   }
+  // }, [curSection]); // Run this useEffect whenever curSection changes
 
   return (
     <ImageBackground

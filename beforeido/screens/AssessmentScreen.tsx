@@ -14,7 +14,7 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
     // TODO 0: Determine user 
     // TODO 1: Clear questionnaire results 
     // TODO 2: Push to questionnaire 1  
-    
+    console.log("ENTERING QUESTIONNAIRE")
     props.navigation.push('Questionnaire1');
   };
 
