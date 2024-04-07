@@ -34,10 +34,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
         email: email,
         password: password,
         coupleCode: ((coupleCode=='') ? (Math.floor(Math.random()*90000) + 10000).toString() : coupleCode.toString()), 
-        section1: 0, 
-        section2: 0, 
-        section3: 0, 
-        section4: 0, 
+        
      }).then((res)=>{
       console.log("adding user")
       console.log("Added new user to FireStore: " + firstName, lastName)
