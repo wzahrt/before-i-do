@@ -35,7 +35,7 @@ export async function fetchData(): Promise<UserDocument | null> {
         }
 
         // Extract the first document (assuming there's only one)
-        // console.log("user id: " + querySnapshot.docs[0].id);
+        console.log("user id: " + querySnapshot.docs[0].id);
         const userDocument = querySnapshot.docs[0].data() as UserDocument;
         userDocument.uid = querySnapshot.docs[0].id;
         return userDocument;

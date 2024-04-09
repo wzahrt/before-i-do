@@ -79,6 +79,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
 
 
     questionAnswers.push(sliderValue1); // Append answer to array 
+    setSliderValue1(5)
 
     setNextQuestion(nextQuestion + 1); 
 
@@ -100,8 +101,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
 
       // Update curSection 
       firestore().collection('users').doc(currentUserID).update({
-        // curSection: nextQuestion == 35 ? 2 : nextQuestion == 68 ? 3 : 4,
-        curSection: 2,
+        curSection: nextQuestion == 35 ? 2 : nextQuestion == 68 ? 3 : 4,
       }).then(() => {
         console.log("CurSection updated");
       }).catch((e) => {
@@ -123,6 +123,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
+        <Text style={textStyles.heading} >Questionnaire{'\n'}</Text>
         <Text style={textStyles.heading}>{category}</Text>
 
         {loading ? ( // This lets us have a loading page, but it's so fast you can't even see it lmao. WE NEED THIS
@@ -136,10 +137,11 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
             style={{width: 200, height: 40}}
             minimumValue={1}
             maximumValue={5}
-            minimumTrackTintColor="#FFFFFF"
-            maximumTrackTintColor="#000000"
+            minimumTrackTintColor="#000000"
+            maximumTrackTintColor="#bbbbbb"
             step={1}
             value={sliderValue1}
+            thumbTintColor='lightpink'
             onValueChange={(value) => setSliderValue1(value)}
           />
 
@@ -149,7 +151,8 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
         <Pressable 
           // We're going to want this to navigate us to change the 'next question' value
           onPress={handleNext}
-          style={textStyles.button}
+          style={textStyles.button} 
+          backgroundColor='lightblue'
           > 
           <Text>Continue</Text> 
         </Pressable>
