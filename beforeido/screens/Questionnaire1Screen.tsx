@@ -11,7 +11,9 @@ import auth from '@react-native-firebase/auth';
 import { fetchData } from '../userData.tsx'; 
 
 
+
 console.log("BEGIN LOG --------------------------------------------------")
+
 
 interface Question {
   category: string; 
@@ -27,24 +29,33 @@ const questions: Question[] = questionsData.questions.map(item => ({
   question: item.question
 }));
 
+let questionAnswers: number[] = []; 
+
 type Questionnaire1ScreenProps = NativeStackScreenProps<RootStackParamList, "Questionnaire1">;
 
 const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, navigation) => {
   const [sliderValue1, setSliderValue1] = useState(5);  // Save all slider values 
   const [loading, setLoading] = useState(true);
   const [nextQuestion, setNextQuestion] = useState(1); 
-  let questionAnswers: number[] = []; 
+  const [category, setCategory] = useState('Personality Dynamics');
+
+  let currentUserID: null | string;
+  
 
   // This works, but still makes multiple calls
   fetchData().then((user) => {
+    currentUserID = user.uid;
     setLoading(false); 
     
     if (user?.curSection == 2) { 
       setNextQuestion(35); 
+      setCategory('Family Dynamics');
     } else if (user?.curSection == 3) { 
       setNextQuestion(68); 
+      setCategory('Couple Relationship Dynamics');
     } else if (user?.curSection == 4) { 
       setNextQuestion(114); 
+      setCategory('Cultural Dynamics');
     }
 
 
@@ -75,11 +86,27 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       console.log("Moved into new section if statement");
       console.log("Next Question: ", nextQuestion);
       console.log("Question Answers: ", questionAnswers);
+      
       // Update subcollection with new values 
+      firestore().collection('users').doc(currentUserID).collection('questionnaire').doc(category).set({
+        questionAnswers: questionAnswers,
+      }).then(() => {
+        console.log("Questionnaire answers added ", questionAnswers);
+      }).catch((e) => {
+        console.log('Error adding questionnaire answers:', e);
+      });
 
       questionAnswers = []; // Reset questionAnswers 
 
       // Update curSection 
+      firestore().collection('users').doc(currentUserID).update({
+        // curSection: nextQuestion == 35 ? 2 : nextQuestion == 68 ? 3 : 4,
+        curSection: 2,
+      }).then(() => {
+        console.log("CurSection updated");
+      }).catch((e) => {
+        console.log('Error updating curSection:', e);
+      });
 
     }
 
@@ -96,7 +123,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
-        <Text style={textStyles.heading}>Personality Dynamics</Text>
+        <Text style={textStyles.heading}>{category}</Text>
 
         {loading ? ( // This lets us have a loading page, but it's so fast you can't even see it lmao. WE NEED THIS
           <Text>Loading...</Text>

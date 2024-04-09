@@ -8,6 +8,7 @@ interface UserDocument {
     firstName: string; 
     lastName: string; 
     password: string; 
+    uid: null | string;
 }
 
 export async function fetchData(): Promise<UserDocument | null> {
@@ -34,7 +35,9 @@ export async function fetchData(): Promise<UserDocument | null> {
         }
 
         // Extract the first document (assuming there's only one)
+        // console.log("user id: " + querySnapshot.docs[0].id);
         const userDocument = querySnapshot.docs[0].data() as UserDocument;
+        userDocument.uid = querySnapshot.docs[0].id;
         return userDocument;
     } catch (error) {
         console.error('Error fetching user document: ', error);
