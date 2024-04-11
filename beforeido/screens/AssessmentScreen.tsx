@@ -2,17 +2,40 @@ import React from 'react';
 import { View, Text, Button, ImageBackground, StyleSheet } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
+import { fetchData } from '../userData.tsx'; 
+import firestore from '@react-native-firebase/firestore';
+
+
 
 type AssessmentScreenProps = NativeStackScreenProps<RootStackParamList, "Assessment">;
+
+let uid: null | string;
+fetchData().then((user) => {
+  uid = user.uid;
+});
+
 
 const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
   const handleNewAssessment = () => {
     // GIVEN: User info 
     // RETURN: none 
     // EFFECT: change navigation to move us to first questionnaire page, cleanse previous results
+        
+    // TODO 0: Clear questionnaire results 
+    firestore().collection(`users/${uid}/questionnaire`)
+      .get()
+      .then(res => {
+        res.forEach(element => {
+          element.ref.delete();
+        });
+      });
     
-    // TODO 0: Determine user 
-    // TODO 1: Clear questionnaire results 
+    
+    // TODO 1: update curSection
+    console.log(uid);
+    firestore().collection('users').doc(uid).update({curSection: 1});
+
+    
     // TODO 2: Push to questionnaire 1  
     console.log("ENTERING QUESTIONNAIRE")
     props.navigation.push('Questionnaire1');
