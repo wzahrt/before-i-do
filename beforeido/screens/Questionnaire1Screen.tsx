@@ -82,6 +82,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
     questionAnswers = [];
     subcategories = [];
   }
+  console.log("category: ", category);
 
     // console.log('Couple Code:', user.coupleCode);
     // console.log('Current Section:', user.curSection);
@@ -154,7 +155,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
 
     let data = Object.create(null);
 
-    if (nextQuestion == 34 || nextQuestion == 67 || nextQuestion == 112) { // If we are going to a new section ...
+    if (nextQuestion == 34 || nextQuestion == 68 || nextQuestion == 111) { // If we are going to a new section ...
       console.log("Moved into new section if statement");
       console.log("Next Question: ", nextQuestion+1);
       console.log("Question Answers: ", questionAnswers);
@@ -176,7 +177,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       
       // Update curSection 
       firestore().collection('users').doc(currentUserID).update({
-        curSection: nextQuestion == 34 ? 2 : nextQuestion == 67 ? 3 : 4,
+        curSection: nextQuestion == 34 ? 2 : nextQuestion == 68 ? 3 : nextQuestion == 111 ? 4:4,
       }).then(() => {
         console.log("CurSection updated");
       }).catch((e) => {
