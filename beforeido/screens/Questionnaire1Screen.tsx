@@ -29,90 +29,168 @@ const questions: Question[] = questionsData.questions.map(item => ({
   question: item.question
 }));
 
-let questionAnswers: number[] = []; 
+let questionAnswers: number[][] = []; 
+let subcategories: string[] = [];
+
+let currentUserID: null | string;
+
+let startingQuestion = 1;
+let startingCategory = 'PERSONALITY DYNAMICS';
+// let user = fetchData();
+let AsetLoading = true;
+// This works, but still makes multiple calls
+
+function fetchUser() {
+  fetchData().then((user) => {
+  currentUserID = user.uid;
+  AsetLoading = false;
+  console.log("loading: ", AsetLoading);
+  if (user?.curSection == 2) { 
+    startingQuestion = 35;
+    startingCategory = 'RELATIONSHIP DYNAMICS'
+  } else if (user?.curSection == 3) { 
+    startingQuestion = 68; 
+    startingCategory = 'COUPLE RELATIONSHIP DYNAMICS';
+  } else if (user?.curSection == 4) { 
+    startingQuestion = 112; 
+    startingCategory = 'CULTURAL DYNAMICS';
+  } else if (user?.curSection == 5) {
+    startingQuestion = 140;
+    startingCategory = 'END OF QUESTIONNAIRE';
+  }
+  console.log("Current Section: ", user?.curSection);
+  console.log("User: ", currentUserID);
+
+  return currentUserID;
+});
+}
 
 type Questionnaire1ScreenProps = NativeStackScreenProps<RootStackParamList, "Questionnaire1">;
 
 const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, navigation) => {
   const [sliderValue1, setSliderValue1] = useState(5);  // Save all slider values 
-  const [loading, setLoading] = useState(true);
-  const [nextQuestion, setNextQuestion] = useState(1); 
-  const [category, setCategory] = useState('Personality Dynamics');
-
-  let currentUserID: null | string;
-  
-
-  // This works, but still makes multiple calls
-  fetchData().then((user) => {
-    currentUserID = user.uid;
-    setLoading(false); 
-    
-    if (user?.curSection == 2) { 
-      setNextQuestion(35); 
-      setCategory('Family Dynamics');
-    } else if (user?.curSection == 3) { 
-      setNextQuestion(68); 
-      setCategory('Couple Relationship Dynamics');
-    } else if (user?.curSection == 4) { 
-      setNextQuestion(114); 
-      setCategory('Cultural Dynamics');
-    }
+  const [loading, setLoading] = useState(AsetLoading);
+  const [nextQuestion, setNextQuestion] = useState(startingQuestion); 
+  const [category, setCategory] = useState(startingCategory);
+  const [subcategory, setSubcategory] = useState(questions[nextQuestion-1].subcategory);
 
 
-    console.log('Couple Code:', user.coupleCode);
-    console.log('Current Section:', user.curSection);
-    console.log('Email:', user.email);
-    console.log('First Name:', user.firstName);
-    console.log('Last Name:', user.lastName);
-    console.log('Password:', user.password);
-  }).catch((error) => {
-    console.error('Error fetching user data:', error);
-  });
+  const user = fetchUser();
+  // console.log("loading: ", loading);
 
+  if(nextQuestion == 1) {
+    questionAnswers = [];
+    subcategories = [];
+  }
 
+    // console.log('Couple Code:', user.coupleCode);
+    // console.log('Current Section:', user.curSection);
+    // console.log('Email:', user.email);
+    // console.log('First Name:', user.firstName);
+    // console.log('Last Name:', user.lastName);
+    // console.log('Password:', user.password);
 
 
   const handleNext = () => { 
     console.log("Moved into handle next"); // Tests 
-    console.log("Next Question: ", nextQuestion);
-    console.log("Question Answers: ", questionAnswers);
-
-
-    questionAnswers.push(sliderValue1); // Append answer to array 
-    setSliderValue1(5)
+    // console.log("Next Question: ", nextQuestion);
+    // console.log("Question Answers: ", questionAnswers);
 
     setNextQuestion(nextQuestion + 1); 
+    setCategory(questions[nextQuestion].category); // Update category
 
-    if (nextQuestion == 35 || nextQuestion == 68 || nextQuestion == 112) { // If we are going to a new section ...
-      console.log("Moved into new section if statement");
-      console.log("Next Question: ", nextQuestion);
-      console.log("Question Answers: ", questionAnswers);
+    if(nextQuestion == 139) { // If we are at the end of the questionnaire
+      questionAnswers[(subcategories.length-1)].push(sliderValue1);
+      let data = Object.create(null);
+      for (let i = 0; i < subcategories.length; i++) {
+        data[subcategories[i]] = questionAnswers[i];
+      };
       
-      // Update subcollection with new values 
-      firestore().collection('users').doc(currentUserID).collection('questionnaire').doc(category).set({
-        questionAnswers: questionAnswers,
-      }).then(() => {
-        console.log("Questionnaire answers added ", questionAnswers);
+      // console.log("here");
+      firestore().collection('users').doc(currentUserID).collection('questionnaire').doc(category).set(
+        data
+      ).then(() => {
+        console.log("Questionnaire answers added: ", data);
       }).catch((e) => {
         console.log('Error adding questionnaire answers:', e);
       });
-
-      questionAnswers = []; // Reset questionAnswers 
-
+      
       // Update curSection 
       firestore().collection('users').doc(currentUserID).update({
-        curSection: nextQuestion == 35 ? 2 : nextQuestion == 68 ? 3 : 4,
+        curSection: 5,
       }).then(() => {
         console.log("CurSection updated");
       }).catch((e) => {
         console.log('Error updating curSection:', e);
       });
 
+      questionAnswers = []; // Reset questionAnswers 
+      subcategories = []; // Reset subcategories
+      console.log("assessment completed")
+      props.navigation.push('Assessment');
+      return;
+    }
+    if (nextQuestion == 140) {
+      props.navigation.push('Assessment');
+      return;
     }
 
-    console.log("Leaving Handle Next"); // Tests 
-    console.log("Next Question: ", nextQuestion);
+    setSubcategory(questions[nextQuestion].subcategory); // Update subcategory
+    console.log("Subcategory: " + subcategory);
+
+
+    if(subcategories.indexOf(subcategory) == -1) { // If subcategory is not in array
+      subcategories.push(subcategory); // Append subcategory to array
+      console.log("Subcategories: ", subcategories);
+      questionAnswers.push([]); // Append empty array to questionAnswers
+    }
+    
+    questionAnswers[(subcategories.length-1)].push(sliderValue1); // Append answer to array 
+    setSliderValue1(5);
+
+
+    console.log("Next Question: ", nextQuestion+1);
     console.log("Question Answers: ", questionAnswers);
+
+    let data = Object.create(null);
+
+    if (nextQuestion == 34 || nextQuestion == 67 || nextQuestion == 112) { // If we are going to a new section ...
+      console.log("Moved into new section if statement");
+      console.log("Next Question: ", nextQuestion+1);
+      console.log("Question Answers: ", questionAnswers);
+      
+      // Update subcollection with new values, mapping each subcategory to its array of a
+      //create hashmap of subcategories to their respective arrays
+      for (let i = 0; i < subcategories.length; i++) {
+        data[subcategories[i]] = questionAnswers[i];
+      };
+      
+      // console.log("here");
+      firestore().collection('users').doc(currentUserID).collection('questionnaire').doc(category).set(
+        data
+      ).then(() => {
+        console.log("Questionnaire answers added: ", data);
+      }).catch((e) => {
+        console.log('Error adding questionnaire answers:', e);
+      });
+      
+      // Update curSection 
+      firestore().collection('users').doc(currentUserID).update({
+        curSection: nextQuestion == 34 ? 2 : nextQuestion == 67 ? 3 : 4,
+      }).then(() => {
+        console.log("CurSection updated");
+      }).catch((e) => {
+        console.log('Error updating curSection:', e);
+      });
+
+      questionAnswers = []; // Reset questionAnswers 
+      subcategories = []; // Reset subcategories
+    }
+
+
+    // console.log("Leaving Handle Next"); // Tests 
+    // console.log("Next Question: ", nextQuestion);
+    // console.log("Question Answers: ", questionAnswers);
 
   }
 
@@ -122,19 +200,26 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       source={require('../assets/images/blank_page.jpeg')}
       style={styles.backgroundImage}
     >
+      <View style={{ flex: 1, alignItems: 'center', paddingTop:50, backgroundColor:'lightpink'}}>
+        <Text style={textStyles.heading}>Questionnaire{'\n'}</Text>
+      </View>
+
       <View style={styles.container}>
-        <Text style={textStyles.heading} >Questionnaire{'\n'}</Text>
-        <Text style={textStyles.heading}>{category}</Text>
+        <Text style={textStyles.subheading}>{category}</Text>
+        <Text style={textStyles.subheading}>{subcategory}</Text>
+        <Text style={textStyles.subheading}></Text>
+        
 
         {loading ? ( // This lets us have a loading page, but it's so fast you can't even see it lmao. WE NEED THIS
           <Text>Loading...</Text>
         ) : (
           <>
 
-          <Text style={textStyles.text}>{questions[nextQuestion - 1].question}</Text>
-          <Text style={textStyles.text}>{sliderValue1}</Text>
+          <Text style={textStyles.text}>{questions[nextQuestion-1].question}</Text>
+          <Text style={textStyles.subheading}></Text>
+          
           <Slider
-            style={{width: 200, height: 40}}
+            style={{width: 250, height: 40}}
             minimumValue={1}
             maximumValue={5}
             minimumTrackTintColor="#000000"
@@ -145,27 +230,55 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
             onValueChange={(value) => setSliderValue1(value)}
           />
 
+          {/* map each slider value to a value from Strongly disagree to strongly agree */}
+          <Text style={{fontSize:16}}>
+            {
+              sliderValue1 == 1 ? 'Response: Strongly Disagree' : 
+              sliderValue1 == 2 ? 'Response: Disagree' : 
+              sliderValue1 == 3 ? 'Response: Neutral' : 
+              sliderValue1 == 4 ? 'Response: Agree' : 
+              'Response: Strongly Agree'
+
+            }
+          </Text>
+
           </>
         )}
 
-        <Pressable 
+        
+      </View>
+
+      <View style={{ flex: 6, alignItems: 'center', justifyContent: 'top'}}>
+      <Pressable 
           // We're going to want this to navigate us to change the 'next question' value
           onPress={handleNext}
           style={textStyles.button} 
           backgroundColor='lightblue'
           > 
-          <Text>Continue</Text> 
+          <Text>
+            {nextQuestion == 34 ? 'Next Section' : 
+            nextQuestion == 67 ? 'Next Section' : 
+            nextQuestion == 111 ? 'Next Section' : 
+            nextQuestion == 139 ? 'Complete Questionnaire' : 
+            nextQuestion == 140 ? 'Complete Questionnaire' : 
+            'Next Question'}
+            
+          </Text> 
         </Pressable>
       </View>
+
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    top: 20, 
+    flex: 9,
+    top: 0,
+    paddingHorizontal: 30,
     alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 0,
   },
   backgroundImage: {
     flex: 1,

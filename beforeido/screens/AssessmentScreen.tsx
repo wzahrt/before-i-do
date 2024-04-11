@@ -25,15 +25,21 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
     firestore().collection(`users/${uid}/questionnaire`)
       .get()
       .then(res => {
-        res.forEach(element => {
-          element.ref.delete();
-        });
+      res.forEach(element => {
+        element.ref.delete();
+      });
+      })
+      .catch(error => {
+      console.log("Error deleting questionnaire results:", error);
       });
     
     
     // TODO 1: update curSection
-    console.log(uid);
-    firestore().collection('users').doc(uid).update({curSection: 1});
+    // console.log(uid);
+    firestore().collection('users').doc(uid).update({curSection: 1}).catch(error => {
+      console.log("Error updating curSection:", error);
+    }
+    );
 
     
     // TODO 2: Push to questionnaire 1  
@@ -50,7 +56,7 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
     // TODO 1: Determine most recently unanswered question 
     // TODO 2: Push to corresponding question 
     
-    props.navigation.push('Signup');
+    props.navigation.push('Questionnaire1');
   };
 
   const handleViewResults = () => {
