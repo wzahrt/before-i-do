@@ -9,6 +9,7 @@ import firestore from '@react-native-firebase/firestore';
 import questionsData from '../questionnaire_en.json';
 import auth from '@react-native-firebase/auth';
 import { fetchData } from '../userData.tsx'; 
+import * as Progress from 'react-native-progress';
 
 
 
@@ -68,7 +69,7 @@ function fetchUser() {
 type Questionnaire1ScreenProps = NativeStackScreenProps<RootStackParamList, "Questionnaire1">;
 
 const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, navigation) => {
-  const [sliderValue1, setSliderValue1] = useState(5);  // Save all slider values 
+  const [sliderValue1, setSliderValue1] = useState(1);  // Save all slider values 
   const [loading, setLoading] = useState(AsetLoading);
   const [nextQuestion, setNextQuestion] = useState(startingQuestion); 
   const [category, setCategory] = useState(startingCategory);
@@ -147,7 +148,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
     }
     
     questionAnswers[(subcategories.length-1)].push(sliderValue1); // Append answer to array 
-    setSliderValue1(5);
+    setSliderValue1(1);
 
 
     console.log("Next Question: ", nextQuestion+1);
@@ -155,7 +156,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
 
     let data = Object.create(null);
 
-    if (nextQuestion == 34 || nextQuestion == 68 || nextQuestion == 111) { // If we are going to a new section ...
+    if (nextQuestion == 34 || nextQuestion == 67 || nextQuestion == 111) { // If we are going to a new section ...
       console.log("Moved into new section if statement");
       console.log("Next Question: ", nextQuestion+1);
       console.log("Question Answers: ", questionAnswers);
@@ -177,7 +178,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       
       // Update curSection 
       firestore().collection('users').doc(currentUserID).update({
-        curSection: nextQuestion == 34 ? 2 : nextQuestion == 68 ? 3 : nextQuestion == 111 ? 4:4,
+        curSection: nextQuestion == 34 ? 2 : nextQuestion == 67 ? 3 : nextQuestion == 111 ? 4:4,
       }).then(() => {
         console.log("CurSection updated");
       }).catch((e) => {
@@ -204,8 +205,9 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       <View style={{ flex: 1, alignItems: 'center', paddingTop:50, backgroundColor:'lightpink'}}>
         <Text style={textStyles.heading}>Questionnaire{'\n'}</Text>
       </View>
-
+      
       <View style={styles.container}>
+        
         <Text style={textStyles.subheading}>{category}</Text>
         <Text style={textStyles.subheading}>{subcategory}</Text>
         <Text style={textStyles.subheading}></Text>
@@ -248,6 +250,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
 
         
       </View>
+      
 
       <View style={{ flex: 6, alignItems: 'center', justifyContent: 'top'}}>
       <Pressable 
@@ -267,6 +270,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
           </Text> 
         </Pressable>
       </View>
+      <Progress.Bar progress={nextQuestion/140} indeterminate={false} width={375} color='lightpink' borderRadius={0} animationType='spring'/>
 
     </ImageBackground>
   );
