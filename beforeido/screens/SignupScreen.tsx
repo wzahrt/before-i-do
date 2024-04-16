@@ -15,7 +15,36 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
+  const fetchData = () => {
+    try {    //Check that coupleCode already exists in the "coupleCode" collection 
+      // Query the coupleCode collection for the specific document
+      const coupleCodeRef = firestore().collection('coupleCode').doc(coupleCode);
 
+      coupleCodeRef.get() // Get the document
+          .then((doc) => {
+              if (doc.exists) { // If so, add this user to that coupleCode document 
+                coupleCodeRef.set({
+                  user2: email, 
+                  user2Done: false, 
+                }, { 
+                  merge: true
+                })
+              } else {  // If not, add new coupleCode document with this user
+                coupleCodeRef.set({
+                  user1: email,
+                  user1Done: false,
+                })
+              }
+          })
+          .catch((error) => {
+              console.log("Error getting document:", error);
+          });
+
+    } catch (error) {
+        console.error('Error fetching user document: ', error);
+        return null;
+    }
+}
 
   const handleSignUp = () => {
     // Here you can implement your signup logic
@@ -33,7 +62,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
         lastName: lastName,
         email: email,
         password: password,
-        coupleCode: ((coupleCode=='') ? (Math.floor(Math.random()*90000) + 10000).toString() : coupleCode.toString()), 
+        coupleCode: coupleCode, 
 
         
      }).then((res)=>{
@@ -43,6 +72,8 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
      }).catch((e)=> {
       console.log(e)
      })
+
+
    
   };
 
@@ -79,8 +110,10 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
           secureTextEntry={true}
           style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
         />
+        <Text>If partner has not registered, create couple code below.</Text>
+        <Text>If partner has registered, enter partners code below.</Text>
         <TextInput
-          placeholder="Couple Code - Optional"
+          placeholder="Couple Code"
           value={coupleCode}
           onChangeText={setCoupleCode}
           style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
