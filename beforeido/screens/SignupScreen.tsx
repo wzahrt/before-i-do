@@ -33,10 +33,13 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
         lastName: lastName,
         email: email,
         password: password,
-        coupleCode: ((coupleCode=='') ? (Math.floor(Math.random()*90000) + 10000).toString() : coupleCode.toString())
+        coupleCode: ((coupleCode=='') ? (Math.floor(Math.random()*90000) + 10000).toString() : coupleCode.toString()), 
+
+        
      }).then((res)=>{
-      console.log("adding user")
-      console.log("Added new user to FireStore: " + firstName, lastName)
+        console.log("adding user")
+        console.log("Added new user to FireStore: " + firstName, lastName)
+
      }).catch((e)=> {
       console.log(e)
      })

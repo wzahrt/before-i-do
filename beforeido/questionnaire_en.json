@@ -1,0 +1,850 @@
+{
+  "questions": [
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Emotional Stability",
+      "questionNumber": 1,
+      "question": "I generally have a positive mood."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Emotional Stability",
+      "questionNumber": 2,
+      "question": "I am good at managing my emotions."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Emotional Stability",
+      "questionNumber": 3,
+      "question": "I don't struggle to cope with stressful situations."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Emotional Stability",
+      "questionNumber": 4,
+      "question": "I can cope with emotional challenges."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Emotional Stability",
+      "questionNumber": 5,
+      "question": "I am flexible in the face of potentially stressful situations."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Emotional Stability",
+      "questionNumber": 6,
+      "question": "My anxiety levels are generally low."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Emotional Stability",
+      "questionNumber": 7,
+      "question": "I can motivate myself positively."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Empathy",
+      "questionNumber": 8,
+      "question": "I am good at understanding other people's emotions."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Empathy",
+      "questionNumber": 9,
+      "question": "I notice the needs of people close to me."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Empathy",
+      "questionNumber": 10,
+      "question": "I respect the thoughts of others."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Empathy",
+      "questionNumber": 11,
+      "question": "I can understand the emotions behind what people say."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Empathy",
+      "questionNumber": 12,
+      "question": "My strong understanding of others' feelings contributes to my social relationships."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Empathy",
+      "questionNumber": 13,
+      "question": "I can understand the meaning of the pain that others feel."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Empathy",
+      "questionNumber": 14,
+      "question": "I can read people's emotions from their body language."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Openness to Experience",
+      "questionNumber": 15,
+      "question": "Being open to new experiences excites me."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Openness to Experience",
+      "questionNumber": 16,
+      "question": "I am open to listening to different ideas."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Openness to Experience",
+      "questionNumber": 17,
+      "question": "Meeting people from different cultures makes me happy."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Openness to Experience",
+      "questionNumber": 18,
+      "question": "I enjoy collaborating and working with different people."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Openness to Experience",
+      "questionNumber": 19,
+      "question": "I have the courage to try new things in life."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Openness to Experience",
+      "questionNumber": 20,
+      "question": "I am good at adapting to change."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Self-Confidence",
+      "questionNumber": 21,
+      "question": "I am a confident person."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Self-Confidence",
+      "questionNumber": 22,
+      "question": "I don't hesitate to express my thoughts."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Self-Confidence",
+      "questionNumber": 23,
+      "question": "I don't hesitate to take initiative."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Self-Confidence",
+      "questionNumber": 24,
+      "question": "Those who know me well say I am confident."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Secure Attachment",
+      "questionNumber": 25,
+      "question": "I can have open and clear communication with my partner in our relationship."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Secure Attachment",
+      "questionNumber": 26,
+      "question": "I feel safe and comfortable when I'm with my partner."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Secure Attachment",
+      "questionNumber": 27,
+      "question": "I respect my partner's boundaries."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Secure Attachment",
+      "questionNumber": 28,
+      "question": "I can express my feelings openly to my partner."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Secure Attachment",
+      "questionNumber": 29,
+      "question": "I try to understand my partner's feelings and needs."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Secure Attachment",
+      "questionNumber": 30,
+      "question": "I make an effort to strengthen trust and commitment in our relationship."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Secure Attachment",
+      "questionNumber": 31,
+      "question": "I share responsibilities in our relationship."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Secure Attachment",
+      "questionNumber": 32,
+      "question": "I express my trust in my partner sincerely."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Secure Attachment",
+      "questionNumber": 33,
+      "question": "When we have issues, I use a constructive language with my partner."
+    },
+    {
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Secure Attachment",
+      "questionNumber": 34,
+      "question": "I make an effort to create a loving atmosphere in our relationship."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family Closeness",
+      "questionNumber": 35,
+      "question": "I enjoy spending time with my family."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family Closeness",
+      "questionNumber": 36,
+      "question": "My family accepts me for who I am."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family Closeness",
+      "questionNumber": 37,
+      "question": "My family respects the decisions I make in my life."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family Closeness",
+      "questionNumber": 38,
+      "question": "My family is there for me when I need them."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family Closeness",
+      "questionNumber": 39,
+      "question": "I feel emotionally close to my family."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family Closeness",
+      "questionNumber": 40,
+      "question": "I feel safe when I'm with my family."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family Closeness",
+      "questionNumber": 41,
+      "question": "We have good memories together as a family."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family Closeness",
+      "questionNumber": 42,
+      "question": "Everyone in my family is respectful towards each other."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family Closeness",
+      "questionNumber": 43,
+      "question": "My family respects my decisions regarding religious matters."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family Closeness",
+      "questionNumber": 44,
+      "question": "My family respects my decisions regarding work and career matters."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 45,
+      "question": "My parents get along well in their marriage."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 46,
+      "question": "My parents are sensitive to each other's feelings."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 47,
+      "question": "My parents successfully resolve conflicts when they have disagreements."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 48,
+      "question": "My parents enjoy spending time together."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 49,
+      "question": "My parents make decisions regarding our family together."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 50,
+      "question": "My parents value each other's opinions."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 51,
+      "question": "My parents manage our family budget well."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 52,
+      "question": "I don't think they set a good example for marriage."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 53,
+      "question": "Feel happy when they are with each other."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 54,
+      "question": "Are in harmony regarding housework."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 55,
+      "question": "Can solve their problems through communication."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 56,
+      "question": "Respect each other's personal space."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 57,
+      "question": "Share responsibilities related to our family."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family-Partner Relationships",
+      "questionNumber": 58,
+      "question": "I discuss issues related to my family with my partner."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family-Partner Relationships",
+      "questionNumber": 59,
+      "question": "I am open and clear with my partner when we discuss matters related to our families."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family-Partner Relationships",
+      "questionNumber": 60,
+      "question": "I express my expectations regarding our families to my partner clearly."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family-Partner Relationships",
+      "questionNumber": 61,
+      "question": "I believe that my partner has a good relationship with my family."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family-Partner Relationships",
+      "questionNumber": 62,
+      "question": "I cannot cooperate with my partner to resolve issues related to our families."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family-Partner Relationships",
+      "questionNumber": 63,
+      "question": "My partner and I determine our boundaries regarding our families together."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family-Partner Relationships",
+      "questionNumber": 64,
+      "question": "I express my feelings regarding our families clearly to my partner."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family-Partner Relationships",
+      "questionNumber": 65,
+      "question": "I respect cultural differences between our families."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family-Partner Relationships",
+      "questionNumber": 66,
+      "question": "I am open to my partner regarding our family history."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family-Partner Relationships",
+      "questionNumber": 67,
+      "question": "I share my problems with my partner regarding my family."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 68,
+      "question": "I want to have open and honest communication with my partner."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 69,
+      "question": "I want to preserve our relationships with family and friends together with my partner."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 70,
+      "question": "I want to resolve disagreements with my partner through cooperation."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 71,
+      "question": "I want our sexual life to be based on open communication and mutual respect."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 72,
+      "question": "I want us to support each other in our work and careers."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 73,
+      "question": "I want to share and do household chores together with my partner."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 74,
+      "question": "I want to feel that we belong to each other."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 75,
+      "question": "I want my partner to respect the time I set aside for myself."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 76,
+      "question": "I want to plan our vacations together with my partner."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 77,
+      "question": "I emphasize the importance of mutual respect and understanding in our relationship."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 78,
+      "question": "I want my partner to actively listen to me in our marriage."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 79,
+      "question": "I emphasize the importance of setting common goals with my partner in our marriage."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 80,
+      "question": "I want to maintain our sense of trust in our marriage."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 81,
+      "question": "I want my partner to be loyal in our marriage."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 82,
+      "question": "I want to share child-rearing responsibilities with my partner."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 83,
+      "question": "I want there to be an equal balance of power in our relationship."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 84,
+      "question": "I expect both of us to make equal sacrifices in terms of work and career."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 85,
+      "question": "I listen to my partner carefully."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 86,
+      "question": "I make sure my partner can express their thoughts during communication."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 87,
+      "question": "I prioritize creating a sense of trust in our relationship."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 88,
+      "question": "I put effort into our relationship."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 89,
+      "question": "I value my partner's happiness."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 90,
+      "question": "I value my partner's feelings."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Harmony and Cooperation",
+      "questionNumber": 91,
+      "question": "I want to have a sexually fulfilling relationship with my partner."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 92,
+      "question": "I find it difficult to believe what my partner says."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 93,
+      "question": "I cannot openly discuss problems with my partner."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 94,
+      "question": "I am patient with my partner during our arguments."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 95,
+      "question": "The lack of trust in our relationship bothers me."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 96,
+      "question": "I always want things to go my way in the relationship."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 97,
+      "question": "I wish my partner were less critical."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 98,
+      "question": "I am sometimes embarrassed by my partner's behavior."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 99,
+      "question": "I feel that my partner takes advantage of my positive feelings towards them."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 100,
+      "question": "I am uncomfortable feeling like I am my partner's parent."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 101,
+      "question": "My partner's leisure activities negatively impact our relationship."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 102,
+      "question": "I feel pressured to participate in activities my partner wants."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 103,
+      "question": "My idea of having a good time is different from my partner's, causing problems."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 104,
+      "question": "I have doubts about my partner's sexual fidelity."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 105,
+      "question": "I do not feel sexually inclined towards my partner."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 106,
+      "question": "We disagree about having children."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 107,
+      "question": "My partner and I have different ideas about child-rearing."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 108,
+      "question": "I believe that differences in our families' parenting styles will cause problems."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 109,
+      "question": "We cannot agree on our family budget."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 110,
+      "question": "It bothers me that I will have to fully support my partner financially."
+    },
+    {
+      "category": "COUPLE RELATIONSHIP DYNAMICS",
+      "subcategory": "Relationship Challenges",
+      "questionNumber": 111,
+      "question": "I have concerns about our income not being enough after marriage."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Spiritual Beliefs",
+      "questionNumber": 112,
+      "question": "I openly discuss my religious beliefs with my partner."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Spiritual Beliefs",
+      "questionNumber": 113,
+      "question": "I respect my partner's religious beliefs."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Spiritual Beliefs",
+      "questionNumber": 114,
+      "question": "I discuss the role of our beliefs in our lives with my partner."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Spiritual Beliefs",
+      "questionNumber": 115,
+      "question": "I respect my partner's special religious days."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Spiritual Beliefs",
+      "questionNumber": 116,
+      "question": "I discuss how our beliefs will influence our children's lives with my partner."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Spiritual Beliefs",
+      "questionNumber": 117,
+      "question": "I am happy to have mutual understanding about religious matters with my partner."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Spiritual Beliefs",
+      "questionNumber": 118,
+      "question": "I make an effort to ensure that my family is respectful towards my partner and their family in religious matters."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Spiritual Beliefs",
+      "questionNumber": 119,
+      "question": "I am worried that my family does not approve of my partner's beliefs."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Lifestyle",
+      "questionNumber": 120,
+      "question": "Our lifestyles are compatible with each other."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Lifestyle",
+      "questionNumber": 121,
+      "question": "I want to have a similar world view with my partner."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Lifestyle",
+      "questionNumber": 122,
+      "question": "My partner and I have similar political views."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Lifestyle",
+      "questionNumber": 123,
+      "question": "My partner and I have similar personal goals."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Lifestyle",
+      "questionNumber": 124,
+      "question": "Our education levels match."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Lifestyle",
+      "questionNumber": 125,
+      "question": "Our hobbies are similar."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Lifestyle",
+      "questionNumber": 126,
+      "question": "I worry about our differences in opinions."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Lifestyle",
+      "questionNumber": 127,
+      "question": "I respect my partner's clothing style."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Lifestyle",
+      "questionNumber": 128,
+      "question": "I am satisfied with my partner's working conditions."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Traditions",
+      "questionNumber": 129,
+      "question": "I am satisfied with the culture my partner's family comes from."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Traditions",
+      "questionNumber": 130,
+      "question": "My partner and I have compatible customs and traditions."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Traditions",
+      "questionNumber": 131,
+      "question": "I think our families will not have problems during wedding preparations."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Traditions",
+      "questionNumber": 132,
+      "question": "I believe that my partner and I are compatible regarding the traditions and customs in the preparations for marriage (engagement, henna night, dowry, etc.)."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Traditions",
+      "questionNumber": 133,
+      "question": "I think our families are compatible with regard to the traditions and customs in wedding preparations."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Marriage Preparations",
+      "questionNumber": 134,
+      "question": "I want there to be no problems between my partner and me regarding the gifts we will give each other for the wedding."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Marriage Preparations",
+      "questionNumber": 135,
+      "question": "I want to come to an agreement with my partner about where we will live after marriage."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Marriage Preparations",
+      "questionNumber": 136,
+      "question": "I don't think we will have problems with our families regarding where we will live after marriage."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Marriage Preparations",
+      "questionNumber": 137,
+      "question": "I want to come to an agreement with my partner about the expenses that will arise during wedding preparations."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Marriage Preparations",
+      "questionNumber": 138,
+      "question": "I believe my partner and I will reach an agreement about the items to be purchased for our home after marriage."
+    },
+    {
+      "category": "CULTURAL DYNAMICS",
+      "subcategory": "Marriage Preparations",
+      "questionNumber": 139,
+      "question": "I want to plan our wedding ceremony together with my partner."
+    },
+    {
+      "category": "Questionnaire Completed",
+      "subcategory": "",
+      "questionNumber": 140,
+      "question": "Questionnaire Completed."
+    },
+    {
+      "category": "",
+      "subcategory": "",
+      "questionNumber": 141,
+      "question": ""
+    }
+  ]
+}

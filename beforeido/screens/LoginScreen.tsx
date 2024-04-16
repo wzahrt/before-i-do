@@ -15,7 +15,7 @@ const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
   const handleLogin = () => {
     auth().signInWithEmailAndPassword(email, password)
     .then((res)=>{
-      console.log('User signed in with credentials' + email , password);
+      console.log('User signed in with credentials ' + email , password);
       console.log(res)
       props.navigation.push('Main');
     })
