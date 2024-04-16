@@ -48,42 +48,62 @@ function fetchUser() {
   console.log("loading: ", AsetLoading);
   if (user?.curSection == 2) { 
     startingQuestion = 35;
-    startingCategory = 'RELATIONSHIP DYNAMICS'
+    startingCategory = questionsData.questions[34].category;
   } else if (user?.curSection == 3) { 
     startingQuestion = 68; 
-    startingCategory = 'COUPLE RELATIONSHIP DYNAMICS';
+    startingCategory = questionsData.questions[67].category;
   } else if (user?.curSection == 4) { 
     startingQuestion = 112; 
-    startingCategory = 'CULTURAL DYNAMICS';
+    startingCategory = questionsData.questions[111].category;
   } else if (user?.curSection == 5) {
     startingQuestion = 140;
     startingCategory = 'END OF QUESTIONNAIRE';
   }
-  console.log("Current Section: ", user?.curSection);
-  console.log("User: ", currentUserID);
+  // console.log("Current Section: ", user?.curSection);
+  // console.log("User: ", currentUserID);
 
   return currentUserID;
 });
 }
+
+let userinfo = null;
 
 type Questionnaire1ScreenProps = NativeStackScreenProps<RootStackParamList, "Questionnaire1">;
 
 const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, navigation) => {
   const [sliderValue1, setSliderValue1] = useState(1);  // Save all slider values 
   const [loading, setLoading] = useState(AsetLoading);
-  const [nextQuestion, setNextQuestion] = useState(startingQuestion); 
-  const [category, setCategory] = useState(startingCategory);
-  const [subcategory, setSubcategory] = useState(questions[nextQuestion-1].subcategory);
+  const [nextQuestion, setNextQuestion] = useState(1);
+  const [category, setCategory] = useState(null);
+  const [subcategory, setSubcategory] = useState(null);
 
 
-  const user = fetchUser();
+
+  useEffect(() => {
+    fetchData().then((user) => {
+      // fetchUser();
+      currentUserID = user.uid;
+      userinfo = user;
+      // fetchUser();
+      startingQuestion = user?.curSection == 2 ? 35 : user?.curSection == 3 ? 68 : user?.curSection == 4 ? 112 : user?.curSection == 5 ? 140 :1;
+      setNextQuestion(startingQuestion);
+      setCategory(questions[startingQuestion-1].category);
+      setSubcategory(questions[startingQuestion-1].subcategory);
+      console.log("Starting Question: ", startingQuestion);
+      console.log("Current Section: ", user?.curSection);
+      setLoading(false);
+    });
+  }
+  , []);
+
+  
   // console.log("loading: ", loading);
 
   if(nextQuestion == 1) {
     questionAnswers = [];
     subcategories = [];
   }
-  console.log("category: ", category);
+  // console.log("category: ", category);
 
     // console.log('Couple Code:', user.coupleCode);
     // console.log('Current Section:', user.curSection);
