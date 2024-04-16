@@ -12,8 +12,8 @@ import AssessmentStack from './stacks/AssessmentStack';
 import ConsultationStack from './stacks/ConsultationStack';
 import EntryStack from './stacks/EntryStack';
 import ResultsStack from './stacks/ResultsStack';
-import HomeStack from './stacks/HomeStack';
-import ProfileStack from './stacks/ProfileStack';
+import HomeStack from './stacks/homeStack';
+import ProfileStack from './stacks/profileStack';
  
 // Other imports 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
