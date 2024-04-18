@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, ImageBackground, Alert } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 import auth from "@react-native-firebase/auth";
@@ -15,7 +15,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  const fetchData = () => {
+  const updateCoupleCodeCollection = () => { 
     try {    //Check that coupleCode already exists in the "coupleCode" collection 
       // Query the coupleCode collection for the specific document
       const coupleCodeRef = firestore().collection('coupleCode').doc(coupleCode);
@@ -23,17 +23,17 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
       coupleCodeRef.get() // Get the document
           .then((doc) => {
               if (doc.exists) { // If so, add this user to that coupleCode document 
-                coupleCodeRef.set({
-                  user2: email, 
-                  user2Done: false, 
-                }, { 
-                  merge: true
-                })
-              } else {  // If not, add new coupleCode document with this user
-                coupleCodeRef.set({
-                  user1: email,
-                  user1Done: false,
-                })
+                if (doc.data().hasOwnProperty("user2")) {
+                  // TODO: Throw an error on the screen 
+                  Alert.alert("This Couple Code is already in use by a couple!");
+                } else {
+                  coupleCodeRef.set({ user2: email, user2Done: false, }, {merge: true})
+                  console.log("The document does not contain the 'user2' field.");
+                  updateAuth(); 
+                }} 
+              else {  // If not, add new coupleCode document with this user
+                coupleCodeRef.set({user1: email, user1Done: false, })
+                updateAuth(); 
               }
           })
           .catch((error) => {
@@ -46,35 +46,36 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
     }
 }
 
-  const handleSignUp = () => {
+  const updateAuth = () => { 
     // Here you can implement your signup logic
     auth().createUserWithEmailAndPassword(email, password)
     .then(()=>{
       console.log('User created with credentials' + email , password);
-      props.navigation.push('Login'); // After successful login, you can navigate to the login screen
+      updateUsersCollection(); 
     })
     .catch((err)=>{
+      console.log("error when updating the authentification")
       console.log(err)
     })
+  }
 
-     firestore().collection("users").add({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        password: password,
-        coupleCode: coupleCode, 
+  const updateUsersCollection = () => {
+    firestore().collection("users").add({
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+      coupleCode: coupleCode, 
+      
+    }).then((res)=>{
+      console.log("adding user")
+      console.log("Added new user to FireStore: " + firstName, lastName)
+      props.navigation.push('Login'); // After successful login, you can navigate to the login screen
 
-        
-     }).then((res)=>{
-        console.log("adding user")
-        console.log("Added new user to FireStore: " + firstName, lastName)
-
-     }).catch((e)=> {
+    }).catch((e)=> {
+      console.log("Error when updating the user collection")
       console.log(e)
-     })
-
-
-   
+    })
   };
 
   return (
@@ -120,7 +121,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
         />
         <Button
           title="Create Account"
-          onPress={handleSignUp}
+          onPress={updateCoupleCodeCollection}
         />
         <Button
           title="Return To Login"
