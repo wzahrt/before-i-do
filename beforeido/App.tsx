@@ -35,6 +35,7 @@ export type RootStackParamList = {
   Results: undefined; 
   Signup: undefined; 
   Questionnaire1: undefined;
+  ResultsBreakdown: undefined;
 };
 
 

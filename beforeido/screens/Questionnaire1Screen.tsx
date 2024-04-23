@@ -44,7 +44,6 @@ let AsetLoading = true;
 function fetchUser() {
   fetchData().then((user) => {
   currentUserID = user.uid;
-  AsetLoading = false;
   console.log("loading: ", AsetLoading);
   if (user?.curSection == 2) { 
     startingQuestion = 35;
@@ -61,7 +60,7 @@ function fetchUser() {
   }
   // console.log("Current Section: ", user?.curSection);
   // console.log("User: ", currentUserID);
-
+  AsetLoading = false;
   return currentUserID;
 });
 }
@@ -97,6 +96,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
   , []);
 
   
+  
   // console.log("loading: ", loading);
 
   if(nextQuestion == 1) {
@@ -127,8 +127,8 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       for (let i = 0; i < subcategories.length; i++) {
         data[subcategories[i]] = questionAnswers[i];
       };
+      // data['coupleCode'] = userinfo.coupleCode;
       
-      // console.log("here");
       firestore().collection('users').doc(currentUserID).collection('questionnaire').doc(category).set(
         data
       ).then(() => {
@@ -186,6 +186,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       for (let i = 0; i < subcategories.length; i++) {
         data[subcategories[i]] = questionAnswers[i];
       };
+      // data['coupleCode'] = userinfo.coupleCode;
       
       // console.log("here");
       firestore().collection('users').doc(currentUserID).collection('questionnaire').doc(category).set(

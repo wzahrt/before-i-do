@@ -5,6 +5,7 @@ import ResultsScreen from "../screens/ResultsScreen";
 import ConsultationScreen from "../screens/ConsultationScreen";
 import AssessmentScreen from "../screens/AssessmentScreen";
 import Questionnaire1Screen from "../screens/Questionnaire1Screen";
+import ResultsBreakdownScreen from "../screens/ResultsBreakdownScreen";
 
 const Stack = createNativeStackNavigator<RootStackParamList>(); 
 const HomeStack = () => {
@@ -19,6 +20,7 @@ const HomeStack = () => {
          <Stack.Screen name="Results" component={ResultsScreen} />
          <Stack.Screen name="Consultation" component={ConsultationScreen} />
          <Stack.Screen name='Questionnaire1' component={Questionnaire1Screen} />
+         <Stack.Screen name='ResultsBreakdown' component={ResultsBreakdownScreen} />
       </Stack.Navigator>
     )
 }

@@ -27,4 +27,22 @@ export const textStyles = StyleSheet.create({
     fontSize: 20,
     color: 'black',
   }, 
+  relationshipReport: {
+    fontSize: 20,
+    fontFamily: 'Times New Roman',
+    fontWeight: 'bold',
+    color: 'black',
+    padding: 10,
+    borderRadius: 5,
+  },
+  button1: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    borderWidth: 2,
+    borderColor: 'black',
+    color: 'white',
+    padding: 0,
+    borderRadius: 5,
+  }
+
 });
