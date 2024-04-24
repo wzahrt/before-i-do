@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { View, Text, Button, StyleSheet, ImageBackground} from 'react-native';
+import { View, Text, Button, StyleSheet, ImageBackground, BackHandler} from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 import { Pressable } from 'react-native';
@@ -7,7 +7,7 @@ import { textStyles } from '../TextStyles';
 import { UserDocument, fetchData } from '../userData';
 import firestore from '@react-native-firebase/firestore';
 import BarChart from '../components/BarChart';
-import { VictoryBar, VictoryChart, VictoryGroup, VictoryLegend } from "victory-native";
+// import { VictoryBar, VictoryChart, VictoryGroup, VictoryLegend } from "victory-native";
 
 type ResultsBreakdownScreenProps = NativeStackScreenProps<RootStackParamList, "ResultsBreakdown">;
 let currentUser;
@@ -48,9 +48,10 @@ let subCatsPersonality = ['Emotional Stability', 'Empathy', 'Openness to Experie
 
 interface ResponseDocument {
   "PERSONALITY DYNAMICS": personality,
+  "FAMILY DYNAMICS": family,
   "COUPLE RELATIONSHIP DYNAMICS": couple,
-  "CULTURAL DYNAMICS": cultural,
-  "FAMILY DYNAMICS": family
+  "CULTURAL DYNAMICS": cultural
+  
 };
 
 interface personality {
@@ -195,8 +196,9 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
         // console.log("query1: " + query1['PERSONALITY DYNAMICS']['Emotional Stability']);
         // console.log("query: ", query);
         // console.log("query1: ", query1);
-        console.log("current data: ", currentData);
+        // console.log("current data: ", currentData['user2']);
         setResponseData(currentData);
+
       }
 
     setLoading(false);
@@ -209,61 +211,185 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
   }
   , []);
 
-  // console.log("outside of use effect: ", query);
-  // console.log("outside of use effect: ", query1);
   
-  const data = {
-    planned: [null, {x: 'Week 2', y:20}],
-    actual: [
-      {x: 'Week 1', y: 10},
-      {x: 'Week 2', y: 20},
-    ],
-  };
-  var MyChart = <VictoryChart>
-                  <VictoryGroup offset={20}>
-                      <VictoryBar
-                          data={data.planned}
-                          style={{ data: { fill: "tomato" } }}
-                      />
-                      <VictoryBar
-                          data={data.actual}
-                          style={{ data: { fill: "blue" } }}
-                      />
-                  </VictoryGroup>
-                  {/* <VictoryLegend data={data} /> */}
-                </VictoryChart>;  
 
-  // query.forEach((doc) => {
-  //   console.log(doc.id, '=>', doc.data());
-  // });
+  const handleNext = () => { 
+    // updates section and responses
+    console.log("Next button pressed");
+    const currentData = Object.create(null);
+    currentData['user1'] = [];
+    currentData['user2'] = [];
+
+    let nextCategory = '';
+    
+    if (category == 'CULTURAL DYNAMICS') {
+      props.navigation.navigate('HomePage');
+      return;
+    }
+    else if (category == 'PERSONALITY DYNAMICS') {
+      setCategory('FAMILY DYNAMICS');
+      nextCategory = 'FAMILY DYNAMICS';
+    }
+    else if (category == 'FAMILY DYNAMICS') {
+      setCategory('COUPLE RELATIONSHIP DYNAMICS');
+      nextCategory = 'COUPLE RELATIONSHIP DYNAMICS';
+    }
+    else if (category == 'COUPLE RELATIONSHIP DYNAMICS') {
+      setCategory('CULTURAL DYNAMICS');
+      nextCategory = 'CULTURAL DYNAMICS';
+    }
+    
+    let temp = [];
+    Object.entries(query[nextCategory]).forEach(([key, value]) => {
+      console.log(key, value);
+      let average = value.reduce((a, b) => a + b, 0) / value.length;
+      // currentData['user1'] = [{x: key, y: average}];
+      temp.push({x: key, y: average});
+      // console.log("here: ", currentData['user1']);
+    });
+    currentData['user1'] = temp;
+    
+    let temp1 = [];
+    setResponse1(query1);
+    Object.entries(query1[nextCategory]).forEach(([key, value]) => {
+      // console.log(key, value);
+      let average = value.reduce((a, b) => a + b, 0) / value.length;
+      // currentData['user2'] = [{x: key, y: average}];
+      temp1.push({x: key, y: average});
+    });
+    currentData['user2'] = temp1;
+
+    setResponseData(currentData);
+
+    console.log("current data: ", currentData['user1']);
+    console.log("current data: ", currentData['user2']);    
+
+  }
+
+  const handlePrevious = () => { 
+    // updates section and responses
+    console.log("Next button pressed");
+    const currentData = Object.create(null);
+    currentData['user1'] = [];
+    currentData['user2'] = [];
+
+    let prevCategory = '';
+    
+    if (category == 'PERSONALITY DYNAMICS') {
+      props.navigation.navigate('Results');
+      return;
+    }
+    else if (category == 'FAMILY DYNAMICS') {
+      setCategory('PERSONALITY DYNAMICS');
+      prevCategory = 'PERSONALITY DYNAMICS';
+    }
+    else if (category == 'COUPLE RELATIONSHIP DYNAMICS') {
+      setCategory('FAMILY DYNAMICS');
+      prevCategory = 'FAMILY DYNAMICS';
+    }
+    else if (category == 'CULTURAL DYNAMICS') {
+      setCategory('COUPLE RELATIONSHIP DYNAMICS');
+      prevCategory = 'COUPLE RELATIONSHIP DYNAMICS';
+    }
+
+    
+    let temp = [];
+    Object.entries(query[prevCategory]).forEach(([key, value]) => {
+      console.log(key, value);
+      let average = value.reduce((a, b) => a + b, 0) / value.length;
+      // currentData['user1'] = [{x: key, y: average}];
+      temp.push({x: key, y: average});
+      // console.log("here: ", currentData['user1']);
+    });
+    currentData['user1'] = temp;
+    
+    let temp1 = [];
+    setResponse1(query1);
+    Object.entries(query1[prevCategory]).forEach(([key, value]) => {
+      // console.log(key, value);
+      let average = value.reduce((a, b) => a + b, 0) / value.length;
+      // currentData['user2'] = [{x: key, y: average}];
+      temp1.push({x: key, y: average});
+    });
+    currentData['user2'] = temp1;
+
+    setResponseData(currentData);
+
+    console.log("current data: ", currentData['user1']);
+    console.log("current data: ", currentData['user2']);    
+
+  }
+
+
+
+
   return (
     <ImageBackground
       // source={require('../assets/images/report.png')}
       style={styles.backgroundImage}
     >
-      <View style={{  alignItems: 'center', marginTop:'500'}}>
+      <View style={{ alignItems: 'center', marginTop: 100, marginHorizontal:20 }}>
 
         <Text>Results Breakdown</Text>
-        
+
 
         {loading ? ( // This lets us have a loading page, but it's so fast you can't even see it lmao. WE NEED THIS
-            <Text>Loading...</Text>
-          ) : (
-            <>
-            <Text>Loading done</Text>
+          <Text>Loading...</Text>
+        ) : (
+          <>
+            {/* print each item in responseData, for both user1 and user2 */}
+            <Text></Text>
+            <Text></Text>
+            <Text>{category}</Text>
+            <Text></Text>
+            <Text>You</Text>
+            <Text>
+              {responseData['user1'].map((item) => {
+                return <Text>{item.x}: {item.y} </Text>
+              })
+              }
+            </Text>
+            <Text></Text>
+            <Text>Your Partner</Text>
+            <Text>
+              {responseData['user1'].map((item) => {
+                return <Text>{item.x}: {item.y} </Text>
+              })
+              }
+            </Text>
+            {/* <Text>{responseData.}</Text> */}
             {/* <Text>{response['PERSONALITY DYNAMICS']['Emotional Stability']}</Text> */}
             {/* <Text>{query1['PERSONALITY DYNAMICS']['Emotional Stability']}</Text> */}
             {/* <Text>{response['PERSONALITY DYNAMICS']['Empathy']}</Text> */}
-            </>
+          </>
         )}
-        
-        
 
-
-        
-      
       </View>
-    </ImageBackground>  
+      <View style={{ flexDirection: 'row', justifyContent:'center', marginTop: 200 }}>
+        <Pressable
+          onPress={handlePrevious}
+          style={textStyles.button}
+          backgroundColor='lightblue'
+        >
+          <Text>
+            Previous
+          </Text>
+
+        </Pressable>
+        <View style={{ width: 20 }}></View>
+        <Pressable
+          onPress={handleNext}
+          style={textStyles.button}
+          backgroundColor='lightblue'
+        >
+          <Text>
+            {category == 'CULTURAL DYNAMICS' ? 'Home' :
+              'Next'}
+          </Text>
+
+        </Pressable>
+      </View>
+    </ImageBackground>
   );
 };
 
