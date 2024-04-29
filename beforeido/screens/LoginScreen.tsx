@@ -55,12 +55,6 @@ const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
           secureTextEntry={true}
           style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
         />
-        <TextInput
-          placeholder="Couple Code"
-          value={coupleCode}
-          onChangeText={setCoupleCode}
-          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
-        />
         <Button
           title="Login"
           onPress={handleLogin}

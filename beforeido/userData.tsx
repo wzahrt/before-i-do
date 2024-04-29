@@ -2,7 +2,7 @@ import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth";
 import firestore from '@react-native-firebase/firestore';
 
 interface UserDocument { 
-    coupleCode: number; 
+    coupleCode: string; 
     curSection: number; 
     email: string; 
     firstName: string; 

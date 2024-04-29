@@ -29,11 +29,11 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
                 } else {
                   coupleCodeRef.set({ user2: email, user2Done: false, }, {merge: true})
                   console.log("The document does not contain the 'user2' field.");
-                  updateAuth(); 
+                  updateUsersCollection(); 
                 }} 
               else {  // If not, add new coupleCode document with this user
                 coupleCodeRef.set({user1: email, user1Done: false, })
-                updateAuth(); 
+                updateUsersCollection(); 
               }
           })
           .catch((error) => {
@@ -51,7 +51,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
     auth().createUserWithEmailAndPassword(email, password)
     .then(()=>{
       console.log('User created with credentials' + email , password);
-      updateUsersCollection(); 
+      updateCoupleCodeCollection(); 
     })
     .catch((err)=>{
       console.log("error when updating the authentification")
@@ -101,7 +101,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
         <TextInput
           placeholder="Email"
           value={email}
-          onChangeText={setEmail}
+          onChangeText={(text) => setEmail(text.toLowerCase())}
           style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
         />
         <TextInput
@@ -121,7 +121,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
         />
         <Button
           title="Create Account"
-          onPress={updateCoupleCodeCollection}
+          onPress={updateAuth}
         />
         <Button
           title="Return To Login"

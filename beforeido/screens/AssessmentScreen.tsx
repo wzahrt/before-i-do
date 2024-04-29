@@ -1,27 +1,58 @@
-import React from 'react';
-import { View, Text, Button, ImageBackground, StyleSheet } from 'react-native';
+import { React, useState, useEffect } from 'react';
+import { View, Text, Button, ImageBackground, StyleSheet, Alert } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 import { fetchData } from '../userData.tsx'; 
+import { fetchCoupleData } from '../coupleData.tsx';
 import firestore from '@react-native-firebase/firestore';
 
 
 
 type AssessmentScreenProps = NativeStackScreenProps<RootStackParamList, "Assessment">;
 
-let uid: null | string;
-fetchData().then((user) => {
-  uid = user.uid;
-});
-
-
 const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
-  const handleNewAssessment = () => {
-    // GIVEN: User info 
-    // RETURN: none 
-    // EFFECT: change navigation to move us to first questionnaire page, cleanse previous results
-        
-    // TODO 0: Clear questionnaire results 
+  let uid: undefined | string | null; 
+  const [coupleCode, setCoupleCode] = useState(0);
+  const [user1, setUser1] = useState(""); 
+  const [user1Done, setUser1Done] = useState(false); 
+  const [user2, setUser2] = useState<string | null>(""); 
+  const [user2Done, setUser2Done] = useState<boolean | null>(false); 
+
+
+  useEffect(() => {
+    fetchData().then((user) => {
+      uid = user?.uid, 
+      setCoupleCode(user.coupleCode)
+
+      console.log("CoupleCode: ", coupleCode)
+    });
+
+    fetchCoupleData(coupleCode).then((couple) => { 
+      setUser1(couple.user1); 
+      setUser1Done(couple.user1Done); 
+      setUser2(couple.user2); 
+      setUser2Done(couple.user2Done);
+
+      console.log("Inside fetch - inside useEffect"); 
+      console.log("User 1: ", user1); 
+      console.log("User 2: ", user2); 
+      console.log("User 1 Done: ", user1Done); 
+      console.log("User 2 Done: ", user2Done); 
+      
+    })
+
+    console.log("Outside fetch - inside useEffect")
+    console.log("User 1: ", user1); 
+    console.log("User 2: ", user2); 
+    console.log("User 1 Done: ", user1Done); 
+    console.log("User 2 Done: ", user2Done);  
+
+  }
+  , []);
+
+
+  const handleNewAssessment = () => {        
+    // Clear questionnaire results 
     firestore().collection(`users/${uid}/questionnaire`)
       .get()
       .then(res => {
@@ -34,43 +65,57 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
       });
     
     
-    // TODO 1: update curSection
-    // console.log(uid);
+    // Update curSection
     firestore().collection('users').doc(uid).update({curSection: 1}).catch(error => {
       console.log("Error updating curSection:", error);
     }
     );
+    console.log("Testing if they can enter questionnnaire")
 
-    
-    // TODO 2: Push to questionnaire 1  
-    console.log("ENTERING QUESTIONNAIRE")
-    props.navigation.push('Questionnaire1');
+     // Test for partner, push to questionnaire
+    if(canTakeAssessment()) {
+      console.log("Entering questionnaire");
+
+      console.log("User 1: ", user1); 
+      console.log("User 2: ", user2); 
+      console.log("User 1 Done: ", user1Done); 
+      console.log("User 2 Done: ", user2Done);  
+
+      props.navigation.push('Questionnaire1');
+    } else { 
+      Alert.alert("You need a partner with a matching couple code to proceed!"); 
+    }
   };
 
-  const handleContinueAssessment = () => {
-    // GIVEN: User info 
-    // RETURN: none 
-    // EFFECT: change navigation to move us to most recently unanswered page
+  const canTakeAssessment = () : Boolean => { 
     
-    // TODO 0: Determine user 
-    // TODO 1: Determine most recently unanswered question 
-    // TODO 2: Push to corresponding question 
-    
-    props.navigation.push('Questionnaire1');
+    if(user2 != null) return true; 
+    else return false; 
+     
+  }
+
+  const handleContinueAssessment = () => { // Push to assessment if user is allowed to
+    console.log("Testing if they can enter questionnnaire")
+    if(canTakeAssessment()) {
+      console.log("Entering questionnaire")
+      props.navigation.push('Questionnaire1');
+    } else Alert.alert("You need a partner with a matching couple code to proceed!")
   };
 
+  const canViewResults = () : Boolean => { 
+    if(user2 == null) return false; 
+    if(user1Done == false) return false; 
+    if(user2Done == false) return false; 
+    return true; 
+  }
+  
   const handleViewResults = () => {
-    // GIVEN: User info 
-    // RETURN: none 
-    // EFFECT: change navigation to move us to results page if valid
-    
-    // TODO 0: Determine user 
-    // TODO 1: Determine if all questions are answered by user 
-    // TODO 2: Determine if all questions are answered by partner (couple code)
-    // TODO 3: If yes to everything before, push to results page 
-    // TODO 4: Else, throw error and remain on page 
-    
-    props.navigation.push('Signup');
+    console.log("Testing if they can enter results")
+    if(canViewResults()) {
+      console.log("Entering results")
+      props.navigation.push('Results');
+    } else Alert.alert("You and your partner must both complete the assessment before we can look at results!")
+
   };
 
   return (
