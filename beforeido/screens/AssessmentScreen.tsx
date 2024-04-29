@@ -12,7 +12,7 @@ type AssessmentScreenProps = NativeStackScreenProps<RootStackParamList, "Assessm
 
 const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
   let uid: undefined | string | null; 
-  const [coupleCode, setCoupleCode] = useState(0);
+  const [coupleCode, setCoupleCode] = useState("");
   const [user1, setUser1] = useState(""); 
   const [user1Done, setUser1Done] = useState(false); 
   const [user2, setUser2] = useState<string | null>(""); 
@@ -38,7 +38,7 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
       console.log("User 2: ", user2); 
       console.log("User 1 Done: ", user1Done); 
       console.log("User 2 Done: ", user2Done); 
-      
+
     })
 
     console.log("Outside fetch - inside useEffect")
