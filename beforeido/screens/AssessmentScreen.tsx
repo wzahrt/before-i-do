@@ -13,42 +13,26 @@ type AssessmentScreenProps = NativeStackScreenProps<RootStackParamList, "Assessm
 const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
   let uid: undefined | string | null; 
   const [coupleCode, setCoupleCode] = useState("");
-  const [user1, setUser1] = useState(""); 
-  const [user1Done, setUser1Done] = useState(false); 
-  const [user2, setUser2] = useState<string | null>(""); 
-  const [user2Done, setUser2Done] = useState<boolean | null>(false); 
+  const [coupleData, setCoupleData] = useState({user1: "", user1Done: false, user2: "", user2Done: false})
 
-
-  useEffect(() => {
+  useEffect(() => { // Get couple code 
     fetchData().then((user) => {
       uid = user?.uid, 
-      setCoupleCode(user.coupleCode)
-
-      console.log("CoupleCode: ", coupleCode)
-    });
-
-    fetchCoupleData(coupleCode).then((couple) => { 
-      setUser1(couple.user1); 
-      setUser1Done(couple.user1Done); 
-      setUser2(couple.user2); 
-      setUser2Done(couple.user2Done);
-
-      console.log("Inside fetch - inside useEffect"); 
-      console.log("User 1: ", user1); 
-      console.log("User 2: ", user2); 
-      console.log("User 1 Done: ", user1Done); 
-      console.log("User 2 Done: ", user2Done); 
-
+      setCoupleCode(user.coupleCode) 
     })
-
-    console.log("Outside fetch - inside useEffect")
-    console.log("User 1: ", user1); 
-    console.log("User 2: ", user2); 
-    console.log("User 1 Done: ", user1Done); 
-    console.log("User 2 Done: ", user2Done);  
-
   }
   , []);
+
+  useEffect(() => { // Get Couple Data
+    fetchCoupleData(coupleCode).then((couple) => { 
+      setCoupleData({
+        user1: couple.user1, 
+        user1Done: couple.user1Done, 
+        user2: couple.user2, 
+        user2Done: couple.user2Done
+      }); 
+  });
+  }, [coupleCode])
 
 
   const handleNewAssessment = () => {        
@@ -76,10 +60,10 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
     if(canTakeAssessment()) {
       console.log("Entering questionnaire");
 
-      console.log("User 1: ", user1); 
-      console.log("User 2: ", user2); 
-      console.log("User 1 Done: ", user1Done); 
-      console.log("User 2 Done: ", user2Done);  
+      console.log("User 1: ", coupleData.user1); 
+      console.log("User 2: ", coupleData.user2); 
+      console.log("User 1 Done: ", coupleData.user1Done); 
+      console.log("User 2 Done: ", coupleData.user2Done);   
 
       props.navigation.push('Questionnaire1');
     } else { 
@@ -89,7 +73,7 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
 
   const canTakeAssessment = () : Boolean => { 
     
-    if(user2 != null) return true; 
+    if(coupleData.user2 != null) return true; 
     else return false; 
      
   }
@@ -103,9 +87,9 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
   };
 
   const canViewResults = () : Boolean => { 
-    if(user2 == null) return false; 
-    if(user1Done == false) return false; 
-    if(user2Done == false) return false; 
+    if(coupleData.user2 == null) return false; 
+    if(coupleData.user1Done == false) return false; 
+    if(coupleData.user2Done == false) return false; 
     return true; 
   }
   
