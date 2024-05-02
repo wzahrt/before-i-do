@@ -37,35 +37,7 @@ let currentUserID: null | string;
 
 let startingQuestion = 1;
 let startingCategory = 'PERSONALITY DYNAMICS';
-// let user = fetchData();
 let AsetLoading = true;
-// This works, but still makes multiple calls
-
-function fetchUser() {
-  fetchData().then((user) => {
-  currentUserID = user.uid;
-  AsetLoading = false;
-  console.log("loading: ", AsetLoading);
-  if (user?.curSection == 2) { 
-    startingQuestion = 35;
-    startingCategory = questionsData.questions[34].category;
-  } else if (user?.curSection == 3) { 
-    startingQuestion = 68; 
-    startingCategory = questionsData.questions[67].category;
-  } else if (user?.curSection == 4) { 
-    startingQuestion = 112; 
-    startingCategory = questionsData.questions[111].category;
-  } else if (user?.curSection == 5) {
-    startingQuestion = 140;
-    startingCategory = 'END OF QUESTIONNAIRE';
-  }
-  // console.log("Current Section: ", user?.curSection);
-  // console.log("User: ", currentUserID);
-
-  return currentUserID;
-});
-}
-
 let userinfo = null;
 
 type Questionnaire1ScreenProps = NativeStackScreenProps<RootStackParamList, "Questionnaire1">;
@@ -76,16 +48,22 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
   const [nextQuestion, setNextQuestion] = useState(1);
   const [category, setCategory] = useState(null);
   const [subcategory, setSubcategory] = useState(null);
+  const [coupleCode, setCoupleCode] = useState(""); 
+  const [userEmail, setUserEmail] = useState(""); 
 
 
 
   useEffect(() => {
     fetchData().then((user) => {
-      // fetchUser();
       currentUserID = user.uid;
       userinfo = user;
-      // fetchUser();
-      startingQuestion = user?.curSection == 2 ? 35 : user?.curSection == 3 ? 68 : user?.curSection == 4 ? 112 : user?.curSection == 5 ? 140 :1;
+      startingQuestion = user?.curSection == 2 ? 
+        35 : user?.curSection == 3 ?
+        68 : user?.curSection == 4 ? 
+        112 : user?.curSection == 5 ? 
+        140 : 1;
+      setCoupleCode(user.coupleCode); 
+      setUserEmail(user.email); 
       setNextQuestion(startingQuestion);
       setCategory(questions[startingQuestion-1].category);
       setSubcategory(questions[startingQuestion-1].subcategory);
@@ -96,27 +74,13 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
   }
   , []);
 
-  
-  // console.log("loading: ", loading);
-
   if(nextQuestion == 1) {
     questionAnswers = [];
     subcategories = [];
   }
-  // console.log("category: ", category);
-
-    // console.log('Couple Code:', user.coupleCode);
-    // console.log('Current Section:', user.curSection);
-    // console.log('Email:', user.email);
-    // console.log('First Name:', user.firstName);
-    // console.log('Last Name:', user.lastName);
-    // console.log('Password:', user.password);
-
 
   const handleNext = () => { 
     console.log("Moved into handle next"); // Tests 
-    // console.log("Next Question: ", nextQuestion);
-    // console.log("Question Answers: ", questionAnswers);
 
     setNextQuestion(nextQuestion + 1); 
     setCategory(questions[nextQuestion].category); // Update category
@@ -128,7 +92,6 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
         data[subcategories[i]] = questionAnswers[i];
       };
       
-      // console.log("here");
       firestore().collection('users').doc(currentUserID).collection('questionnaire').doc(category).set(
         data
       ).then(() => {
@@ -149,6 +112,26 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       questionAnswers = []; // Reset questionAnswers 
       subcategories = []; // Reset subcategories
       console.log("assessment completed")
+
+      // Update user1 or user2 done 
+      const coupleCodeRef = firestore().collection('coupleCode').doc(coupleCode); 
+      
+      coupleCodeRef.get() // Get the document
+          .then((doc) => {
+              if (doc.exists) { // If so, check which use we are 
+                if (doc.data().user1 == userEmail) {
+                  coupleCodeRef.update("user1Done", true); 
+                } else {
+                  coupleCodeRef.update("user2Done", true)
+                }} 
+              else {  // If not, add new coupleCode document with this user
+                console.log("User doesn't exist in coupleCode collection")
+              }
+          })
+          .catch((error) => {
+              console.log("Error getting document:", error);
+          });
+
       props.navigation.push('Assessment');
       return;
     }

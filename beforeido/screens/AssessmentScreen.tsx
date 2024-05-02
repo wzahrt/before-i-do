@@ -54,17 +54,9 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
       console.log("Error updating curSection:", error);
     }
     );
-    console.log("Testing if they can enter questionnnaire")
 
      // Test for partner, push to questionnaire
     if(canTakeAssessment()) {
-      console.log("Entering questionnaire");
-
-      console.log("User 1: ", coupleData.user1); 
-      console.log("User 2: ", coupleData.user2); 
-      console.log("User 1 Done: ", coupleData.user1Done); 
-      console.log("User 2 Done: ", coupleData.user2Done);   
-
       props.navigation.push('Questionnaire1');
     } else { 
       Alert.alert("You need a partner with a matching couple code to proceed!"); 
@@ -72,16 +64,12 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
   };
 
   const canTakeAssessment = () : Boolean => { 
-    
     if(coupleData.user2 != null) return true; 
     else return false; 
-     
   }
 
   const handleContinueAssessment = () => { // Push to assessment if user is allowed to
-    console.log("Testing if they can enter questionnnaire")
     if(canTakeAssessment()) {
-      console.log("Entering questionnaire")
       props.navigation.push('Questionnaire1');
     } else Alert.alert("You need a partner with a matching couple code to proceed!")
   };
@@ -94,9 +82,7 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
   }
   
   const handleViewResults = () => {
-    console.log("Testing if they can enter results")
     if(canViewResults()) {
-      console.log("Entering results")
       props.navigation.push('Results');
     } else Alert.alert("You and your partner must both complete the assessment before we can look at results!")
 
