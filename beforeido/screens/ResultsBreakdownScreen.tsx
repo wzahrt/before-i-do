@@ -1,13 +1,17 @@
-import React, { useEffect, useState} from 'react';
-import { View, Text, Button, StyleSheet, ImageBackground, BackHandler} from 'react-native';
+import {useEffect, useState} from 'react';
+import React from 'react'
+import { View, Text, Button, StyleSheet, ImageBackground, BackHandler, useWindowDimensions} from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 import { Pressable } from 'react-native';
 import { textStyles } from '../TextStyles';
 import { UserDocument, fetchData } from '../userData';
 import firestore from '@react-native-firebase/firestore';
-import BarChart from '../components/BarChart';
-// import { VictoryBar, VictoryChart, VictoryGroup, VictoryLegend } from "victory-native";
+// import BarChart from '../components/BarChart';
+import { BarChart } from 'react-native-chart-kit';
+import { Bar } from 'react-native-progress';
+
+
 
 type ResultsBreakdownScreenProps = NativeStackScreenProps<RootStackParamList, "ResultsBreakdown">;
 let currentUser;
@@ -155,7 +159,8 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
   const [response, setResponse] = useState(query);
   const [response1, setResponse1] = useState(query1);
   const [category, setCategory] = useState('PERSONALITY DYNAMICS');
-  const [responseData, setResponseData] = useState(Object.create(null));
+  const [userData, setUserData] = useState(Object.create(null));
+  const [partnerData, setPartnerData] = useState(Object.create(null));
 
   
   useEffect(() => {
@@ -165,49 +170,47 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
       // console.log("query1: " + query1.data());
       // setLoading(false);
       
-      const currentData = Object.create(null);
-      currentData['user1'] = [];
-      currentData['user2'] = [];
+    
 
       if(query != undefined && query1 != undefined) {
         console.log("stuff is loaded now");
         setResponse(query);
 
-        let temp = [];
+        let temp = Object.create(null);
+        temp['labels'] = [];
+        temp['datasets'] = [{data: []}];
         Object.entries(query[category]).forEach(([key, value]) => {
-          console.log(key, value);
+          // console.log(key, value);
+          temp['labels'].push(key);
+    
           let average = value.reduce((a, b) => a + b, 0) / value.length;
           // currentData['user1'] = [{x: key, y: average}];
-          temp.push({x: key, y: average});
+          temp['datasets'][0].data.push(average);
           // console.log("here: ", currentData['user1']);
         });
-        currentData['user1'] = temp;
+        setUserData(temp);
+        console.log("temp: ", temp);
         
-        let temp1 = [];
+        let temp1 = Object.create(null);
+        temp1['labels'] = [];
+        temp1['datasets'] = [{data: []}];
         setResponse1(query1);
         Object.entries(query1[category]).forEach(([key, value]) => {
           // console.log(key, value);
+          temp1['labels'].push(key);
           let average = value.reduce((a, b) => a + b, 0) / value.length;
           // currentData['user2'] = [{x: key, y: average}];
-          temp1.push({x: key, y: average});
+          temp1['datasets'][0].data.push(average);
         });
-        currentData['user2'] = temp1;
+        setPartnerData(temp1);
+        console.log("temp1: ", temp1);
+        // console.log("temp1 data: ", temp1['datasets'][0].data);
         
-        // console.log("query1: " + query1['PERSONALITY DYNAMICS']['Emotional Stability']);
-        // console.log("query: ", query);
-        // console.log("query1: ", query1);
-        // console.log("current data: ", currentData['user2']);
-        setResponseData(currentData);
-
       }
 
     setLoading(false);
     });
 
-    console.log("response data: ", responseData);
-
-    // console.log("inside of use effect: ", query);
-    // console.log("inside of use effect: ", query1);
   }
   , []);
 
@@ -216,9 +219,7 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
   const handleNext = () => { 
     // updates section and responses
     console.log("Next button pressed");
-    const currentData = Object.create(null);
-    currentData['user1'] = [];
-    currentData['user2'] = [];
+    
 
     let nextCategory = '';
     
@@ -239,39 +240,43 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
       nextCategory = 'CULTURAL DYNAMICS';
     }
     
-    let temp = [];
+    let temp = Object.create(null);
+    temp['labels'] = [];
+    temp['datasets'] = [{data: []}];
     Object.entries(query[nextCategory]).forEach(([key, value]) => {
-      console.log(key, value);
+      // console.log(key, value);
+      temp['labels'].push(key);
+
       let average = value.reduce((a, b) => a + b, 0) / value.length;
       // currentData['user1'] = [{x: key, y: average}];
-      temp.push({x: key, y: average});
+      temp['datasets'][0].data.push(average);
       // console.log("here: ", currentData['user1']);
     });
-    currentData['user1'] = temp;
+    setUserData(temp);
+    console.log("temp: ", temp);
     
-    let temp1 = [];
+    let temp1 = Object.create(null);
+    temp1['labels'] = [];
+    temp1['datasets'] = [{data: []}];
     setResponse1(query1);
     Object.entries(query1[nextCategory]).forEach(([key, value]) => {
       // console.log(key, value);
+      temp1['labels'].push(key);
       let average = value.reduce((a, b) => a + b, 0) / value.length;
       // currentData['user2'] = [{x: key, y: average}];
-      temp1.push({x: key, y: average});
+      temp1['datasets'][0].data.push(average);
     });
-    currentData['user2'] = temp1;
+    setPartnerData(temp1);
+    console.log("temp1: ", temp1);
 
-    setResponseData(currentData);
-
-    console.log("current data: ", currentData['user1']);
-    console.log("current data: ", currentData['user2']);    
+    console.log("current data: ", userData);
+    console.log("current data: ", partnerData);    
 
   }
 
   const handlePrevious = () => { 
     // updates section and responses
-    console.log("Next button pressed");
-    const currentData = Object.create(null);
-    currentData['user1'] = [];
-    currentData['user2'] = [];
+    console.log("Next button pressed");    
 
     let prevCategory = '';
     
@@ -293,42 +298,48 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
     }
 
     
-    let temp = [];
+    let temp = Object.create(null);
+    temp['labels'] = [];
+    temp['datasets'] = [{data: []}];
     Object.entries(query[prevCategory]).forEach(([key, value]) => {
-      console.log(key, value);
+      // console.log(key, value);
+      temp['labels'].push(key);
+
       let average = value.reduce((a, b) => a + b, 0) / value.length;
       // currentData['user1'] = [{x: key, y: average}];
-      temp.push({x: key, y: average});
+      temp['datasets'][0].data.push(average);
       // console.log("here: ", currentData['user1']);
     });
-    currentData['user1'] = temp;
+    setUserData(temp);
+    console.log("temp: ", temp);
     
-    let temp1 = [];
+    let temp1 = Object.create(null);
+    temp1['labels'] = [];
+    temp1['datasets'] = [{data: []}];
     setResponse1(query1);
     Object.entries(query1[prevCategory]).forEach(([key, value]) => {
       // console.log(key, value);
+      temp1['labels'].push(key);
       let average = value.reduce((a, b) => a + b, 0) / value.length;
       // currentData['user2'] = [{x: key, y: average}];
-      temp1.push({x: key, y: average});
+      temp1['datasets'][0].data.push(average);
     });
-    currentData['user2'] = temp1;
+    setPartnerData(temp1);
+    console.log("temp1: ", temp1);
 
-    setResponseData(currentData);
-
-    console.log("current data: ", currentData['user1']);
-    console.log("current data: ", currentData['user2']);    
 
   }
 
 
-
-
   return (
+    // console.log("response data", responseData),
+    
     <ImageBackground
       // source={require('../assets/images/report.png')}
       style={styles.backgroundImage}
     >
-      <View style={{ alignItems: 'center', marginTop: 100, marginHorizontal:20 }}>
+
+      <View style={{ alignItems: 'center', marginTop: 30, marginLeft: 20}}>
 
         <Text>Results Breakdown</Text>
 
@@ -337,35 +348,93 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
           <Text>Loading...</Text>
         ) : (
           <>
-            {/* print each item in responseData, for both user1 and user2 */}
+            <Text>{category}</Text>
             <Text></Text>
+            <Text>You</Text>
+            <BarChart
+              data={userData}
+              fromZero={true}   
+              width={280}
+              height={180}
+              fromNumber={5}
+              segments={5}
+              xLabelsOffset={-12}
+              yLabelsOffset={10}
+              // showValuesOnTopOfBars={true}
+              chartConfig={{
+                barPercentage: 1,  
+                decimalPlaces: 0,
+                strokeWidth: 2,       
+                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                style: {
+                  borderRadius: 5,
+                },
+                propsForLabels: {fontSize: 8},
+              }}
+              verticalLabelRotation={30}
+              style={{
+                borderRadius: 10,
+                paddingRight: 25,
+              }}
+            />
+
+            <Text></Text>
+            <Text>Your Partner</Text>
+            <BarChart
+              data={partnerData}
+              fromZero={true}   
+              width={280}
+              height={180}
+              fromNumber={5}
+              xLabelsOffset={-12}
+              yLabelsOffset={10}
+              segments={5}
+              chartConfig={{
+                barPercentage: 1,  
+                decimalPlaces: 0,
+                strokeWidth: 2,       
+                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                style: {
+                  borderRadius: 5,
+                },
+                propsForLabels: {fontSize: 8},
+              }}
+              verticalLabelRotation={30}
+              style={{
+                borderRadius: 10,
+                paddingRight: 25,
+              }}
+            />
+            
+            {/* print each item in responseData, for both user1 and user2 */}
+            {/* <Text></Text>
             <Text></Text>
             <Text>{category}</Text>
             <Text></Text>
             <Text>You</Text>
             <Text>
-              {responseData['user1'].map((item) => {
-                return <Text>{item.x}: {item.y} </Text>
+              {userData['labels'].map((item, index) => {
+                return <Text>{item}: {userData['datasets'][0].data[index]} </Text>
               })
-              }
+            }
             </Text>
             <Text></Text>
             <Text>Your Partner</Text>
             <Text>
-              {responseData['user1'].map((item) => {
-                return <Text>{item.x}: {item.y} </Text>
+              {partnerData['labels'].map((item, index) => {
+                return <Text>{item}: {partnerData['datasets'][0].data[index]} </Text>
               })
-              }
-            </Text>
-            {/* <Text>{responseData.}</Text> */}
-            {/* <Text>{response['PERSONALITY DYNAMICS']['Emotional Stability']}</Text> */}
-            {/* <Text>{query1['PERSONALITY DYNAMICS']['Emotional Stability']}</Text> */}
-            {/* <Text>{response['PERSONALITY DYNAMICS']['Empathy']}</Text> */}
+            }
+            </Text> */}
+            
           </>
         )}
 
       </View>
-      <View style={{ flexDirection: 'row', justifyContent:'center', marginTop: 200 }}>
+
+    
+
+      <View style={{ flexDirection: 'row', justifyContent:'center', marginTop: 30 }}>
         <Pressable
           onPress={handlePrevious}
           style={textStyles.button}
