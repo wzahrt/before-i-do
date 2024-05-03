@@ -46,7 +46,7 @@ const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
         <Text 
           style={textStyles.loginInstr}
         > 
-          Please login using your email and password! If you do not already have an account use the signup button to create an account and then return to the loging page to login.
+          Please login using your email and password! If you are a new user, use the Sign Up button to create an account.
         </Text>
         <TextInput
           placeholder="Email"

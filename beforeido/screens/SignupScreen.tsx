@@ -81,10 +81,11 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
 
   return (
     <ImageBackground
-      source={require('../assets/images/home_page_header.jpg')}
+      source={require('../assets/images/login.png')}
       style={styles.backgroundImage}
+      imageStyle={{opacity:0.5}}
     >
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white', opacity: 0.8}}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text
         style={textStyles.loginHeader}
         >Sign Up</Text>
@@ -140,7 +141,8 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
           <Text style={textStyles.signUpButtonText} >
           Return To Login
           </Text> 
-        </Pressable> 
+        </Pressable>
+
       </View>
     </ImageBackground>  
   );

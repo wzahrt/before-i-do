@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Button, ImageBackground, StyleSheet, Image, Pressable } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
@@ -46,7 +46,10 @@ function HomeScreen({ navigation }: HomeScreenProps) {
           />
         </Pressable>
       </View>
-      <Text>Your Couple Code: {coupleCode}</Text>
+      <Text
+        style={{backgroundColor: '#ffccd4', padding: 8, borderRadius: 5, overflow: 'hidden'}}>
+        Your Couple Code: {coupleCode}
+      </Text>
     </View>
   );
 }

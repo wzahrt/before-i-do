@@ -33,7 +33,7 @@ export const textStyles = StyleSheet.create({
     fontSize: 20,
     color: 'black',
     padding: 20,
-    fontWeight: 'bold',    
+    fontWeight: 'bold',  
   },  
   loginButtonText: {
     fontSize: 20,

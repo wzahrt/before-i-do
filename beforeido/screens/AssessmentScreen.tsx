@@ -1,9 +1,10 @@
 import { React, useState, useEffect } from 'react';
-import { View, Text, Button, ImageBackground, StyleSheet, Alert } from 'react-native';
+import { View, Image, Text, Button, Pressable, ImageBackground, StyleSheet, Alert } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 import { fetchData } from '../userData.tsx'; 
 import { fetchCoupleData } from '../coupleData.tsx';
+import { textStyles } from '../TextStyles';
 import firestore from '@react-native-firebase/firestore';
 
 
@@ -89,29 +90,58 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
   };
 
   return (
-    <ImageBackground
-      source={require('../assets/images/relationship_dynamics.png')}
-      style={styles.backgroundImage}
-    >
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Assessment Screen</Text> 
-        <Button
-          title="Begin new assessment"
-          onPress={handleNewAssessment}
-        />
-        <Button
+    // <ImageBackground
+    //   source={require('../assets/images/relationship_dynamics.png')}
+    //   style={styles.backgroundImage}
+    //   imageStyle={{opacity:0.5}}
+    // >
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fbfbfb'}}>
+      <Text
+      style={textStyles.loginHeader}
+      >Assessment
+      </Text>
+      <Image 
+        source={require('../assets/images/assessment.png')} 
+        style={{width: 370, height: 182, }}
+        resizeMode="cover"
+      />        
+      <Pressable
+        onPress={handleNewAssessment}>
+          <Text
+          style={{width: 260, textAlign: 'center', fontSize: 15, color: 'black', marginTop: 15, padding: 10, paddingLeft: 20, paddingRight: 20, margin: 5, backgroundColor: '#f7d1d8', borderRadius: 5, overflow: 'hidden'}}
+          >Start New Assessment</Text>
+        </Pressable>
+        <Pressable
+          onPress={handleContinueAssessment}>
+          <Text
+          style={{width: 260, textAlign: 'center', fontSize: 15, color: 'black', padding: 10, paddingLeft: 20, paddingRight: 20, margin: 5, backgroundColor: '#f4bbc9', borderRadius: 5, overflow: 'hidden'}}
+          >Continue Previous Assessment</Text>
+        </Pressable>
+        <Pressable
+          onPress={handleViewResults}>
+          <Text
+          style={{width: 260, textAlign: 'center', fontSize: 15, color: 'black', padding: 10, paddingLeft: 20, paddingRight: 20, margin: 5, backgroundColor: '#f6a6bb', borderRadius: 5, overflow: 'hidden'}}
+          >View Results</Text>
+        </Pressable>
+        {/* <Button
           title="Continue previous assessment"
           onPress={handleContinueAssessment}
         />
         <Button
           title="View Results"
           onPress={handleViewResults}
-        />
+        /> */}
+        <View style={{paddingLeft:30, paddingRight: 30, marginTop: 20}}>
+          <Text
+          style={textStyles.paragraph}
+          >Before I do  consists of 4 parts. Please complete the inventory by checking all items to get your correct relationship report.
+          </Text> 
+        </View>
 
         
         
       </View>
-    </ImageBackground>
+    // </ImageBackground>
   );
 };
 
