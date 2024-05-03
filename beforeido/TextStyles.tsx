@@ -23,8 +23,15 @@ export const textStyles = StyleSheet.create({
     fontStyle: 'italic',
     fontWeight: 'bold',
   },
-  text: {
+  loginHeader: {
+    fontSize: 40,
+    color: 'black',
+    marginBottom: 100
+  }, 
+  loginInstr: {
     fontSize: 20,
     color: 'black',
+    // marginBottom: 300
+    padding: 30
   }, 
 });

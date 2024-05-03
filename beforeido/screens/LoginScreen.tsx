@@ -32,28 +32,34 @@ const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
 
   return (
     <ImageBackground
-      // source={require('../assets/images/login.png')}
-      source={require('../assets/images/blank_page.jpeg')}
+      source={require('../assets/images/login.png')}
       style={styles.backgroundImage}
     >
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View 
+      style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#FFFFFF', opacity: 0.9 }}
+    >
         <Text 
-          style={textStyles.text}
+          style={textStyles.loginHeader}
         > 
-          Login Screen
+          Login
+        </Text>
+        <Text 
+          style={textStyles.loginInstr}
+        > 
+          Please login using your email and password! If you do not already have an account use the signup button to create an account and then return to the loging page to login.
         </Text>
         <TextInput
           placeholder="Email"
           value={email}
           onChangeText={setEmail}
-          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 2, marginVertical: 10, backgroundColor: '#FFFFFF'}}
         />
         <TextInput
           placeholder="Password"
           value={password}
           onChangeText={setPassword}
           secureTextEntry={true}
-          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 2, marginVertical: 10 }}
         />
         <Button
           title="Login"
