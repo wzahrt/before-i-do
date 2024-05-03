@@ -81,7 +81,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
 
   return (
     <ImageBackground
-      source={require('../assets/images/login.png')}
+      source={require('../assets/images/home_page_header.jpg')}
       style={styles.backgroundImage}
     >
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white', opacity: 0.8}}>
