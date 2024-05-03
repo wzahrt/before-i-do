@@ -26,13 +26,14 @@ export const textStyles = StyleSheet.create({
   loginHeader: {
     fontSize: 40,
     color: 'black',
-    marginBottom: 50
+    marginBottom: 20,
+    fontWeight: 'bold',
   }, 
   loginInstr: {
     fontSize: 20,
     color: 'black',
-    // marginBottom: 300
-    padding: 30
+    padding: 20,
+    fontWeight: 'bold',    
   },  
   loginButtonText: {
     fontSize: 20,
@@ -62,4 +63,10 @@ export const textStyles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 20
   },
+  signUpInstr: {
+    fontSize: 12,
+    color: 'black',
+    padding: 5,
+    fontWeight: 'bold',    
+  },  
 });

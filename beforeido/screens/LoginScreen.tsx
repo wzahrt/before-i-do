@@ -36,7 +36,7 @@ const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
       style={styles.backgroundImage}
     >
       <View 
-      style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#FFFFFF', opacity: 0.9 }}
+      style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#FFFFFF', opacity: 0.8 }}
     >
         <Text 
           style={textStyles.loginHeader}
@@ -52,7 +52,7 @@ const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
           placeholder="Email"
           value={email}
           onChangeText={setEmail}
-          style={{ height: 40, width: 300, borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
+          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
         />
         <TextInput
           placeholder="Password"

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ImageBackground, Alert } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, ImageBackground, Alert, Pressable } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 import auth from "@react-native-firebase/auth";
+import { textStyles } from '../TextStyles';
 import firestore from "@react-native-firebase/firestore"
 
 
@@ -80,54 +81,66 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
 
   return (
     <ImageBackground
-      // source={require('../assets/images/login.png')}
-      source={require('../assets/images/blank_page.jpeg')}
+      source={require('../assets/images/login.png')}
       style={styles.backgroundImage}
     >
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Sign Up Screen</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white', opacity: 0.8}}>
+        <Text
+        style={textStyles.loginHeader}
+        >Sign Up</Text>
         <TextInput
           placeholder="First Name"
           value={firstName}
           onChangeText={setFirstName}
-          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
         />
         <TextInput
           placeholder="Last Name"
           value={lastName}
           onChangeText={setLastName}
-          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
         />
         <TextInput
           placeholder="Email"
           value={email}
           onChangeText={(text) => setEmail(text.toLowerCase())}
-          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
         />
         <TextInput
           placeholder="Password"
           value={password}
           onChangeText={setPassword}
           secureTextEntry={true}
-          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
         />
-        <Text>If partner has not registered, create couple code below.</Text>
-        <Text>If partner has registered, enter partners code below.</Text>
+        <Text
+        style={textStyles.signUpInstr}
+        >If partner has not registered, create couple code below.</Text>
+        <Text
+        style={textStyles.signUpInstr}
+        >If partner has registered, enter partner's code below.</Text>
         <TextInput
           placeholder="Couple Code"
           value={coupleCode}
           onChangeText={setCoupleCode}
-          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
         />
-        <Button
-          title="Create Account"
-          onPress={updateAuth}
-        />
-        <Button
-          title="Return To Login"
-          onPress={() => props.navigation.push('Login')}
-        />
-
+        <Pressable 
+          style={textStyles.loginButton}
+          // We're going to want this to navigate us to change the 'next question' value
+          onPress={updateAuth}> 
+          <Text style={textStyles.loginButtonText} >
+          Create Account
+          </Text> 
+        </Pressable>   
+        <Pressable 
+          style={textStyles.signUpButton}
+          // We're going to want this to navigate us to change the 'next question' value
+          onPress={() => props.navigation.push('Login')}> 
+          <Text style={textStyles.signUpButtonText} >
+          Return To Login
+          </Text> 
+        </Pressable> 
       </View>
     </ImageBackground>  
   );
