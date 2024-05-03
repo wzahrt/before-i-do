@@ -26,12 +26,40 @@ export const textStyles = StyleSheet.create({
   loginHeader: {
     fontSize: 40,
     color: 'black',
-    marginBottom: 100
+    marginBottom: 50
   }, 
   loginInstr: {
     fontSize: 20,
     color: 'black',
     // marginBottom: 300
     padding: 30
+  },  
+  loginButtonText: {
+    fontSize: 20,
+    fontFamily: 'Times New Roman',
+    fontWeight: 'bold',
+    color: 'black',
+    padding: 10,
+    borderRadius: 5,
+  },
+  loginButton: {
+    backgroundColor: '#FD3C56',
+    borderWidth: 2,
+    borderRadius: 20,
+    marginBottom: 10,
+    paddingHorizontal: 7
   }, 
+  signUpButtonText: {
+    fontSize: 14,
+    fontFamily: 'Times New Roman',
+    fontWeight: 'bold',
+    color: 'black',
+    padding: 10,
+    borderRadius: 5,
+  },
+  signUpButton: {
+    backgroundColor: '#2196F3',
+    borderWidth: 2,
+    borderRadius: 20
+  },
 });
