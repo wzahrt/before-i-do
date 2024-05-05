@@ -338,40 +338,44 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
       // source={require('../assets/images/report.png')}
       style={styles.backgroundImage}
     >
+      <View style={{ flex: 1, alignItems: 'center', paddingTop:40, backgroundColor:'lightpink'}}>
+        <Text style={{fontSize: 20,fontWeight: 'bold'}}>{category}{'\n'}</Text>
+      </View>
 
-      <View style={{ alignItems: 'center', marginTop: 30, marginLeft: 20}}>
-
-        <Text>Results Breakdown</Text>
+      <View style={{ alignItems: 'center', marginTop: 15, marginLeft:30}}>
 
 
         {loading ? ( // This lets us have a loading page, but it's so fast you can't even see it lmao. WE NEED THIS
           <Text>Loading...</Text>
         ) : (
           <>
-            <Text>{category}</Text>
-            <Text></Text>
-            <Text>You</Text>
+            {/* <Text>{category}</Text> */}
+            {/* <Text></Text> */}
+            <Text style={{fontSize:16, fontWeight:'bold', padding: 5}}>You</Text>
             <BarChart
               data={userData}
               fromZero={true}   
-              width={280}
-              height={180}
+              width={300}
+              height={200}
               fromNumber={5}
               segments={5}
               xLabelsOffset={-12}
               yLabelsOffset={10}
               // showValuesOnTopOfBars={true}
               chartConfig={{
-                barPercentage: 1,  
+                barPercentage: .9,  
                 decimalPlaces: 0,
-                strokeWidth: 2,       
-                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                backgroundGradientFrom: "#eedddd",
+                // backgroundGradientFromOpacity: 0,
+                backgroundGradientTo: "#eedddd",
+                // backgroundGradientToOpacity: 0.5,
+                color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`,
                 style: {
-                  borderRadius: 5,
+                  borderRadius: 3,
                 },
-                propsForLabels: {fontSize: 8},
+                propsForLabels: {fontSize: 4},
               }}
-              verticalLabelRotation={30}
+              // verticalLabelRotation={20}
               style={{
                 borderRadius: 10,
                 paddingRight: 25,
@@ -379,12 +383,12 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
             />
 
             <Text></Text>
-            <Text>Your Partner</Text>
+            <Text style={{fontSize:16, fontWeight:'bold', padding: 5}}>Your Partner</Text>
             <BarChart
               data={partnerData}
               fromZero={true}   
-              width={280}
-              height={180}
+              width={300}
+              height={200}
               fromNumber={5}
               xLabelsOffset={-12}
               yLabelsOffset={10}
@@ -392,14 +396,17 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
               chartConfig={{
                 barPercentage: 1,  
                 decimalPlaces: 0,
-                strokeWidth: 2,       
-                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                strokeWidth: 2,   
+                backgroundGradientFrom: "#eedddd",
+                // backgroundGradientFromOpacity: 0,
+                backgroundGradientTo: "#eedddd",    
+                color: (opacity = 1.5) => `rgba(0, 0, 255, ${opacity})`,
                 style: {
                   borderRadius: 5,
                 },
-                propsForLabels: {fontSize: 8},
+                propsForLabels: {fontSize: 4},
               }}
-              verticalLabelRotation={30}
+              // verticalLabelRotatiton={15}
               style={{
                 borderRadius: 10,
                 paddingRight: 25,
@@ -434,7 +441,7 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
 
     
 
-      <View style={{ flexDirection: 'row', justifyContent:'center', marginTop: 30 }}>
+      <View style={{ flexDirection: 'row', justifyContent:'center', marginBottom:10, marginTop:10}}>
         <Pressable
           onPress={handlePrevious}
           style={textStyles.button}
