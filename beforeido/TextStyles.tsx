@@ -69,4 +69,13 @@ export const textStyles = StyleSheet.create({
     padding: 5,
     fontWeight: 'bold',    
   },  
+  button1: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    borderWidth: 2,
+    borderColor: 'black',
+    color: 'white',
+    padding: 0,
+    borderRadius: 5,
+  }
 });
