@@ -83,7 +83,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
     <ImageBackground
       source={require('../assets/images/login.png')}
       style={styles.backgroundImage}
-      imageStyle={{opacity:0.5}}
+      imageStyle={{opacity:0.3}}
     >
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text
@@ -93,26 +93,26 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
           placeholder="First Name"
           value={firstName}
           onChangeText={setFirstName}
-          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
+          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 2, marginVertical: 10, paddingHorizontal: 5}}
         />
         <TextInput
           placeholder="Last Name"
           value={lastName}
           onChangeText={setLastName}
-          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
+          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 2, marginVertical: 10, paddingHorizontal: 5}}
         />
         <TextInput
           placeholder="Email"
           value={email}
           onChangeText={(text) => setEmail(text.toLowerCase())}
-          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
+          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 2, marginVertical: 10, paddingHorizontal: 5}}
         />
         <TextInput
           placeholder="Password"
           value={password}
           onChangeText={setPassword}
           secureTextEntry={true}
-          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
+          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 2, marginVertical: 10, paddingHorizontal: 5}}
         />
         <Text
         style={textStyles.signUpInstr}
@@ -124,7 +124,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
           placeholder="Couple Code"
           value={coupleCode}
           onChangeText={setCoupleCode}
-          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
+          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 2, marginVertical: 10, paddingHorizontal: 5}}
         />
         <Pressable 
           style={textStyles.loginButton}
