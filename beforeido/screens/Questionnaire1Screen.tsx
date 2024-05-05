@@ -38,6 +38,7 @@ let currentUserID: null | string;
 let startingQuestion = 1;
 let startingCategory = 'PERSONALITY DYNAMICS';
 let AsetLoading = true;
+
 let userinfo = null;
 
 type Questionnaire1ScreenProps = NativeStackScreenProps<RootStackParamList, "Questionnaire1">;
@@ -50,7 +51,6 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
   const [subcategory, setSubcategory] = useState(null);
   const [coupleCode, setCoupleCode] = useState(""); 
   const [userEmail, setUserEmail] = useState(""); 
-
 
 
   useEffect(() => {
@@ -74,6 +74,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
   }
   , []);
 
+
   if(nextQuestion == 1) {
     questionAnswers = [];
     subcategories = [];
@@ -91,6 +92,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       for (let i = 0; i < subcategories.length; i++) {
         data[subcategories[i]] = questionAnswers[i];
       };
+      // data['coupleCode'] = userinfo.coupleCode;
       
       firestore().collection('users').doc(currentUserID).collection('questionnaire').doc(category).set(
         data
@@ -169,6 +171,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       for (let i = 0; i < subcategories.length; i++) {
         data[subcategories[i]] = questionAnswers[i];
       };
+      // data['coupleCode'] = userinfo.coupleCode;
       
       // console.log("here");
       firestore().collection('users').doc(currentUserID).collection('questionnaire').doc(category).set(

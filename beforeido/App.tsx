@@ -7,6 +7,7 @@
 
 import * as React from 'react';
 
+
 // All stack imports 
 import AssessmentStack from './stacks/AssessmentStack';
 import ConsultationStack from './stacks/ConsultationStack';
@@ -19,6 +20,7 @@ import ProfileStack from './stacks/profileStack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import 'react-native-svg';
 
 
 export type RootStackParamList = {
@@ -35,6 +37,7 @@ export type RootStackParamList = {
   Results: undefined; 
   Signup: undefined; 
   Questionnaire1: undefined;
+  ResultsBreakdown: undefined;
 };
 
 
