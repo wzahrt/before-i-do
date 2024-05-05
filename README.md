@@ -14,22 +14,19 @@ The application consists of the following pages:
 
 4. **Home Page**: Displays the main dashboard and navigation options.
 
-5. **Consultation Page**: Offers resources and guidance for couples seeking relationship advice.
+5. **Assessment Page**: Allows couples to take compatibility assessments and quizzes.
 
-6. **Assessment Page**: Allows couples to take compatibility assessments and quizzes.
+6. **Results Page**: Displays the results of compatibility assessments and provides insights.
 
-7. **Results Page**: Displays the results of compatibility assessments and provides insights.
-
-8. **Profile Page**: Shows user profiles and preferences.
 
 ## Getting Started
 
 To run the Before'IDo' application on your local machine, follow these steps:
 
 0. Set up your development environment for react native following [these instructions](https://reactnative.dev/docs/environment-setup?guide=native) for React Native CLI quickstart for iOS. Ensure you've followed the instructions for
-   a. Node & Watchman
-   b. Xcode
-   c. React Native Command Line Interface
+   - Node & Watchman
+   - Xcode
+   - React Native Command Line Interface
    
 2. Clone this repository to your local machine:
 
