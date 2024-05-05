@@ -6,6 +6,7 @@
  */
 
 import * as React from 'react';
+import {View, Image, Text } from 'react-native';
 
 
 // All stack imports 
@@ -25,6 +26,7 @@ import 'react-native-svg';
 
 export type RootStackParamList = {
   About: undefined; 
+  About2: undefined;
   Assessment: undefined; 
   Consultation: undefined; 
   Entry: undefined; 
@@ -67,8 +69,16 @@ export function TabNavigator() { // Defining the tab navigation
             headerShown:false
           }}
         >
-          <Tab.Screen name="Home" component={HomeStack} />
-          <Tab.Screen name="Profile" component={ProfileStack} />
+          <Tab.Screen name="Home" component={HomeStack} options={{
+            tabBarShowLabel: false,
+          tabBarIcon: ({focused}) => (
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+              <Image style={{height: 25, width: 25}}
+              source={require('./assets/images/home.png')}/>
+              <Text>Home</Text>
+            </View>
+          )}}/>
+          {/* <Tab.Screen name="Profile" component={ProfileStack} /> */}
         </Tab.Navigator>
    );
 }

@@ -4,19 +4,19 @@ import { NativeStackScreenProps } from '../node_modules/@react-navigation/native
 import { RootStackParamList } from '../App'; // Import your RootStackParamList
 import { textStyles } from '../TextStyles';
 
-type AboutScreenProps = NativeStackScreenProps<RootStackParamList, "About">;
-const AboutScreen: React.FC<AboutScreenProps> = (props) => {
+type About2ScreenProps = NativeStackScreenProps<RootStackParamList, "About2">;
+const About2Screen: React.FC<About2ScreenProps> = (props) => {
 
   const { height, width } = Dimensions.get('window');
 
   return (
     <ImageBackground
-      source={require('../assets/images/about.png')}
+      source={require('../assets/images/about2.png')}
       style={styles.backgroundImage}
     >
-      <Pressable onPress={() => props.navigation.push('About2')}>
+      <Pressable onPress={() => props.navigation.push('Login')}>
         <View style={{position: 'absolute', justifyContent: "space-between"}}>
-            <Text style={{fontSize: 15, marginTop: height*0.45, marginLeft: width*.8,position: 'absolute', color: '#ffffe4', textAlign: 'right'}}>
+            <Text style={{fontSize: 15, marginTop: height*0.45, marginLeft: width*.8,position: 'absolute', color: 'black', textAlign: 'right'}}>
               Continue
             </Text>
           </View>
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default AboutScreen;
+export default About2Screen;

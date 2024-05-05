@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, ImageBackground, Pressable } from 'react-native';
 import { NativeStackScreenProps, NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 import { textStyles } from '../TextStyles';
@@ -32,37 +32,51 @@ const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
 
   return (
     <ImageBackground
-      // source={require('../assets/images/login.png')}
-      source={require('../assets/images/blank_page.jpeg')}
+      source={require('../assets/images/login.png')}
       style={styles.backgroundImage}
     >
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View 
+      style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#FFFFFF', opacity: 0.8 }}
+    >
         <Text 
-          style={textStyles.text}
+          style={textStyles.loginHeader}
         > 
-          Login Screen
+          Login
+        </Text>
+        <Text 
+          style={textStyles.loginInstr}
+        > 
+          Please login using your email and password! If you are a new user, use the Sign Up button to create an account.
         </Text>
         <TextInput
           placeholder="Email"
           value={email}
           onChangeText={setEmail}
-          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+          style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5}}
         />
         <TextInput
           placeholder="Password"
           value={password}
           onChangeText={setPassword}
           secureTextEntry={true}
-          style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, marginVertical: 10 }}
+          style={{ height: 40, width: 300, borderColor: 'red', borderWidth: 4, marginVertical: 10, paddingHorizontal: 5 }}
         />
-        <Button
-          title="Login"
-          onPress={handleLogin}
-        />
-        <Button
-          title="Sign Up"
-          onPress={handleSignUp}
-        />
+        <Pressable 
+          style={textStyles.loginButton}
+          // We're going to want this to navigate us to change the 'next question' value
+          onPress={handleLogin}> 
+          <Text style={textStyles.loginButtonText} >
+          Login
+          </Text> 
+        </Pressable>   
+        <Pressable 
+          style={textStyles.signUpButton}
+          // We're going to want this to navigate us to change the 'next question' value
+          onPress={handleSignUp}> 
+          <Text style={textStyles.signUpButtonText} >
+          Sign Up
+          </Text> 
+        </Pressable>      
       </View>
     </ImageBackground>
   );
