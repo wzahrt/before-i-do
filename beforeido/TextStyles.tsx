@@ -77,5 +77,13 @@ export const textStyles = StyleSheet.create({
     color: 'white',
     padding: 0,
     borderRadius: 5,
+  }, 
+  relationshipReport: {
+    fontSize: 20,
+    fontFamily: 'Times New Roman',
+    fontWeight: 'bold',
+    color: 'black',
+    padding: 10,
+    borderRadius: 5,
   }
 });

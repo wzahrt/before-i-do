@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import React from 'react'
-import { View, Text, Button, StyleSheet, ImageBackground, BackHandler, useWindowDimensions} from 'react-native';
+import { Alert, View, Text, Modal, StyleSheet, ImageBackground, BackHandler, useWindowDimensions} from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 import { Pressable } from 'react-native';
@@ -10,6 +10,7 @@ import firestore from '@react-native-firebase/firestore';
 // import BarChart from '../components/BarChart';
 import { BarChart } from 'react-native-chart-kit';
 import { Bar } from 'react-native-progress';
+import { TextAlign } from '@shopify/react-native-skia';
 
 
 
@@ -161,6 +162,12 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
   const [category, setCategory] = useState('PERSONALITY DYNAMICS');
   const [userData, setUserData] = useState(Object.create(null));
   const [partnerData, setPartnerData] = useState(Object.create(null));
+
+  const [modal0Visible, setModal0Visible] = useState(false); // Modal visibility variables
+  const [modal1Visible, setModal1Visible] = useState(false);
+  const [modal2Visible, setModal2Visible] = useState(false);
+  const [modal3Visible, setModal3Visible] = useState(false);
+  
 
   
   useEffect(() => {
@@ -338,11 +345,28 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
       // source={require('../assets/images/report.png')}
       style={styles.backgroundImage}
     >
-      <View style={{ flex: 1, alignItems: 'center', paddingTop:40, backgroundColor:'lightpink'}}>
-        <Text style={{fontSize: 20,fontWeight: 'bold'}}>{category}{'\n'}</Text>
+      <View style={{ flex: 1, paddingTop:40, backgroundColor:'lightpink'}}>
+        <Text style={{fontSize: 20,fontWeight: 'bold', alignSelf: 'center'}}>{category}{'\n'}</Text>
+        <Pressable onPress={() => 
+          { 
+            if(category == "PERSONALITY DYNAMICS") { 
+              setModal0Visible(!modal0Visible)
+            } else if (category == "FAMILY DYNAMICS") { 
+              setModal1Visible(!modal1Visible)
+            } else if (category == "COUPLE RELATIONSHIP DYNAMICS") { 
+              setModal2Visible(!modal2Visible)
+            } else { 
+              setModal3Visible(!modal3Visible)
+            } 
+          }} 
+          style = {{marginTop: 12, marginLeft: 335, width: 30}}
+          >
+          <Text style = {{textAlign: 'right', alignContent: 'right', fontWeight: 'bold', fontSize: 18}}> {"ⓘ"} </Text>
+        </Pressable>
+
       </View>
 
-      <View style={{ alignItems: 'center', marginTop: 15, marginLeft:30}}>
+      <View style={{ alignItems: 'center', marginTop: 15}}>
 
 
         {loading ? ( // This lets us have a loading page, but it's so fast you can't even see it lmao. WE NEED THIS
@@ -351,6 +375,97 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
           <>
             {/* <Text>{category}</Text> */}
             {/* <Text></Text> */}
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modal0Visible}
+              onRequestClose={() => {
+                Alert.alert('Modal has been closed.');
+                setModal0Visible(!modal0Visible);
+                }}
+             >
+              <View style = {{alignItems: 'center', marginTop:96}}> 
+                <ImageBackground
+                    source={require('../assets/images/22.png')}
+                    style={styles.tiledBackground}>
+                </ImageBackground>
+                  <Pressable
+                    onPress={() => setModal0Visible(!modal0Visible)}
+                    style={{padding: 10, marginTop: 425, backgroundColor: 'pink', borderRadius: 20}}>
+                      <Text> Close </Text>
+                    </Pressable>
+              </View>
+              </Modal>
+
+              <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modal1Visible}
+              onRequestClose={() => {
+                Alert.alert('Modal has been closed.');
+                setModal1Visible(!modal1Visible);
+                }}
+             >
+              <View style = {{alignItems: 'center', marginTop:96}}> 
+                <ImageBackground
+                    source={require('../assets/images/25.png')}
+                    style={styles.tiledBackground}>
+                </ImageBackground>
+                  <Pressable
+                    onPress={() => setModal1Visible(!modal1Visible)}
+                    style={{padding: 10, marginTop: 425, backgroundColor: 'pink', borderRadius: 20}}>
+                      <Text> Close </Text>
+                    </Pressable>
+              </View>
+                
+
+              </Modal>
+
+              <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modal2Visible}
+              onRequestClose={() => {
+                Alert.alert('Modal has been closed.');
+                setModal2Visible(!modal2Visible);
+                }}
+             >
+                <View style = {{alignItems: 'center', marginTop:96}}> 
+                  <ImageBackground
+                      source={require('../assets/images/28.png')}
+                      style={styles.tiledBackground}>
+                  </ImageBackground>
+                    <Pressable
+                      onPress={() => setModal2Visible(!modal2Visible)}
+                      style={{padding: 10, marginTop: 425, backgroundColor: 'pink', borderRadius: 20}}>
+                        <Text> Close </Text>
+                      </Pressable>
+                </View>
+              </Modal>
+
+              <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modal3Visible}
+              onRequestClose={() => {
+                Alert.alert('Modal has been closed.');
+                setModal3Visible(!modal3Visible);
+                }}
+             >
+              <View style = {{alignItems: 'center', marginTop:96}}> 
+                <ImageBackground
+                    source={require('../assets/images/33.png')}
+                    style={styles.tiledBackground}>
+                </ImageBackground>
+                  <Pressable
+                    onPress={() => setModal3Visible(!modal3Visible)}
+                    style={{padding: 10, marginTop: 425, backgroundColor: 'pink', borderRadius: 20}}>
+                      <Text> Close </Text>
+                    </Pressable>
+              </View>
+                
+
+              </Modal>
             <Text style={{fontSize:16, fontWeight:'bold', padding: 5}}>You</Text>
             <BarChart
               data={userData}
@@ -373,12 +488,13 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
                 style: {
                   borderRadius: 3,
                 },
-                propsForLabels: {fontSize: 4},
+                propsForLabels: {fontSize: 4.5},
               }}
               // verticalLabelRotation={20}
               style={{
                 borderRadius: 10,
                 paddingRight: 25,
+                alignSelf: 'center'
               }}
             />
 
@@ -404,35 +520,13 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
                 style: {
                   borderRadius: 5,
                 },
-                propsForLabels: {fontSize: 4},
+                propsForLabels: {fontSize: 4.5},
               }}
-              // verticalLabelRotatiton={15}
               style={{
                 borderRadius: 10,
                 paddingRight: 25,
               }}
             />
-            
-            {/* print each item in responseData, for both user1 and user2 */}
-            {/* <Text></Text>
-            <Text></Text>
-            <Text>{category}</Text>
-            <Text></Text>
-            <Text>You</Text>
-            <Text>
-              {userData['labels'].map((item, index) => {
-                return <Text>{item}: {userData['datasets'][0].data[index]} </Text>
-              })
-            }
-            </Text>
-            <Text></Text>
-            <Text>Your Partner</Text>
-            <Text>
-              {partnerData['labels'].map((item, index) => {
-                return <Text>{item}: {partnerData['datasets'][0].data[index]} </Text>
-              })
-            }
-            </Text> */}
             
           </>
         )}
@@ -480,6 +574,13 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: 'center',
   },
+  tiledBackground: {
+    flex: 2, 
+    width: 350, 
+    height: 470, 
+    resizeMode: 'center',
+    color: "pink",
+  }
 });
 
 export default ResultsBreakdownScreen;

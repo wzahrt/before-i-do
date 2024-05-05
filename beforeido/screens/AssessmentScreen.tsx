@@ -20,7 +20,10 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
     fetchData().then((user) => {
       uid = user?.uid, 
       setCoupleCode(user.coupleCode) 
-    })
+    }).catch((error) => { 
+      console.log("Error: ", error); 
+    } 
+    )
   }
   , []);
 
@@ -32,7 +35,9 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
         user2: couple.user2, 
         user2Done: couple.user2Done
       }); 
-  });
+    }).catch((error) => { 
+      console.log("Error: ", error)
+    });
   }, [coupleCode])
 
 
