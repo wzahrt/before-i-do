@@ -205,130 +205,136 @@
       "question": "I make an effort to create a loving atmosphere in our relationship."
     },
     {
-      "category": "FAMILY DYNAMICS",
-      "subcategory": "Family Closeness",
+      "category": "PERSONALITY DYNAMICS",
+      "subcategory": "Secure Attachment",
       "questionNumber": 35,
-      "question": "I enjoy spending time with my family."
+      "question": "I try to support my partner."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Family Closeness",
       "questionNumber": 36,
-      "question": "My family accepts me for who I am."
+      "question": "I enjoy spending time with my family."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Family Closeness",
       "questionNumber": 37,
-      "question": "My family respects the decisions I make in my life."
+      "question": "My family accepts me for who I am."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Family Closeness",
       "questionNumber": 38,
-      "question": "My family is there for me when I need them."
+      "question": "My family respects the decisions I make in my life."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Family Closeness",
       "questionNumber": 39,
-      "question": "I feel emotionally close to my family."
+      "question": "My family is there for me when I need them."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Family Closeness",
       "questionNumber": 40,
-      "question": "I feel safe when I'm with my family."
+      "question": "I feel emotionally close to my family."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Family Closeness",
       "questionNumber": 41,
-      "question": "We have good memories together as a family."
+      "question": "I feel safe when I'm with my family."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Family Closeness",
       "questionNumber": 42,
-      "question": "Everyone in my family is respectful towards each other."
+      "question": "We have good memories together as a family."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Family Closeness",
       "questionNumber": 43,
-      "question": "My family respects my decisions regarding religious matters."
+      "question": "Everyone in my family is respectful towards each other."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Family Closeness",
       "questionNumber": 44,
+      "question": "My family respects my decisions regarding religious matters."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Family Closeness",
+      "questionNumber": 45,
       "question": "My family respects my decisions regarding work and career matters."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Parental Marital Relationship",
-      "questionNumber": 45,
+      "questionNumber": 46,
       "question": "My parents get along well in their marriage."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Parental Marital Relationship",
-      "questionNumber": 46,
+      "questionNumber": 47,
       "question": "My parents are sensitive to each other's feelings."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Parental Marital Relationship",
-      "questionNumber": 47,
+      "questionNumber": 48,
       "question": "My parents successfully resolve conflicts when they have disagreements."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Parental Marital Relationship",
-      "questionNumber": 48,
+      "questionNumber": 49,
       "question": "My parents enjoy spending time together."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Parental Marital Relationship",
-      "questionNumber": 49,
+      "questionNumber": 50,
       "question": "My parents make decisions regarding our family together."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Parental Marital Relationship",
-      "questionNumber": 50,
+      "questionNumber": 51,
       "question": "My parents value each other's opinions."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Parental Marital Relationship",
-      "questionNumber": 51,
+      "questionNumber": 52,
       "question": "My parents manage our family budget well."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Parental Marital Relationship",
-      "questionNumber": 52,
+      "questionNumber": 53,
       "question": "I don't think they set a good example for marriage."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Parental Marital Relationship",
-      "questionNumber": 53,
-      "question": "Feel happy when they are with each other."
-    },
-    {
-      "category": "FAMILY DYNAMICS",
-      "subcategory": "Parental Marital Relationship",
       "questionNumber": 54,
-      "question": "Are in harmony regarding housework."
+      "question": "My parents feel happy when they are with each other."
     },
     {
       "category": "FAMILY DYNAMICS",
       "subcategory": "Parental Marital Relationship",
       "questionNumber": 55,
-      "question": "Can solve their problems through communication."
+      "question": "My parents are in harmony regarding housework."
+    },
+    {
+      "category": "FAMILY DYNAMICS",
+      "subcategory": "Parental Marital Relationship",
+      "questionNumber": 55,
+      "question": "My parents can solve their problems through communication."
     },
     {
       "category": "FAMILY DYNAMICS",

@@ -1,0 +1,857 @@
+{
+  "questions": [
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Duygusal Kararlılık",
+      "questionNumber": 1,
+      "question": "Genellikle olumlu bir ruh haline sahibim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Duygusal Kararlılık",
+      "questionNumber": 2,
+      "question": "Duygularımı yönetmekte iyiyimdir."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Duygusal Kararlılık",
+      "questionNumber": 3,
+      "question": "Stresli durumlarla baş etmekte zorlanmam."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Duygusal Kararlılık",
+      "questionNumber": 4,
+      "question": "Duygusal anlamda zorlandığımda bununla baş edebilirim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Duygusal Kararlılık",
+      "questionNumber": 5,
+      "question": "Stres yaratabilecek durumlara karşı esnek biriyimdir."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Duygusal Kararlılık",
+      "questionNumber": 6,
+      "question": "Kaygı düzeyim genellikle düşüktür."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Duygusal Kararlılık",
+      "questionNumber": 7,
+      "question": "Kendimi olumlu yönde motive edebilirim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Empati",
+      "questionNumber": 8,
+      "question": "Diğer insanların duygularını anlamakta iyiyim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Empati",
+      "questionNumber": 9,
+      "question": "Yakınımdaki insanların ihtiyaçlarını fark ederim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Empati",
+      "questionNumber": 10,
+      "question": "Diğer insanların düşüncelerine saygı gösteririm."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Empati",
+      "questionNumber": 11,
+      "question": "İnsanların söyledikleri sözlerin arkasındaki duyguları anlayabilirim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Empati",
+      "questionNumber": 12,
+      "question": "Çevremdekilerin duygularını anlayabildiğim için sosyal ilişkilerim güçlüdür."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Empati",
+      "questionNumber": 13,
+      "question": "Diğer insanların hissettiği acının onlar için ne anlama geldiğini anlayabilirim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Empati",
+      "questionNumber": 14,
+      "question": "Beden dillerinden insanların duygularını anlarım."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Deneyime Açıklık",
+      "questionNumber": 15,
+      "question": "Yeni deneyimlere açık olmak benim için heyecan vericidir."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Deneyime Açıklık",
+      "questionNumber": 16,
+      "question": "Farklı fikirleri dinlemeye açığımdır."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Deneyime Açıklık",
+      "questionNumber": 17,
+      "question": "Farklı kültürlerdeki insanlarla tanışmak beni mutlu eder."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Deneyime Açıklık",
+      "questionNumber": 18,
+      "question": "Farklı insanlarla iş birliği kurmaktan ve birlikte çalışmaktan keyif alırım."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Deneyime Açıklık",
+      "questionNumber": 19,
+      "question": "Hayatımda yeni şeyler denemek için cesaretim var."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Deneyime Açıklık",
+      "questionNumber": 20,
+      "question": "Değişime uyum sağlamakta iyiyim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Özgüven",
+      "questionNumber": 21,
+      "question": "Özgüveni yüksek biriyim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Özgüven",
+      "questionNumber": 22,
+      "question": "Düşüncelerimi ifade etmekten çekinmem."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Özgüven",
+      "questionNumber": 23,
+      "question": "İnisiyatif almaktan çekinmem."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Özgüven",
+      "questionNumber": 24,
+      "question": "Beni yakından tanıyanlar özgüvenli biri olduğumu söyler."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Güvenli Bağlanma",
+      "questionNumber": 25,
+      "question": "İlişkimde partnerimle açık ve net bir iletişim kurabilirim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Güvenli Bağlanma",
+      "questionNumber": 26,
+      "question": "Partnerimle birlikteyken kendimi güvende ve rahat hissederim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Güvenli Bağlanma",
+      "questionNumber": 27,
+      "question": "Partnerimin sınırlarına saygı gösteririm."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Güvenli Bağlanma",
+      "questionNumber": 28,
+      "question": "Partnerime karşı duygularımı açık bir şekilde gösterebilirim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Güvenli Bağlanma",
+      "questionNumber": 29,
+      "question": "Partnerimin duygularını ve ihtiyaçlarını anlamaya çalışırım."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Güvenli Bağlanma",
+      "questionNumber": 30,
+      "question": "İlişkimizdeki güveni ve bağlılığı güçlendirmek için çaba harcarım."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Güvenli Bağlanma",
+      "questionNumber": 31,
+      "question": "İlişkimizle ilgili sorumlulukları paylaşırım."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Güvenli Bağlanma",
+      "questionNumber": 32,
+      "question": "İçtenlikle partnerime güvenimi ifade ederim."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Güvenli Bağlanma",
+      "questionNumber": 33,
+      "question": "Partnerimle sorun yaşadığımızda yapıcı bir dil kullanırım."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Güvenli Bağlanma",
+      "questionNumber": 34,
+      "question": "İlişkimde sevgi dolu bir ortam yaratmak için çaba harcarım."
+    },
+    {
+      "category": "BİREYSEL DİNAMİKLER",
+      "subcategory": "Güvenli Bağlanma",
+      "questionNumber": 35,
+      "question": "Partnerime destek olmaya özen gösteririm."
+    },
+    {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile Yakınlığı",
+        "questionNumber": 36,
+        "question": "Ailemle vakit geçirmekten hoşlanırım."
+    },
+    {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile Yakınlığı",
+        "questionNumber": 37,
+        "question": "Ailem beni olduğum gibi kabul eder."
+    },
+    {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile Yakınlığı",
+        "questionNumber": 38,
+        "question": "Ailem hayatımda aldığım kararlara saygılıdır."
+    },
+    {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile Yakınlığı",
+        "questionNumber": 39,
+        "question": "Ailem ihtiyaç duyduğumda yanımda olur."
+    },
+    {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile Yakınlığı",
+        "questionNumber": 40,
+        "question": "Ailemle duygusal olarak yakın olduğumuzu hissediyorum."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile Yakınlığı",
+        "questionNumber": 41,
+        "question": "Ailemle beraberken kendimi güvende hissederim."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile Yakınlığı",
+        "questionNumber": 42,
+        "question": "Ailemle iyi anılarımız var."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile Yakınlığı",
+        "questionNumber": 43,
+        "question": "Ailemde herkes birbirine karşı saygılıdır."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile Yakınlığı",
+        "questionNumber": 44,
+        "question": "Ailem dini konularda benim kararlarıma saygılıdır."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile Yakınlığı",
+        "questionNumber": 45,
+        "question": "Ailem iş ve kariyer konularında benim kararlarıma saygılıdır."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 46,
+        "question": "Anne babam evliliklerinde iyi geçinirler."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 47,
+        "question": "Anne babam birbirlerinin duygularına karşı duyarlıdır."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 48,
+        "question": "Anne babam bir anlaşmazlık yaşadıklarında sorunları birlikte çözmeyi başarırlar."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 49,
+        "question": "Anne babam birlikte vakit geçirmekten hoşlanırlar."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 50,
+        "question": "Anne babam ailemizle ilgili kararları birlikte alırlar."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 51,
+        "question": "Anne babam birbirlerinin fikirlerine özen gösterirler."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 52,
+        "question": "Anne babam aile bütçesini iyi yönetirler."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 53,
+        "question": "Anne babam evlilik konusunda bana iyi bir örnek olmadıklarını düşünürüm."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 54,
+        "question": "Anne babam birbirlerinin yanında mutlu hissederler."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 55,
+        "question": "Anne babam ev işlerini paylaşma konusunda uyumludur."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 56,
+        "question": "Anne babam sorunlarını konuşarak çözebilirler."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 57,
+        "question": "Anne babam birbirlerinin özel alanlarına saygı gösterirler."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Anne-Baba Evlilik İlişkisi",
+        "questionNumber": 58,
+        "question": "Anne babam ailemizle ilgili sorumlulukları paylaşırlar."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile-Partner İlişkileri",
+        "questionNumber": 59,
+        "question": "Ailemle ilgili konularda partnerimle konuşurum."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile-Partner İlişkileri",
+        "questionNumber": 60,
+        "question": "Ailelerimizle ilgili konuları konuşurken partnerime açık ve net olurum."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile-Partner İlişkileri",
+        "questionNumber": 61,
+        "question": "Ailelerimizle ilgili konularda beklentilerimi partnerime açıkça ifade ederim."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile-Partner İlişkileri",
+        "questionNumber": 62,
+        "question": "Partnerimin, ailemle iyi bir ilişkisi olduğunu düşünüyorum."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile-Partner İlişkileri",
+        "questionNumber": 63,
+        "question": "Ailelerimizle ilgili sorunları çözmek için partnerimle işbirliği yapamam."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile-Partner İlişkileri",
+        "questionNumber": 64,
+        "question": "Ailelerimizle ilgili sınırlarımızı partnerimle beraber belirlerim."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile-Partner İlişkileri",
+        "questionNumber": 65,
+        "question": "Ailelerimizle ilgili duygularımı partnerime açıkça ifade ederim."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile-Partner İlişkileri",
+        "questionNumber": 66,
+        "question": "Partnerimle ailelerimiz arasındaki kültürel farklılıklara saygılı davranırım."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile-Partner İlişkileri",
+        "questionNumber": 67,
+        "question": "Aile geçmişimizle ilgili konularda partnerime karşı açığım."
+        },
+        {
+        "category": "AİLE DİNAMİKLERİ",
+        "subcategory": "Aile-Partner İlişkileri",
+        "questionNumber": 68,
+        "question": "Ailemle yaşadığım sorunları partnerimle paylaşırım."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 69,
+        "question": "Partnerimle açık ve dürüst bir iletişim kurmak isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 70,
+        "question": "Partnerimle birlikte aile ve arkadaşlarımızla olan ilişkilerimizin korunmasını isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 71,
+        "question": "Partnerimle yaşadığımız anlaşmazlıkları iş birliği içinde çözmemizi isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 72,
+        "question": "Partnerimle cinsel hayatımızın açık bir iletişim ve karşılıklı saygı çerçevesinde olmasını isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 73,
+        "question": "Partnerimle iş ve kariyer konusunda birbirimizi desteklememizi isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 74,
+        "question": "Partnerimle ev işlerini paylaşarak beraber yapmayı isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 75,
+        "question": "Partnerimle birbirimize ait olduğumuzu hissetmek isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 76,
+        "question": "Kendime ayırdığım zamana partnerimin saygı göstermesini isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 77,
+        "question": "Partnerimle tatillerimizi ortak bir şekilde planlamak isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 78,
+        "question": "İlişkimizde karşılıklı saygı ve anlayış olmasını önemserim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 79,
+        "question": "Evlilikte partnerimin beni aktif bir şekilde dinlemesini isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 80,
+        "question": "Evlilikte partnerimle ortak amaçlar belirlemeyi önemserim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 81,
+        "question": "Evlilikte partnerimle güven duygumuzu korumamızı isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 82,
+        "question": "Evlilikte partnerimin sadakatli olmasını isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 83,
+        "question": "Evlilikte çocuk bakımını partnerimle paylaşmayı isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 84,
+        "question": "Evlilikte partnerimle aramızda eşit bir güç dengesi olmasını isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 85,
+        "question": "İş ve kariyer konusunda her ikimizin de eşit düzeyde fedakarlık göstermesini isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 86,
+        "question": "Partnerimi dikkatle dinlerim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 87,
+        "question": "Partnerimle iletişim sırasında düşüncelerini ifade edebilmesine özen gösteririm."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 88,
+        "question": "Partnerime ilişkimizle ilgili güven duygusu vermeyi önemserim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 89,
+        "question": "İlişkimiz için çaba gösteririm."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 90,
+        "question": "Partnerimin mutluluğunu önemserim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 91,
+        "question": "Partnerimin duygularını önemserim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "Uyum ve İşbirliği",
+        "questionNumber": 92,
+        "question": "Evlilikte partnerimle cinsel uyum içinde olmak isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 93,
+        "question": "Partnerimin söylediği şeylere inanmakta güçlük çekiyorum."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 94,
+        "question": "Bir sorun yaşadığımızda bunu partnerimle açıkça konuşamam."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 95,
+        "question": "Tartışmalarımızda partnerime karşı sabırlı davranırım."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 96,
+        "question": "İlişkimizde güven duygusu olmaması beni rahatsız ediyor."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 97,
+        "question": "İlişkide hep kendi dediğim olsun isterim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 98,
+        "question": "Partnerimin daha az eleştirel olmasını isterdim."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 99,
+        "question": "Partnerimin bazı davranışlarından utandığım olur."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 100,
+        "question": "Partnerimin ona karşı iyi hislerimi suistimal ettiğini düşünüyorum."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 101,
+        "question": "Partnerimin ebeveyni imişim gibi hissetmekten rahatsızım."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 102,
+        "question": "Partnerimin serbest zaman etkinlikleri ilişkimizi kötü etkiliyor."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 103,
+        "question": "Partnerimin istediği etkinliklere katılmam konusunda baskı hissediyorum."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 104,
+        "question": "Benim iyi vakit geçirme fikrim partnerimkinden farklı ve bu aramızda sorun yaratır."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 105,
+        "question": "Partnerimin bana cinsel anlamdaki sadakatinden şüphelerim var."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 106,
+        "question": "Cinsel anlamda partnerime istekli hissetmiyorum."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 107,
+        "question": "Çocuk sahibi olma konusunda partnerimle anlaşamıyoruz."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 108,
+        "question": "Partnerimle çocukların bakımı konusundaki fikirlerimizin farklı olduğunu düşünüyorum."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 109,
+        "question": "Ailelerimizin anne-baba tutumları birbirinden farklı olduğu için çocuk yetiştirmede sorun yaşayacağımızı düşünüyorum."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 110,
+        "question": "Aile bütçemizdeki harcamalar konusunda partnerimle anlaşamıyoruz."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 111,
+        "question": "Partnerimin harcamalarını tamamen benim karşılayacak olmam beni rahatsız eder."
+        },
+        {
+        "category": "ÇİFT İLİŞKİSİ DİNAMİKLERİ",
+        "subcategory": "İlişki zorlukları",
+        "questionNumber": 112,
+        "question": "Evlendikten sonra gelirimizin bize yetmeyeceğine dair endişelerim var."
+        },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Manevi İnançlar",
+      "questionNumber": 113,
+      "question": "Partnerimle dini inancım hakkında açıkça konuşurum."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Manevi İnançlar",
+      "questionNumber": 114,
+      "question": "Partnerimin dini inancına saygı duyarım."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Manevi İnançlar",
+      "questionNumber": 115,
+      "question": "Partnerimle inançlarımızın hayatımızdaki yeri hakkında konuşurum."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Manevi İnançlar",
+      "questionNumber": 116,
+      "question": "Partnerimin özel dini günlerine saygı gösteririm."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Manevi İnançlar",
+      "questionNumber": 117,
+      "question": "Dini inancın çocuklarımızın hayatındaki yeri hakkında partnerimle konuşurum."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Manevi İnançlar",
+      "questionNumber": 118,
+      "question": "Dini konularda partnerimle karşılıklı anlayış içinde olmaktan memnunum."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Manevi İnançlar",
+      "questionNumber": 119,
+      "question": "Ailemin dini konularda partnerime ve ailesine saygılı davranmasına özen gösteririm."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Manevi İnançlar",
+      "questionNumber": 120,
+      "question": "Dini inancı konusunda ailemin partnerimi onaylamamasından endişe ediyorum."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Yaşam tarzı",
+      "questionNumber": 121,
+      "question": "Partnerimle yaşam tarzlarımız birbirine uyuyor."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Yaşam tarzı",
+      "questionNumber": 122,
+      "question": "Partnerimle benzer dünya görüşüne sahip olmak isterim."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Yaşam tarzı",
+      "questionNumber": 123,
+      "question": "Partnerimle benzer siyasi görüşlere sahibiz."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Yaşam tarzı",
+      "questionNumber": 124,
+      "question": "Partnerimle benzer kişisel hedeflere sahibiz."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Yaşam tarzı",
+      "questionNumber": 125,
+      "question": "Partnerimle eğitim seviyemiz uyumludur."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Yaşam tarzı",
+      "questionNumber": 126,
+      "question": "Partnerimle hobilerimiz birbirine benzer."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Yaşam tarzı",
+      "questionNumber": 127,
+      "question": "Partnerimle farklı görüşlere sahip olduğumuz için endişelenirim."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Yaşam tarzı",
+      "questionNumber": 128,
+      "question": "Partnerimin giyim tarzına saygı duyarım."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Yaşam tarzı",
+      "questionNumber": 129,
+      "question": "Partnerimin çalışma şartlarından memnunum."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Gelenek/görenekler",
+      "questionNumber": 130,
+      "question": "Partnerimin ailesinin içinde yaşadıkları kültürden memnunum."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Gelenek/görenekler",
+      "questionNumber": 131,
+      "question": "Partnerimle örf ve adetlerimiz birbiriyle uyumludur."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Gelenek/görenekler",
+      "questionNumber": 132,
+      "question": "Düğün hazırlıkları konusunda ailelerimizin sorun yaşamayacaklarını düşünüyorum."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Gelenek/görenekler",
+      "questionNumber": 133,
+      "question": "Partnerimle ikimizin evlilik hazırlığı sürecindeki gelenekler (nişan, kına, çeyiz vb.) ilgili uyumlu olduğumuzu düşünüyorum."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Gelenek/görenekler",
+      "questionNumber": 134,
+      "question": "Ailelerimizin evlilik hazırlığı sürecindeki gelenekler ile ilgili uyumlu olduğunu düşünüyorum."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Evlilik hazırlıkları",
+      "questionNumber": 135,
+      "question": "Düğün için partnerimle birbirimize alacağımız hediyeler konusunda bir sorunumuzun olmamasını isterim."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Evlilik hazırlıkları",
+      "questionNumber": 136,
+      "question": "Evlendikten sonra yaşayacağımız yerle ilgili partnerimle anlaşmak isterim."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Evlilik hazırlıkları",
+      "questionNumber": 137,
+      "question": "Evlendikten sonra yaşayacağımız yerle ilgili ailelerimizle bir sorun yaşamayız."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Evlilik hazırlıkları",
+      "questionNumber": 138,
+      "question": "Evlilik hazırlıkları için oluşacak masraflarla ilgili konuda partnerimle anlaşmak isterim."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Evlilik hazırlıkları",
+      "questionNumber": 139,
+      "question": "Evlendikten sonra yaşayacağımız evimiz için alınacak eşyalar konusunda partnerimle anlaşırız."
+    },
+    {
+      "category": "KÜLTÜREL DİNAMİKLER",
+      "subcategory": "Evlilik hazırlıkları",
+      "questionNumber": 140,
+      "question": "Düğün törenine davet edilecek kişiler konusunda partnerimle birlikte hareket etmek isterim."
+    },
+    {
+        "category": "Anket Tamamlandı",
+        "subcategory": "",
+        "questionNumber": 141,
+        "question": "Anket Tamamlandı"
+    },
+    {
+    "category": "Anket Tamamlandı",
+    "subcategory": "",
+    "questionNumber": 142,
+    "question": ""
+  }
+  ]
+}
+

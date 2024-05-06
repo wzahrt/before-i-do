@@ -6,7 +6,7 @@ import { RootStackParamList } from '../App'; // Import your RootStackParamList
 import { textStyles } from '../TextStyles';
 import Slider from '@react-native-community/slider';
 import firestore from '@react-native-firebase/firestore';
-import questionsData from '../questionnaire_en.json';
+import questionsData from '../questionnaire_turkish.json';
 import auth from '@react-native-firebase/auth';
 import { fetchData } from '../userData.tsx'; 
 import * as Progress from 'react-native-progress';
@@ -36,7 +36,7 @@ let subcategories: string[] = [];
 let currentUserID: null | string;
 
 let startingQuestion = 1;
-let startingCategory = 'PERSONALITY DYNAMICS';
+let startingCategory = 'BİREYSEL DİNAMİKLER';
 let AsetLoading = true;
 
 let userinfo = null;
@@ -58,10 +58,10 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       currentUserID = user.uid;
       userinfo = user;
       startingQuestion = user?.curSection == 2 ? 
-        35 : user?.curSection == 3 ?
-        68 : user?.curSection == 4 ? 
-        112 : user?.curSection == 5 ? 
-        140 : 1;
+        36 : user?.curSection == 3 ?
+        69 : user?.curSection == 4 ? 
+        113 : user?.curSection == 5 ? 
+        141 : 1;
       setCoupleCode(user.coupleCode); 
       setUserEmail(user.email); 
       setNextQuestion(startingQuestion);
@@ -86,7 +86,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
     setNextQuestion(nextQuestion + 1); 
     setCategory(questions[nextQuestion].category); // Update category
 
-    if(nextQuestion == 139) { // If we are at the end of the questionnaire
+    if(nextQuestion == 140) { // If we are at the end of the questionnaire
       questionAnswers[(subcategories.length-1)].push(sliderValue1);
       let data = Object.create(null);
       for (let i = 0; i < subcategories.length; i++) {
@@ -137,7 +137,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       props.navigation.push('Assessment');
       return;
     }
-    if (nextQuestion == 140) {
+    if (nextQuestion == 141) {
       props.navigation.push('Assessment');
       return;
     }
@@ -161,7 +161,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
 
     let data = Object.create(null);
 
-    if (nextQuestion == 34 || nextQuestion == 67 || nextQuestion == 111) { // If we are going to a new section ...
+    if (nextQuestion == 35 || nextQuestion == 68 || nextQuestion == 112) { // If we are going to a new section ...
       console.log("Moved into new section if statement");
       console.log("Next Question: ", nextQuestion+1);
       console.log("Question Answers: ", questionAnswers);
@@ -184,7 +184,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       
       // Update curSection 
       firestore().collection('users').doc(currentUserID).update({
-        curSection: nextQuestion == 34 ? 2 : nextQuestion == 67 ? 3 : nextQuestion == 111 ? 4:4,
+        curSection: nextQuestion == 35 ? 2 : nextQuestion == 68 ? 3 : nextQuestion == 112 ? 4:4,
       }).then(() => {
         console.log("CurSection updated");
       }).catch((e) => {
@@ -266,17 +266,17 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
           backgroundColor='lightblue'
           > 
           <Text>
-            {nextQuestion == 34 ? 'Next Section' : 
-            nextQuestion == 67 ? 'Next Section' : 
-            nextQuestion == 111 ? 'Next Section' : 
-            nextQuestion == 139 ? 'Complete Questionnaire' : 
+            {nextQuestion == 35 ? 'Next Section' : 
+            nextQuestion == 68 ? 'Next Section' : 
+            nextQuestion == 112 ? 'Next Section' : 
             nextQuestion == 140 ? 'Complete Questionnaire' : 
+            nextQuestion == 141 ? 'Complete Questionnaire' : 
             'Next Question'}
             
           </Text> 
         </Pressable>
       </View>
-      <Progress.Bar progress={nextQuestion/140} indeterminate={false} width={375} color='lightpink' borderRadius={0} animationType='spring'/>
+      <Progress.Bar progress={nextQuestion/141} indeterminate={false} width={375} color='lightpink' borderRadius={0} animationType='spring'/>
 
     </ImageBackground>
   );

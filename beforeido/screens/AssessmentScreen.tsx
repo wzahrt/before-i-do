@@ -11,6 +11,8 @@ import firestore from '@react-native-firebase/firestore';
 
 type AssessmentScreenProps = NativeStackScreenProps<RootStackParamList, "Assessment">;
 
+let uid: string | null; 
+
 const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
   let uid: undefined | string | null; 
   const [coupleCode, setCoupleCode] = useState("");
