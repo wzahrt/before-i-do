@@ -49,6 +49,10 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
 
   const updateAuth = () => { 
     // Here you can implement your signup logic
+    if (email === '' || password === '' || coupleCode === '' || firstName === '' || lastName === '') {
+      Alert.alert('Please fill in all fields');
+      return;
+    }
     auth().createUserWithEmailAndPassword(email, password)
     .then(()=>{
       console.log('User created with credentials' + email , password);

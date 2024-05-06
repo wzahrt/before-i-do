@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ImageBackground, Pressable } from 'react-native';
+import { View, Text, Alert, TextInput, Button, StyleSheet, ImageBackground, Pressable } from 'react-native';
 import { NativeStackScreenProps, NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 import { textStyles } from '../TextStyles';
@@ -13,6 +13,10 @@ const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
   const [coupleCode, setCoupleCode] = useState('');
 
   const handleLogin = () => {
+    if (email === '' || password === '') {
+      Alert.alert('Please fill in all fields');
+      return;
+    }
     auth().signInWithEmailAndPassword(email, password)
     .then((res)=>{
       console.log('User signed in with credentials ' + email , password);

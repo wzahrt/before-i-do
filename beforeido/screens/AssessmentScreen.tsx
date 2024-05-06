@@ -110,17 +110,17 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
         style={{width: 370, height: 182, }}
         resizeMode="cover"
       />        
-      <Pressable
+      {/* <Pressable
         onPress={handleNewAssessment}>
           <Text
           style={{width: 260, textAlign: 'center', fontSize: 15, color: 'black', marginTop: 15, padding: 10, paddingLeft: 20, paddingRight: 20, margin: 5, backgroundColor: '#f7d1d8', borderRadius: 5, overflow: 'hidden'}}
           >Start New Assessment</Text>
-        </Pressable>
+        </Pressable> */}
         <Pressable
           onPress={handleContinueAssessment}>
           <Text
           style={{width: 260, textAlign: 'center', fontSize: 15, color: 'black', padding: 10, paddingLeft: 20, paddingRight: 20, margin: 5, backgroundColor: '#f4bbc9', borderRadius: 5, overflow: 'hidden'}}
-          >Continue Previous Assessment</Text>
+          >Start/Continue Assessment</Text>
         </Pressable>
         <Pressable
           onPress={handleViewResults}>
