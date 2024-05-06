@@ -36,6 +36,8 @@ function HomeScreen({ navigation }: HomeScreenProps) {
   }, [coupleCode])
 
   const canViewResults = () : Boolean => { 
+    console.log("Couple Data: \nUser2: ", coupleData.user2, "\nUser1Done: ", coupleData.user1Done, "\nUser2Done: ", coupleData.user2Done)
+
     if(coupleData.user2 == null) return false; 
     if(coupleData.user1Done == false) return false; 
     if(coupleData.user2Done == false) return false; 
