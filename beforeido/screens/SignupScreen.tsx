@@ -88,15 +88,15 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text
         style={textStyles.loginHeader}
-        >Sign Up</Text>
+        >Kayıt Olun</Text>
         <TextInput
-          placeholder="First Name"
+          placeholder="Isim"
           value={firstName}
           onChangeText={setFirstName}
           style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 2, marginVertical: 10, paddingHorizontal: 5}}
         />
         <TextInput
-          placeholder="Last Name"
+          placeholder="Soyadın"
           value={lastName}
           onChangeText={setLastName}
           style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 2, marginVertical: 10, paddingHorizontal: 5}}
@@ -108,7 +108,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
           style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 2, marginVertical: 10, paddingHorizontal: 5}}
         />
         <TextInput
-          placeholder="Password"
+          placeholder="Şifre"
           value={password}
           onChangeText={setPassword}
           secureTextEntry={true}
@@ -116,12 +116,12 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
         />
         <Text
         style={textStyles.signUpInstr}
-        >If partner has not registered, create couple code below.</Text>
+        >Partneriniz kayıtlı değilse aşağıda çift kodunu oluşturun.</Text>
         <Text
         style={textStyles.signUpInstr}
-        >If partner has registered, enter partner's code below.</Text>
+        >Partneriniz kayıtlıysa ortağın kodunu aşağıya girin.</Text>
         <TextInput
-          placeholder="Couple Code"
+          placeholder="Çift kodunuz"
           value={coupleCode}
           onChangeText={setCoupleCode}
           style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 2, marginVertical: 10, paddingHorizontal: 5}}
@@ -131,7 +131,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
           // We're going to want this to navigate us to change the 'next question' value
           onPress={updateAuth}> 
           <Text style={textStyles.loginButtonText} >
-          Create Account
+          Hesap oluşturmak
           </Text> 
         </Pressable>   
         <Pressable 
@@ -139,7 +139,7 @@ const SignupScreen: React.FC<SignupScreenProps> = (props) => {
           // We're going to want this to navigate us to change the 'next question' value
           onPress={() => props.navigation.push('Login')}> 
           <Text style={textStyles.signUpButtonText} >
-          Return To Login
+          Başlangıca Dön
           </Text> 
         </Pressable>
 

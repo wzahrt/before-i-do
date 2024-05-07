@@ -42,12 +42,12 @@ const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
         <Text 
           style={textStyles.loginHeader}
         > 
-          Login
+          Çift kullanıcı girişi
         </Text>
         <Text 
           style={textStyles.loginInstr}
         > 
-          Please login using your email and password! If you are a new user, use the Sign Up button to create an account.
+          Raporunuzu kontrol etmek ve diğer içerikler için.
         </Text>
         <TextInput
           placeholder="Email"
@@ -56,7 +56,7 @@ const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
           style={{ height: 40, width: 300, backgroundColor: 'white', borderColor: 'red', borderWidth: 2, marginVertical: 10, paddingHorizontal: 5}}
         />
         <TextInput
-          placeholder="Password"
+          placeholder="Şifre"
           value={password}
           onChangeText={setPassword}
           secureTextEntry={true}
@@ -67,15 +67,21 @@ const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
           // We're going to want this to navigate us to change the 'next question' value
           onPress={handleLogin}> 
           <Text style={textStyles.loginButtonText} >
-          Login
+          Kayıt olun
           </Text> 
-        </Pressable>   
+        </Pressable>  
+        <Text></Text>
+        <Text 
+          style={{fontSize: 16, color: 'black', marginVertical: 10, textAlign: 'center', width: 270,}}
+        > 
+          Evet demeden önce hesabınız yok mu?
+        </Text> 
         <Pressable 
           style={textStyles.signUpButton}
           // We're going to want this to navigate us to change the 'next question' value
           onPress={handleSignUp}> 
           <Text style={textStyles.signUpButtonText} >
-          Sign Up
+          Kayıt olun
           </Text> 
         </Pressable>      
       </View>

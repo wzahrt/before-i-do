@@ -17,7 +17,7 @@ const About2Screen: React.FC<About2ScreenProps> = (props) => {
       <Pressable onPress={() => props.navigation.push('Login')}>
         <View style={{position: 'absolute', justifyContent: "space-between"}}>
             <Text style={{fontSize: 15, marginTop: height*0.45, marginLeft: width*.8,position: 'absolute', color: 'black', textAlign: 'right'}}>
-              Continue
+            Devam et
             </Text>
           </View>
       </Pressable>
