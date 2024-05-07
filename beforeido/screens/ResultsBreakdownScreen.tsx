@@ -361,7 +361,7 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
           }} 
           style = {{marginTop: 12, marginLeft: 335, width: 30}}
           >
-          <Text style = {{textAlign: 'right', alignContent: 'right', fontWeight: 'bold', fontSize: 18}}> {"ⓘ"} </Text>
+          <Text style = {{textAlign: 'right', fontWeight: 'bold', fontSize: 18}}> {"ⓘ"} </Text>
         </Pressable>
 
       </View>

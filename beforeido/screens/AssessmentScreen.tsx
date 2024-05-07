@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image, Text, Button, Pressable, ImageBackground, StyleSheet, Alert } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
@@ -16,7 +16,7 @@ let uid: string | null;
 const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
   let uid: undefined | string | null; 
   const [coupleCode, setCoupleCode] = useState("");
-  const [coupleData, setCoupleData] = useState({user1: "", user1Done: false, user2: "", user2Done: false})
+  const [coupleData, setCoupleData] = useState({user1: "", user1Done: "", user2: "", user2Done: ""})
 
   useEffect(() => { // Get couple code 
     fetchData().then((user) => {
@@ -105,31 +105,26 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fbfbfb'}}>
       <Text
       style={textStyles.loginHeader}
-      >Assessment
+      >Anketi
       </Text>
       <Image 
         source={require('../assets/images/assessment.png')} 
         style={{width: 370, height: 182, }}
         resizeMode="cover"
       />        
-      <Pressable
-        onPress={handleNewAssessment}>
-          <Text
-          style={{width: 260, textAlign: 'center', fontSize: 15, color: 'black', marginTop: 15, padding: 10, paddingLeft: 20, paddingRight: 20, margin: 5, backgroundColor: '#f7d1d8', borderRadius: 5, overflow: 'hidden'}}
-          >Start New Assessment</Text>
-        </Pressable>
-        <Pressable
+      
+        {/* <Pressable
           onPress={handleContinueAssessment}>
           <Text
           style={{width: 260, textAlign: 'center', fontSize: 15, color: 'black', padding: 10, paddingLeft: 20, paddingRight: 20, margin: 5, backgroundColor: '#f4bbc9', borderRadius: 5, overflow: 'hidden'}}
           >Continue Previous Assessment</Text>
-        </Pressable>
-        <Pressable
+        </Pressable> */}
+        {/* <Pressable
           onPress={handleViewResults}>
           <Text
           style={{width: 260, textAlign: 'center', fontSize: 15, color: 'black', padding: 10, paddingLeft: 20, paddingRight: 20, margin: 5, backgroundColor: '#f6a6bb', borderRadius: 5, overflow: 'hidden'}}
-          >View Results</Text>
-        </Pressable>
+          >İlişki Raporunuz</Text>
+        </Pressable> */}
         {/* <Button
           title="Continue previous assessment"
           onPress={handleContinueAssessment}
@@ -138,12 +133,27 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
           title="View Results"
           onPress={handleViewResults}
         /> */}
-        <View style={{paddingLeft:30, paddingRight: 30, marginTop: 20}}>
+        <View style={{alignItems: 'center', justifyContent: 'center', paddingHorizontal:15}}>
+          <Image
+            source={require('../assets/images/subcategories.png')}
+            style={{width: 370, height: 150}}
+            resizeMode="contain"
+          />
+
+        </View>
+
+        <View style={{paddingLeft:30, paddingRight: 30}}>
           <Text
           style={textStyles.paragraph}
-          >Before I do  consists of 4 parts. Please complete the inventory by checking all items to get your correct relationship report.
+          >Evet demeden önce uygulaması 4 bölümden oluşmaktadır. Doğru ilişki raporunuza ulaşmak için lütfen tüm maddeleri işaretleyerek envanteri tamamlayın.
           </Text> 
         </View>
+        <Pressable
+        onPress={handleContinueAssessment}>
+          <Text
+          style={{width: 260, textAlign: 'center', fontSize: 15, color: 'black', marginTop: 15, padding: 10, paddingLeft: 20, paddingRight: 20, margin: 5, backgroundColor: '#f7d1d8', borderRadius: 5, overflow: 'hidden'}}
+          >Anketi Başlat/Devam Et</Text>
+        </Pressable>
 
         
         

@@ -75,7 +75,7 @@ export function TabNavigator() { // Defining the tab navigation
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
               <Image style={{height: 25, width: 25}}
               source={require('./assets/images/home.png')}/>
-              <Text>Home</Text>
+              <Text>Ana Ekran</Text>
             </View>
           )}}/>
           {/* <Tab.Screen name="Profile" component={ProfileStack} /> */}

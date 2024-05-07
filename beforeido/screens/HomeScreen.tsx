@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, ImageBackground, StyleSheet, Image, Pressable } from 'react-native';
+import { View, Text, Button, ImageBackground, StyleSheet, Image, Pressable, Alert } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../App'; // Import RootStackParamList from App
 import { textStyles } from '../TextStyles';
 import { fetchData } from '../userData.tsx'; 
+import { fetchCoupleData } from '../coupleData.tsx';
 
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "HomePage">;
@@ -11,6 +12,7 @@ type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "HomePage">;
 function HomeScreen({ navigation }: HomeScreenProps) {
   let uid: undefined | string | null; 
   const [coupleCode, setCoupleCode] = useState("");
+  const [coupleData, setCoupleData] = useState({user1: "", user1Done: false, user2: "", user2Done: false})
 
   useEffect(() => { // Get couple code 
     fetchData().then((user) => {
@@ -20,11 +22,40 @@ function HomeScreen({ navigation }: HomeScreenProps) {
   }
   , []);
 
+  useEffect(() => { // Get Couple Data
+    fetchCoupleData(coupleCode).then((couple) => { 
+      setCoupleData({
+        user1: couple.user1, 
+        user1Done: couple.user1Done, 
+        user2: couple.user2, 
+        user2Done: couple.user2Done
+      }); 
+    }).catch((error) => { 
+      console.log("Error: ", error)
+    });
+  }, [coupleCode])
+
+  const canViewResults = () : Boolean => { 
+    console.log("Couple Data: \nUser2: ", coupleData.user2, "\nUser1Done: ", coupleData.user1Done, "\nUser2Done: ", coupleData.user2Done)
+
+    if(coupleData.user2 == null) return false; 
+    if(coupleData.user1Done == false) return false; 
+    if(coupleData.user2Done == false) return false; 
+    return true; 
+  }
+  
+  const handleViewResults = () => {
+    if(canViewResults()) {
+      navigation.push('Results');
+    } else Alert.alert("You and your partner must both complete the assessment before we can look at results!")
+
+  };
+
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#FBFBFB' }}>
       <Text
       style={textStyles.loginHeader}
-      >Home</Text>
+      >Ana Ekran</Text>
       <Image 
         source={require('../assets/images/home_page_header.jpg')} 
         style={{width: 370, height: 210, }}
@@ -39,7 +70,7 @@ function HomeScreen({ navigation }: HomeScreenProps) {
           />
         </Pressable>  
         <Pressable 
-          onPress={() => navigation.push('Results')}> 
+          onPress={handleViewResults}> 
           <Image source={require('../assets/images/home_page_relationship_report.jpg')}
           style={{width: 150, height: 150, margin: 20}}
           resizeMode="cover"
@@ -48,7 +79,7 @@ function HomeScreen({ navigation }: HomeScreenProps) {
       </View>
       <Text
         style={{backgroundColor: '#ffccd4', padding: 8, borderRadius: 5, overflow: 'hidden'}}>
-        Your Couple Code: {coupleCode}
+        Çift Kodunuz: {coupleCode}
       </Text>
     </View>
   );

@@ -134,11 +134,11 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
               console.log("Error getting document:", error);
           });
 
-      props.navigation.push('Assessment');
+      props.navigation.push('HomePage');
       return;
     }
     if (nextQuestion == 141) {
-      props.navigation.push('Assessment');
+      props.navigation.push('HomePage');
       return;
     }
 
@@ -209,13 +209,13 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
       style={styles.backgroundImage}
     >
       <View style={{ flex: 1, alignItems: 'center', paddingTop:50, backgroundColor:'lightpink'}}>
-        <Text style={textStyles.heading}>Questionnaire{'\n'}</Text>
+        <Text style={textStyles.heading}>Anket Soruları{'\n'}</Text>
       </View>
       
       <View style={styles.container}>
         
         <Text style={textStyles.subheading}>{category}</Text>
-        <Text style={textStyles.subheading}>{subcategory}</Text>
+        <Text style={textStyles.subheading}></Text>
         <Text style={textStyles.subheading}></Text>
         
 
@@ -224,7 +224,7 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
         ) : (
           <>
 
-          <Text style={textStyles.text}>{questions[nextQuestion-1].question}</Text>
+          <Text style={{fontSize:16}}>{questions[nextQuestion-1].question}</Text>
           <Text style={textStyles.subheading}></Text>
           
           <Slider
@@ -242,11 +242,11 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
           {/* map each slider value to a value from Strongly disagree to strongly agree */}
           <Text style={{fontSize:16}}>
             {
-              sliderValue1 == 1 ? 'Response: Strongly Disagree' : 
-              sliderValue1 == 2 ? 'Response: Disagree' : 
-              sliderValue1 == 3 ? 'Response: Neutral' : 
-              sliderValue1 == 4 ? 'Response: Agree' : 
-              'Response: Strongly Agree'
+              sliderValue1 == 1 ? 'Benim Cevabım: Çok Katılmıyorum' : 
+              sliderValue1 == 2 ? 'Benim Cevabım: Katılmıyorum' : 
+              sliderValue1 == 3 ? 'Benim Cevabım: Tarafsız' : 
+              sliderValue1 == 4 ? 'Benim Cevabım: Katılıyorum' : 
+              'Benim Cevabım: Çok Katılıyorum'
 
             }
           </Text>
@@ -266,12 +266,12 @@ const Questionnaire1Screen: React.FC<Questionnaire1ScreenProps> = (props, naviga
           backgroundColor='lightblue'
           > 
           <Text>
-            {nextQuestion == 35 ? 'Next Section' : 
-            nextQuestion == 68 ? 'Next Section' : 
-            nextQuestion == 112 ? 'Next Section' : 
-            nextQuestion == 140 ? 'Complete Questionnaire' : 
-            nextQuestion == 141 ? 'Complete Questionnaire' : 
-            'Next Question'}
+            {nextQuestion == 35 ? 'Sonraki Bölüm' : 
+            nextQuestion == 68 ? 'Sonraki Bölüm' : 
+            nextQuestion == 112 ? 'Sonraki Bölüm' : 
+            nextQuestion == 140 ? 'Anketi Tamamlayın' : 
+            nextQuestion == 141 ? 'Anketi Tamamlayın' : 
+            'Sonraki Soru'}
             
           </Text> 
         </Pressable>
