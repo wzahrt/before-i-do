@@ -70,7 +70,7 @@ function HomeScreen({ navigation }: HomeScreenProps) {
           />
         </Pressable>  
         <Pressable 
-          onPress={() => handleViewResults()}> 
+          onPress={handleViewResults}> 
           <Image source={require('../assets/images/home_page_relationship_report.jpg')}
           style={{width: 150, height: 150, margin: 20}}
           resizeMode="cover"
