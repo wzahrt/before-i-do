@@ -67,7 +67,7 @@ const LoginScreen: React.FC<LoginScreenProps> = (props, navigation) => {
           // We're going to want this to navigate us to change the 'next question' value
           onPress={handleLogin}> 
           <Text style={textStyles.loginButtonText} >
-          Kayıt olun
+          Giriş yapın
           </Text> 
         </Pressable>  
         <Text></Text>
