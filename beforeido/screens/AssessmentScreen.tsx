@@ -67,7 +67,7 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
     if(canTakeAssessment()) {
       props.navigation.push('Questionnaire1');
     } else { 
-      Alert.alert("You need a partner with a matching couple code to proceed!"); 
+      Alert.alert("Devam etmek için partneren çift koduna sahip bir ortağa ihtiyacınız var!"); 
     }
   };
 
@@ -79,7 +79,7 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
   const handleContinueAssessment = () => { // Push to assessment if user is allowed to
     if(canTakeAssessment()) {
       props.navigation.push('Questionnaire1');
-    } else Alert.alert("You need a partner with a matching couple code to proceed!")
+    } else Alert.alert("Devam etmek için partneren çift koduna sahip bir ortağa ihtiyacınız var!")
   };
 
   const canViewResults = () : Boolean => { 
@@ -92,7 +92,7 @@ const AssessmentScreen: React.FC<AssessmentScreenProps> = (props) => {
   const handleViewResults = () => {
     if(canViewResults()) {
       props.navigation.push('Results');
-    } else Alert.alert("You and your partner must both complete the assessment before we can look at results!")
+    } else Alert.alert("Sonuçlara bakabilmemiz için siz ve partnerin değerlendirmeyi bitirmelisiniz!")
 
   };
 
