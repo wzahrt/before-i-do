@@ -19,7 +19,7 @@ const ResultsScreen: React.FC<ResultsScreenProps> = (props) => {
           // We're going to want this to navigate us to change the 'next question' value
           onPress={() => props.navigation.navigate('ResultsBreakdown')}> 
           <Text style={textStyles.relationshipReport} >
-            RELATIONSHIP REPORT            
+           İLİŞKİ RAPORUNUZ 
           </Text> 
         </Pressable>
       </View>

@@ -46,43 +46,39 @@ var query: ResponseDocument;
 var query1: ResponseDocument;
 let helper;
 
-let subCatsCouple = ['Harmony and Cooperation', 'Relationship Challenges'];
-let subCatsCultural = ['Lifestyle', 'Marriage Preparations', 'Spiritual Beliefs', 'Traditions'];
-let subCatsFamily = ['Family Closeness', 'Family-Partner Relationships', 'Parental Marital Relationship'];
-let subCatsPersonality = ['Emotional Stability', 'Empathy', 'Openness to Experience', 'Secure Attachment', 'Self-Confidence'];
 
 interface ResponseDocument {
-  "PERSONALITY DYNAMICS": personality,
-  "FAMILY DYNAMICS": family,
-  "COUPLE RELATIONSHIP DYNAMICS": couple,
-  "CULTURAL DYNAMICS": cultural
+  "BİREYSEL DİNAMİKLER": personality,
+  "AİLE DİNAMİKLERİ": family,
+  "ÇİFT İLİŞKİSİ DİNAMİKLERİ": couple,
+  "KÜLTÜREL DİNAMİKLER": cultural
   
 };
 
 interface personality {
-  "Emotional Stability": number[],
-  "Empathy": number[],
-  "Openness to Experience": number[],
-  "Secure Attachment": number[],
-  "Self-Confidence": number[]
+  "Duygusal Kararlılık": number[],
+  "Empati": number[],
+  "Deneyime Açıklık": number[],
+  "Özgüven": number[],
+  "Güvenli bağlanma": number[]
 };
 
 interface couple {
-  "Harmony and Cooperation": number[],
-  "Relationship Challenges": number[]
+  "Uyum ve işbirliği": number[],
+  "İlişki zorlukları": number[]
 };
 
 interface cultural {
-  "Lifestyle": number[],
-  "Marriage Preparations": number[],
-  "Spiritual Beliefs": number[],
-  "Traditions": number[]
+  "Manevi İnançlar": number[],
+  "Yaşam tarzı": number[],
+  "Gelenek/görenekler": number[],
+  "Evlilik hazırlıklar": number[]
 };
 
 interface family {
-  "Family Closeness": number[],
-  "Family-Partner Relationships": number[],
-  "Parental Marital Relationship": number[]
+  "Aile yakınlığı": number[],
+  "Anne-baba evlilik ilişkisi": number[],
+  "Aile-partner ilişkileri": number[]
 };
 
 var final: ResponseDocument;
@@ -97,32 +93,32 @@ async function fetchResponseHelper(uid: string): Promise<ResponseDocument> {
       response.forEach(document => {
         // console.log(typeof(document.data()));
         // console.log(document.id);
-        if(document.id == 'PERSONALITY DYNAMICS') {
+        if(document.id == 'BİREYSEL DİNAMİKLER') {
           personalityRes = document.data() as personality;
           // responseDocument['PERSONALITY DYNAMICS'] = document.data() as personality;
 
         }
-        if(document.id == 'COUPLE RELATIONSHIP DYNAMICS') {
+        if(document.id == 'ÇİFT İLİŞKİSİ DİNAMİKLERİ') {
           coupleRes = document.data() as couple;
           // responseDocument['COUPLE RELATIONSHIP DYNAMICS'] = coupleRes;
         }
-        if(document.id == 'CULTURAL DYNAMICS') {
+        if(document.id == 'KÜLTÜREL DİNAMİKLER') {
           culturalRes = document.data() as cultural;
           // responseDocument['CULTURAL DYNAMICS'] = culturalRes;
         }
-        if(document.id == 'FAMILY DYNAMICS') {
+        if(document.id == 'AİLE DİNAMİKLERİ') {
           familyRes = document.data() as family;
           // responseDocument['FAMILY DYNAMICS'] = familyRes;
         }
       });
       const responseDocument = {
-        "PERSONALITY DYNAMICS": personalityRes,
-        "COUPLE RELATIONSHIP DYNAMICS": coupleRes,
-        "CULTURAL DYNAMICS": culturalRes,
-        "FAMILY DYNAMICS": familyRes
+        "BİREYSEL DİNAMİKLER": personalityRes,
+        "AİLE DİNAMİKLERİ": familyRes,
+        "ÇİFT İLİŞKİSİ DİNAMİKLERİ": coupleRes,
+        "KÜLTÜREL DİNAMİKLER": culturalRes
       };
       final = responseDocument as ResponseDocument;
-      // console.log("final: ", final);
+      // console.log("final: ", final['BİREYSEL DİNAMİKLER']);
       return final;
     });
   
@@ -142,7 +138,7 @@ async function fetchResponses(): Promise<string> {
   // console.log("ner");
   query = await fetchResponseHelper(currentUser);
   // console.log("yup");
-  // console.log("query: " + query);
+  console.log("query: " + query);
   await fetchPartnerData(coupleCode, currentUser);
   // console.log("yup yup");
 
@@ -159,7 +155,7 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
   const [loading, setLoading] = useState(true);
   const [response, setResponse] = useState(query);
   const [response1, setResponse1] = useState(query1);
-  const [category, setCategory] = useState('PERSONALITY DYNAMICS');
+  const [category, setCategory] = useState('BİREYSEL DİNAMİKLER');
   const [userData, setUserData] = useState(Object.create(null));
   const [partnerData, setPartnerData] = useState(Object.create(null));
 
@@ -177,17 +173,18 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
       // console.log("query1: " + query1.data());
       // setLoading(false);
       
-    
 
       if(query != undefined && query1 != undefined) {
         console.log("stuff is loaded now");
         setResponse(query);
+        console.log("query: ", query);
 
         let temp = Object.create(null);
         temp['labels'] = [];
         temp['datasets'] = [{data: []}];
         Object.entries(query[category]).forEach(([key, value]) => {
-          // console.log(key, value);
+          console.log("here");
+          console.log(key, value);
           temp['labels'].push(key);
     
           let average = value.reduce((a, b) => a + b, 0) / value.length;
@@ -230,21 +227,21 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
 
     let nextCategory = '';
     
-    if (category == 'CULTURAL DYNAMICS') {
+    if (category == 'KÜLTÜREL DİNAMİKLER') {
       props.navigation.navigate('HomePage');
       return;
     }
-    else if (category == 'PERSONALITY DYNAMICS') {
-      setCategory('FAMILY DYNAMICS');
-      nextCategory = 'FAMILY DYNAMICS';
+    else if (category == 'BİREYSEL DİNAMİKLER') {
+      setCategory('AİLE DİNAMİKLERİ');
+      nextCategory = 'AİLE DİNAMİKLERİ';
     }
-    else if (category == 'FAMILY DYNAMICS') {
-      setCategory('COUPLE RELATIONSHIP DYNAMICS');
-      nextCategory = 'COUPLE RELATIONSHIP DYNAMICS';
+    else if (category == 'AİLE DİNAMİKLERİ') {
+      setCategory('ÇİFT İLİŞKİSİ DİNAMİKLERİ');
+      nextCategory = 'ÇİFT İLİŞKİSİ DİNAMİKLERİ';
     }
-    else if (category == 'COUPLE RELATIONSHIP DYNAMICS') {
-      setCategory('CULTURAL DYNAMICS');
-      nextCategory = 'CULTURAL DYNAMICS';
+    else if (category == 'ÇİFT İLİŞKİSİ DİNAMİKLERİ') {
+      setCategory('KÜLTÜREL DİNAMİKLER');
+      nextCategory = 'KÜLTÜREL DİNAMİKLER';
     }
     
     let temp = Object.create(null);
@@ -287,21 +284,22 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
 
     let prevCategory = '';
     
-    if (category == 'PERSONALITY DYNAMICS') {
+    if (category == 'BİREYSEL DİNAMİKLER') {
       props.navigation.navigate('Results');
       return;
     }
-    else if (category == 'FAMILY DYNAMICS') {
-      setCategory('PERSONALITY DYNAMICS');
-      prevCategory = 'PERSONALITY DYNAMICS';
+    else if (category == 'AİLE DİNAMİKLERİ') {
+      setCategory('BİREYSEL DİNAMİKLER');
+      prevCategory = 'BİREYSEL DİNAMİKLER';
     }
-    else if (category == 'COUPLE RELATIONSHIP DYNAMICS') {
-      setCategory('FAMILY DYNAMICS');
-      prevCategory = 'FAMILY DYNAMICS';
+    else if (category == 'ÇİFT İLİŞKİSİ DİNAMİKLERİ') {
+      setCategory('AİLE DİNAMİKLERİ');
+      console.log("here");
+      prevCategory = 'AİLE DİNAMİKLERİ';
     }
-    else if (category == 'CULTURAL DYNAMICS') {
-      setCategory('COUPLE RELATIONSHIP DYNAMICS');
-      prevCategory = 'COUPLE RELATIONSHIP DYNAMICS';
+    else if (category == 'KÜLTÜREL DİNAMİKLER') {
+      setCategory('ÇİFT İLİŞKİSİ DİNAMİKLERİ');
+      prevCategory = 'ÇİFT İLİŞKİSİ DİNAMİKLERİ';
     }
 
     
@@ -309,7 +307,7 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
     temp['labels'] = [];
     temp['datasets'] = [{data: []}];
     Object.entries(query[prevCategory]).forEach(([key, value]) => {
-      // console.log(key, value);
+      console.log(key, value);
       temp['labels'].push(key);
 
       let average = value.reduce((a, b) => a + b, 0) / value.length;
@@ -339,7 +337,7 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
 
 
   return (
-    // console.log("response data", responseData),
+    console.log("response data", userData),
     
     <ImageBackground
       // source={require('../assets/images/report.png')}
@@ -349,11 +347,11 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
         <Text style={{fontSize: 20,fontWeight: 'bold', alignSelf: 'center'}}>{category}{'\n'}</Text>
         <Pressable onPress={() => 
           { 
-            if(category == "PERSONALITY DYNAMICS") { 
+            if(category == "BİREYSEL DİNAMİKLER") { 
               setModal0Visible(!modal0Visible)
-            } else if (category == "FAMILY DYNAMICS") { 
+            } else if (category == "AİLE DİNAMIKLERİ") { 
               setModal1Visible(!modal1Visible)
-            } else if (category == "COUPLE RELATIONSHIP DYNAMICS") { 
+            } else if (category == "ÇİFT İLİŞKİSİ DİNAMİKLERİ") { 
               setModal2Visible(!modal2Visible)
             } else { 
               setModal3Visible(!modal3Visible)
@@ -460,13 +458,13 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
                   <Pressable
                     onPress={() => setModal3Visible(!modal3Visible)}
                     style={{padding: 10, marginTop: 425, backgroundColor: 'pink', borderRadius: 20}}>
-                      <Text> Close </Text>
+                      <Text> Kapat </Text>
                     </Pressable>
               </View>
                 
 
               </Modal>
-            <Text style={{fontSize:16, fontWeight:'bold', padding: 5}}>You</Text>
+            <Text style={{fontSize:16, fontWeight:'bold', paddingVertical: 5}}>Sen</Text>
             <BarChart
               data={userData}
               fromZero={true}   
@@ -475,7 +473,7 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
               fromNumber={5}
               segments={5}
               xLabelsOffset={-12}
-              yLabelsOffset={10}
+              yLabelsOffset={0}
               // showValuesOnTopOfBars={true}
               chartConfig={{
                 barPercentage: .9,  
@@ -486,20 +484,20 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
                 // backgroundGradientToOpacity: 0.5,
                 color: (opacity = 1) => `rgba(255, 0, 0, ${opacity})`,
                 style: {
-                  borderRadius: 3,
+                  borderRadius: 5,
                 },
-                propsForLabels: {fontSize: 4.5},
+                propsForLabels: {fontSize: 6},
               }}
               // verticalLabelRotation={20}
               style={{
                 borderRadius: 10,
-                paddingRight: 25,
+                paddingRight: 8,
                 alignSelf: 'center'
               }}
             />
 
             <Text></Text>
-            <Text style={{fontSize:16, fontWeight:'bold', padding: 5}}>Your Partner</Text>
+            <Text style={{fontSize:16, fontWeight:'bold', paddingVertical: 5}}>Partnerin</Text>
             <BarChart
               data={partnerData}
               fromZero={true}   
@@ -507,10 +505,10 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
               height={200}
               fromNumber={5}
               xLabelsOffset={-12}
-              yLabelsOffset={10}
+              yLabelsOffset={0}
               segments={5}
               chartConfig={{
-                barPercentage: 1,  
+                barPercentage: .9,  
                 decimalPlaces: 0,
                 strokeWidth: 2,   
                 backgroundGradientFrom: "#eedddd",
@@ -518,13 +516,14 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
                 backgroundGradientTo: "#eedddd",    
                 color: (opacity = 1.5) => `rgba(0, 0, 255, ${opacity})`,
                 style: {
-                  borderRadius: 5,
+                  borderRadius: 5.5,
                 },
-                propsForLabels: {fontSize: 4.5},
+                propsForLabels: {fontSize: 6},
               }}
               style={{
                 borderRadius: 10,
-                paddingRight: 25,
+                paddingRight: 8,
+                alignSelf: 'center'
               }}
             />
             
@@ -542,7 +541,7 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
           backgroundColor='lightblue'
         >
           <Text>
-            Previous
+          Önce
           </Text>
 
         </Pressable>
@@ -553,8 +552,8 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
           backgroundColor='lightblue'
         >
           <Text>
-            {category == 'CULTURAL DYNAMICS' ? 'Home' :
-              'Next'}
+            {category == 'KÜLTÜREL DİNAMİKLER' ? 'Ana Ekran' :
+              'Sonra'}
           </Text>
 
         </Pressable>
