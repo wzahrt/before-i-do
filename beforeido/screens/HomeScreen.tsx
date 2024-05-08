@@ -47,7 +47,7 @@ function HomeScreen({ navigation }: HomeScreenProps) {
   const handleViewResults = () => {
     if(canViewResults()) {
       navigation.push('Results');
-    } else Alert.alert("You and your partner must both complete the assessment before we can look at results!")
+    } else Alert.alert("Sonuçlara bakabilmemiz için siz ve partnerin değerlendirmeyi bitirmelisiniz!")
 
   };
 
