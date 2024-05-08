@@ -11,7 +11,7 @@ const AboutScreen: React.FC<AboutScreenProps> = (props) => {
 
   return (
     <ImageBackground
-      source={require('../assets/images/about.png')}
+      source={require('../assets/images/about-turkish.png')}
       style={styles.backgroundImage}
     >
       <Pressable onPress={() => props.navigation.push('About2')}>

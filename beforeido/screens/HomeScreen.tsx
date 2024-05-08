@@ -47,7 +47,7 @@ function HomeScreen({ navigation }: HomeScreenProps) {
   const handleViewResults = () => {
     if(canViewResults()) {
       navigation.push('Results');
-    } else Alert.alert("Sonuçlara bakabilmemiz için siz ve partnerin değerlendirmeyi bitirmelisiniz!")
+    } else Alert.alert("You and your partner must both complete the assessment before we can look at results!")
 
   };
 
@@ -64,14 +64,14 @@ function HomeScreen({ navigation }: HomeScreenProps) {
       <View style={{ flexDirection: 'row', flex: 0, alignItems: 'center', justifyContent: 'center',}}>
         <Pressable 
           onPress={() => navigation.push('Assessment')}> 
-          <Image source={require('../assets/images/home_page_start_assestment.jpg')}
+          <Image source={require('../assets/images/start_assessment_turkish.png')}
           style={{width: 150, height: 150, margin: 10}}
           resizeMode="cover"
           />
         </Pressable>  
         <Pressable 
-          onPress={handleViewResults}> 
-          <Image source={require('../assets/images/home_page_relationship_report.jpg')}
+          onPress={() => handleViewResults()}> 
+          <Image source={require('../assets/images/relationship_report_turkish.png')}
           style={{width: 150, height: 150, margin: 20}}
           resizeMode="cover"
           />
@@ -98,12 +98,5 @@ const styles = StyleSheet.create({
   },
 });
 
-// const HomeScreen = () => {
-//   return (
-//     <View style={{alignItems: 'center', top: 50}}>
-//       <Text>Home!</Text>
-//     </View>
-//   );
-// };
 
 export default HomeScreen;

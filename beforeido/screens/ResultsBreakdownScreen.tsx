@@ -36,7 +36,7 @@ async function fetchPartnerData(coupleCode: string, currentUser: string): Promis
                 // console.log("partnerid: " + partnerid);
             }
         });
-    });     
+    });
   return "success";
  
   // AsetLoading = false;
@@ -384,7 +384,7 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
              >
               <View style = {{alignItems: 'center', marginTop:96}}> 
                 <ImageBackground
-                    source={require('../assets/images/22.png')}
+                    source={require('../assets/images/20.png')}
                     style={styles.tiledBackground}>
                 </ImageBackground>
                   <Pressable
@@ -406,7 +406,7 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
              >
               <View style = {{alignItems: 'center', marginTop:96}}> 
                 <ImageBackground
-                    source={require('../assets/images/25.png')}
+                    source={require('../assets/images/23.png')}
                     style={styles.tiledBackground}>
                 </ImageBackground>
                   <Pressable
@@ -430,7 +430,7 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
              >
                 <View style = {{alignItems: 'center', marginTop:96}}> 
                   <ImageBackground
-                      source={require('../assets/images/28.png')}
+                      source={require('../assets/images/26.png')}
                       style={styles.tiledBackground}>
                   </ImageBackground>
                     <Pressable
@@ -452,7 +452,7 @@ const ResultsBreakdownScreen: React.FC<ResultsBreakdownScreenProps> = (props) =>
              >
               <View style = {{alignItems: 'center', marginTop:96}}> 
                 <ImageBackground
-                    source={require('../assets/images/33.png')}
+                    source={require('../assets/images/29.png')}
                     style={styles.tiledBackground}>
                 </ImageBackground>
                   <Pressable
